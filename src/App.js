@@ -25,8 +25,8 @@ function App() {
   return (
     <div>
        <Routes>
-        {/* <Route path="/" element={<LoginForm />} /> */}
-        <Route path="/" element={<VideoUpload />} />
+        <Route path="/" element={<LoginForm />} />
+        {/* <Route path="/" element={<VideoUpload />} /> */}
         <Route path="/Forgot-Password" element={<ForgotPasswordForm />} />
         <Route path="/otp-verified" element={<OtpVerifiedForm />} />
         <Route path="/test" element={<Alluser />} />
