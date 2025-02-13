@@ -1,0 +1,229 @@
+/* .order-details-container {
+  padding: 50px;
+}
+.order_details_main_section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  font-size: 20px;
+}
+
+.order_details_cards {
+  padding: 50px;
+  width: 400px;
+  background: var(--gay-bg-color);
+  border-radius: 20px;
+}
+.user_section {
+}
+.order_item_section {
+}
+.order_shipping_address_section {
+}
+
+.user-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.product-thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 20px;
+}
+
+.main_mini_order_dashboard_div {
+  display: flex;
+  justify-content: space-around;
+}
+.mini_order_dashboard_contact_div {
+  padding: 30px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin: 20px;
+  background: #86df7e;
+  border-radius: 10px;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+} */
+/* orderdetails.css */
+
+/* Add styles for the back arrow icon */
+.back_arrow_icon {
+  margin-top: 10px; /* Adjust as needed */
+  cursor: pointer;
+}
+
+/* Add styles for the main order details container */
+.order-details-container {
+  padding: 20px;
+}
+
+/* Add styles for the main mini order dashboard div */
+.main_mini_order_dashboard_div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Add styles for the mini order dashboard contact div */
+.mini_order_dashboard_contact_div {
+  width: calc(50% - 10px); /* Adjust as needed */
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Add styles for the order details main section */
+.order_details_main_section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+/* Add styles for the order details cards */
+.order_details_cards {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 600px;
+  overflow: scroll;
+  position: relative;
+}
+
+/* Add styles for the user image */
+.user-image {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Add styles for the product thumbnail */
+.product-thumbnail {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  margin-bottom: 10px;
+}
+
+/* Add styles for the headings */
+/* h2, h3 {
+  color: #333;
+} */
+
+/* Add styles for the links */
+a {
+  color: #007bff; /* Adjust link color as needed */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.order_item_section{
+  width: 100% ;
+  text-align: center;
+}
+.order_item_div_section_div{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+gap: 30px;
+
+}
+.order_item_details_div{
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  /* background: #000; */
+}
+/* .order_details_header{
+  width: 100%;
+  position: sticky;
+  top: 1px;
+  align-items: start;
+  gap: 0;
+  background: white;
+} */
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+  border-radius: 8px;
+}
+
+.popup-content {
+  text-align: center;
+}
+
+.popup-actions {
+  margin-top: 20px;
+}
+
+.confirm-btn,
+.close-btn,
+.undo-btn,
+.cancel-btn {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.confirm-btn {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.close-btn {
+  background-color: #ddd;
+  color: #333;
+}
+
+.undo-btn {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.cancel-btn {
+  background-color: #f44336;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.toaster {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+}

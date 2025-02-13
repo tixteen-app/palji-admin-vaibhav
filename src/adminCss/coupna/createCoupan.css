@@ -1,0 +1,13 @@
+.category_list_for_add_coupan_parent {
+  max-height: 900px;
+  overflow-y: scroll;
+  margin: 40px 0px;
+}
+.category_list_for_add_coupan {
+  background: var(--gay-bg-color);
+  padding: 10px;
+  margin: 5px;
+  width: 50%;
+  color: var(--main-white-color);
+  cursor: pointer;
+}

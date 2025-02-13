@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.video-upload {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+button {
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+}
+
+#status {
+  margin-top: 10px;
+  color: #555;
+}
+
+#videoContainer {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+video {
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+.video-info {
+  color: #555;
+  font-size: 14px;
+  margin-top: 10px;
+}

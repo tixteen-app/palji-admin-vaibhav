@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.main_admin_pages {
+  display: flex;
+}
+
+.admin_page_sidebar_div {
+  width: 23%;
+}
+
+.admin_page_main_div {
+  width: 100%;
+}
+
+:root {
+  /* --gay-bg-color: rgb(130, 130, 123); */
+  /* --gay-bg-color: rgb(110, 103, 110); */
+  /* --gay-bg-color: #76ABAE; */
+  /* --gay-bg-color: #76ABAE; */
+  /* --main-white-color: white; */
+  /* --main-white-color: #EEEEEE; */
+   /* Colors */
+   --gay-bg-color: #5fa4a7;
+   --primary-color: #2c3e50;
+   --secondary-color: #2ecc71;
+   --accent-color: #e74c3c;
+   --text-color: #333;
+   --bg-color: #f0f0f0;
+ 
+   /* Fonts */
+   --heading-font: 'Roboto', sans-serif;
+   --body-font: 'Open Sans', sans-serif;
+}
+.Link_tag{
+  text-decoration: none;
+  color: var(--main-white-color);
+}
+body {
+  font-family: var(--body-font);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+}

@@ -1,0 +1,141 @@
+/* allorder.css */
+.all-orders-container {
+  width: 100%;
+}
+.main_order_list_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.order-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #c0849617;
+  /* position: relative; */
+}
+.all_order_buttons_div_for_shiprocket{
+  width: 100%;
+  display: flex;
+}
+
+.all-orders-container {
+  padding: 20px;
+}
+
+.all_orders_status_buttons {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.admin_add_product_button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  background-color: var(--gay-bg-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+.admin_add_product_button.selectedStatus {
+  background-color: #008cba;
+}
+
+.order_list_container {
+  width: 100%;
+  max-height: 551px;
+  min-height: 550px;
+  overflow-y: scroll;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.order_item_details {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.all_order_thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.order_details,
+.all_order_shippingAddress,
+.all_order_other_details,
+.all_order_price_details {
+  margin-top: 10px;
+}
+
+.all_order_details div {
+  margin-bottom: 5px;
+}
+
+.all_order_buttons_div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.all_order_order_view_button,
+.all_order_order_update_button {
+  padding: 8px 16px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #005f6b;
+  text-decoration: none;
+}
+
+.all_order_order_view_button:hover,
+.all_order_order_update_button:hover {
+  background-color: var(--gay-bg-color);
+}
+
+
+.status {
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-transform: capitalize;
+  font-size: 14px;
+}
+
+.status.pending {
+  background-color: #ffcc00;
+  color: #333;
+}
+
+.status.shipped {
+  background-color: #1e90ff;
+  color: white;
+}
+
+.status.delivered {
+  background-color: #28a745;
+  color: white;
+}
+
+.status.canceled {
+  background-color: #dc3545;
+  color: white;
+}
+
+.status.new {
+  background-color: #007bff;
+  color: white;
+}
+
+.status.default {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+

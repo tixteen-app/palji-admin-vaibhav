@@ -1,0 +1,124 @@
+/* .popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    margin: 20px 20px;
+    overflow-y: scroll;
+    font-size: 23px;
+  }
+  
+  .popup-content-for-update-page {
+    background-color: white;
+    padding:  50px;
+    padding-top: 300px;
+   
+    border-radius: 5px;
+    width: 80%;
+  }
+  
+  .popup-content-for-update-page h2 {
+    margin-bottom: 20px;
+  }
+  
+  .popup-content-for-update-page div {
+    margin-bottom: 20px;
+  }
+  
+  .popup-content-for-update-page label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+.update_order_input_fileds{
+    padding: 20px;
+    width: 100%;
+    font-size: 20px;
+}
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .button-group button {
+    padding: 13px 20px;
+    background-color: #007bff;
+    color: var(--main-white-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button-group button:hover {
+    background-color: #0056b3;
+  }
+   */
+
+
+
+   .popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content-for-update-page {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .popup-content-for-update-page h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  .update_page_payment_details {
+    margin-top: 20px;
+  }
+  
+  .update_page_payment_details label {
+    font-weight: bold;
+  }
+  
+  .update_order_input_fileds {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .button-group {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .button-group button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .button-group button:hover {
+    background-color: #0056b3;
+  }
+  

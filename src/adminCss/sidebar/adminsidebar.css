@@ -1,0 +1,98 @@
+
+.main_admin_sidebar {
+    width: 240px;
+    background-color: var(--primary-color);
+    color: white;
+    position: relative;
+    transition: width 0.5s;
+  }
+  .admin_sidebar_second{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 240px;
+    background-color: var(--primary-color);
+    color: white;
+    z-index: 1000;
+    transition: width 0.5s;
+  }
+  .admin_sidebar {
+    height: 94vh;
+    overflow-y: auto;
+  }
+  
+  .admin_sidebar_header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--secondary-color);
+  }
+  
+  .admin_sidebar_header_logo img {
+    max-width: 100%;
+  }
+  
+  .admin_sidebar_menu_list {
+    padding: 20px;
+  }
+  
+  .admin_sidebar_menu_items {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .admin_sidebar_menu_items.selected {
+    background-color: var(--secondary-color);
+  }
+  
+  .toggleButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 10px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  .closed {
+    width: 50px;
+  }
+  .closed .admin_sidebar_second {
+    width: 80px;
+  }
+  
+  .closed .admin_sidebar_menu_list {
+    display: none;
+  }
+  
+  /* Styling Links */
+  .Link_tag {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .Link_tag:hover {
+    text-decoration: underline;
+  }
+  
+  /* Styling for submenu items */
+  .admin_sidebar_submenu {
+    padding-left: 20px;
+  }
+  
+  .admin_sidebar_submenu_items {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .admin_sidebar_submenu_items:hover {
+    background-color: var(--secondary-color);
+  }
+
+
+  

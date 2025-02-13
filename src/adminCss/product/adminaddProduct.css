@@ -1,0 +1,146 @@
+/* adminaddProduct.css */
+.add-product-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.add_product_text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.add_product_input_filed {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add_product_dropdown {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.add_product_page_button_div {
+  text-align: center;
+}
+
+.add_product_page_button {
+  padding: 10px 20px;
+  background-color: var(--primary-color) !important;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add_product_page_button:hover {
+  background-color: var(--secondary-color);
+}
+
+.back_arrow_icon {
+  cursor: pointer;
+}
+
+.add_product_input_filed_image {
+  margin-bottom: 20px;
+}
+
+
+
+/* Loader Styles */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.loader-spinner {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-top: 8px solid var(--primary-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+
+/* file upload style */
+.file_upload_form_upload_image {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.file-upload-label input {
+  display: none;
+}
+.file-upload-label svg {
+  height: 50px;
+  fill: rgb(82, 82, 82);
+  margin-bottom: 20px;
+}
+.file-upload-label {
+  cursor: pointer;
+  background-color: #ddd;
+  padding: 30px 70px;
+  border-radius: 40px;
+  border: 2px dashed rgb(82, 82, 82);
+  box-shadow: 0px 0px 200px -50px rgba(0, 0, 0, 0.719);
+}
+.file-upload-design {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.browse-button {
+  background-color: rgb(82, 82, 82);
+  padding: 5px 15px;
+  border-radius: 10px;
+  color:var(--main-white-color);
+  transition: all 0.3s;
+}
+.browse-button:hover {
+  background-color: rgb(14, 14, 14);
+}
+
+
+
+/* Product Sizes */
+.size-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  }
+  .size-wrapper input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  
+  }
+  
+  .product_add_label {
+    font-size: 9px; 
+  }
+  
