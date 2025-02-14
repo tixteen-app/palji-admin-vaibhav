@@ -1,9 +1,11 @@
    /* adminDashboard.css */
 .dashboard-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
   gap: 20px;
-  padding: 20px;
+  width: 100%;
+  margin-top: 100px;
+
+  flex-wrap: wrap;
 }
 
 .dashboard-card {
@@ -12,6 +14,7 @@
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
+  width: 30%;
 }
 
 .dashboard-card h2 {

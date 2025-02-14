@@ -114,7 +114,7 @@ const Orders = () => {
           <p className="no-orders">No orders found.</p>
         ) : (
           orders.map((order) => (
-            <div key={order.id} className="order-list " style={{ width: "30%" }} >
+            <div key={order.id} className="order-list " style={{ width: "40%" }} >
               <div className="order_list_container">
                 <div className="order_item_details">
                   <div className="d-flex" >
