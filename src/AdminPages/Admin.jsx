@@ -65,18 +65,18 @@ function Admin() {
 					/>
 
 					{/* orders */}
-					{/* <Route
+					<Route
 						path="/all-orders"
 						element={<Orders />}
-					/> */}
+					/>
 					{/* <Route
 						path="/order/:id"
 						element={<OrderDetails />}
 					/> */}
-					 <Route
+					 {/* <Route
 						path="/all-orders"
 						element={<Allorder />}
-					/>
+					/> */}
 					<Route
 						path="/order/:id"
 						element={<Orderdetails />}

@@ -185,7 +185,7 @@ const Orders = () => {
                 <Link target="_blank" to={`/admin/order/${order.id}`} >
                   <button className="all_order_order_view_button">View</button>
                 </Link>
-                <button className="all_order_order_update_button">cancel order</button>
+                {/* <button className="all_order_order_update_button">cancel order</button> */}
               </div>
             </div>
           ))

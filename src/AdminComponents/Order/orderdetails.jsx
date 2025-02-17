@@ -20,7 +20,7 @@ function Orderdetails() {
     try {
       setLoading(true);
       const response = await makeApi(`/api/get-second-order-by-id-shiprocket-id/${id}`, "GET");
-      setOrder(response.data.secondorder);
+      setOrder(response?.data?.secondorder);
     } catch (error) {
       console.log(error);
     } finally {
@@ -162,7 +162,7 @@ function Orderdetails() {
             <div className="mini_order_dashboard_contact_div">
               <div>Order date</div>
               <div>
-                {new Date(order.createdAt).toLocaleString("en-US", {
+                {new Date(order?.createdAt).toLocaleString("en-US", {
                   timeZone: "UTC",
                 })}
               </div>
