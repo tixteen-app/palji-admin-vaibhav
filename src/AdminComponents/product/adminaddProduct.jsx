@@ -152,21 +152,21 @@ function AdminaddProduct() {
       }
 
       const response = await makeApi("/api/create-product", "POST", payload);
-      // setName("");
-      // setDescription("");
-      // setPrice("");
-      // setDiscountPercentage("");
-      // setQuantity("");
-      // setImages([""]);
-      // setThumbnail("");
-      // setCategory("");
-      // setSubcategory("");
-      // setBrand("");
-      // setSize("");
-      // setProductType("Domestic");
-      // setProductSizes([{ size: '', sizetype: '', quantity: '' }]);
-      // setProductNuturitions([{ nutrition: '', value: '' }]);
-      // setDeliverables([]);
+      setName("");
+      setDescription("");
+      setPrice("");
+      setDiscountPercentage("");
+      setQuantity("");
+      setImages([""]);
+      setThumbnail("");
+      setCategory("");
+      setSubcategory("");
+      setBrand("");
+      setSize("");
+      setProductType("Domestic");
+      setProductSizes([{ size: '', sizetype: '', quantity: '' }]);
+      setProductNuturitions([{ nutrition: '', value: '' }]);
+      setDeliverables([]);
 
     } catch (error) {
       console.error("Error adding product:", error);
