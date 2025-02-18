@@ -25,12 +25,11 @@ const Allproduct = () => {
       try {
         setLoading(true);
         const response = await makeApi(
-          `/api/get-all-products`,
+          `/api/get-all-products?name=${searchQuery}&category=${category}&IsOutOfStock=${stockQuery}&productType=${productType}&perPage=${ResultPerPage}&page=${currentPage}`,
           "GET"
         );
         setProducts(response.data.products);
         setToalProduct(response.data.totalProducts);
-
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -38,7 +37,8 @@ const Allproduct = () => {
       }
     };
     fetchData();
-  }, [searchQuery, category, stockQuery, currentPage, ResultPerPage,productType]);
+  }, [searchQuery, category, stockQuery, currentPage, ResultPerPage, productType]);
+
   useEffect(() => {
     const a = Math.ceil(toalProduct / ResultPerPage);
     setTotalPages(a);
@@ -140,21 +140,19 @@ const Allproduct = () => {
               onChange={(e) => setStockQuery(e.target.value)}
             >
               <option value="">All product</option>
-              <option value="false">In a stock</option>
+              <option value="false">In stock</option>
               <option value="true">Out of stock</option>
             </select>
           </div>
-          {/* <div>
-            <select
-              className="add_product_input_filed add_product_dropdown"
-              value={productType}
-              onChange={(e) => setProductType(e.target.value)}
-            >
-              <option value="">All product</option> 
-              <option value="International">International</option>
-              <option value="Domestic">Domestic</option>
-            </select>
-          </div> */}
+          {/* <select
+  className="add_product_input_filed add_product_dropdown"
+  value={productType}
+  onChange={(e) => setProductType(e.target.value)}
+>
+  <option value="">All product</option>
+  <option value="International">International</option>
+  <option value="Domestic">Domestic</option>
+</select> */}
           <div>
             <select
               className="add_product_input_filed add_product_dropdown"
@@ -168,7 +166,7 @@ const Allproduct = () => {
               <option value={300}>300</option>
               <option value={450}>450</option>
               <option value={600}>600</option>
-              <option value={1000}>1000  </option>
+              <option value={1000}>1000</option>
             </select>
           </div>
         </div>
@@ -185,19 +183,19 @@ const Allproduct = () => {
             </div>
             <div className="product-list">
 
-              {products.map((product) => ( 
+              {products.map((product) => (
                 <div key={product._id} className="product-card">
                   <div className="text-center p-2" >
 
-                  <img
-                    src={product.thumbnail}
-                    alt={product.name}
-                    className={product.quantity === 0 ? "bw-image" : ""}
-                    style={{maxWidth: "200px", maxHeight: "200px"}}
+                    <img
+                      src={product.thumbnail}
+                      alt={product.name}
+                      className={product.quantity === 0 ? "bw-image" : ""}
+                      style={{ maxWidth: "200px", maxHeight: "200px" }}
                     />
-                    </div>
+                  </div>
                   <div className="product-info">
-                    <h3  className="text-center" >{product.name}</h3>
+                    <h3 className="text-center" >{product.name}</h3>
                     <p><b>Category:</b> {product?.category?.name}</p>
                   </div>
                   <div className="all_products_page_button">
