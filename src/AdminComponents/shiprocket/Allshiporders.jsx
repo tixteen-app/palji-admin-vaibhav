@@ -90,12 +90,12 @@ const Orders = () => {
         >
           Pending Orders
         </button>
-        <button
+        {/* <button
           className={`admin_add_product_button ${selectedStatus === "Cancelled" ? "selectedStatus" : ""}`}
           onClick={() => handleStatusChange("Cancelled")}
         >
           Cancelled Orders
-        </button>
+        </button> */}
         <button
           className={`admin_add_product_button ${selectedStatus === "Shipped" ? "selectedStatus" : ""}`}
           onClick={() => handleStatusChange("Shipped")}

@@ -28,7 +28,6 @@ const Allproduct = () => {
           `/api/get-all-products`,
           "GET"
         );
-        console.log(response.data.products.length);
         setProducts(response.data.products);
         setToalProduct(response.data.totalProducts);
 
