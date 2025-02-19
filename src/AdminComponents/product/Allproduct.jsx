@@ -133,7 +133,7 @@ const Allproduct = () => {
             </select>
           </div>
           {/* in a stock */}
-          <div>
+          {/* <div>
             <select
               className="add_product_input_filed add_product_dropdown"
               value={stockQuery}
@@ -143,16 +143,8 @@ const Allproduct = () => {
               <option value="false">In stock</option>
               <option value="true">Out of stock</option>
             </select>
-          </div>
-          {/* <select
-  className="add_product_input_filed add_product_dropdown"
-  value={productType}
-  onChange={(e) => setProductType(e.target.value)}
->
-  <option value="">All product</option>
-  <option value="International">International</option>
-  <option value="Domestic">Domestic</option>
-</select> */}
+          </div> */}
+        
           <div>
             <select
               className="add_product_input_filed add_product_dropdown"

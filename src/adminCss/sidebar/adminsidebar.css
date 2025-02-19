@@ -1,12 +1,12 @@
-
 .main_admin_sidebar {
     width: 240px;
     background-color: var(--primary-color);
     color: white;
     position: relative;
-    transition: width 0.5s;
-  }
-  .admin_sidebar_second{
+    transition: width 0.4s ease-in-out;
+}
+
+.admin_sidebar_second {
     position: fixed;
     top: 0;
     left: 0;
@@ -15,84 +15,131 @@
     background-color: var(--primary-color);
     color: white;
     z-index: 1000;
-    transition: width 0.5s;
-  }
-  .admin_sidebar {
+    transition: width 0.4s ease-in-out;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.admin_sidebar {
     height: 94vh;
     overflow-y: auto;
-  }
-  
-  .admin_sidebar_header {
-    padding: 20px;
+}
+
+.admin_sidebar_header {
+    padding: 15px;
     text-align: center;
     border-bottom: 1px solid var(--secondary-color);
-  }
-  
-  .admin_sidebar_header_logo img {
+}
+
+.admin_sidebar_header_logo img {
     max-width: 100%;
-  }
-  
-  .admin_sidebar_menu_list {
-    padding: 20px;
-  }
-  
-  .admin_sidebar_menu_items {
+    height: auto;
+    max-height: 60px;
+}
+
+.admin_sidebar_menu_list {
     padding: 10px;
+}
+
+.admin_sidebar_menu_items {
+    padding: 12px 15px;
+    margin: 5px 10px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .admin_sidebar_menu_items.selected {
-    background-color: var(--secondary-color);
-  }
-  
-  .toggleButton {
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.admin_sidebar_menu_items:hover {
+    background-color: rgba(255, 0, 0, 0.317);
+    transform: scale(1.05);
+}
+
+.admin_sidebar_menu_items.selected {
+    background-color: var(--accent-color);
+    font-weight: bold;
+}
+
+.toggleButton {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 15px;
+    right: 15px;
     padding: 5px 10px;
     background-color: var(--secondary-color);
     color: white;
     border: none;
     cursor: pointer;
     z-index: 1000;
-  }
-  
-  .closed {
-    width: 50px;
-  }
-  .closed .admin_sidebar_second {
-    width: 80px;
-  }
-  
-  .closed .admin_sidebar_menu_list {
+    border-radius: 3px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.toggleButton:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.closed {
+    width: 60px;
+}
+
+.closed .admin_sidebar_second {
+    width: 60px;
+}
+
+.closed .admin_sidebar_header_logo {
     display: none;
-  }
-  
-  /* Styling Links */
-  .Link_tag {
+}
+
+.closed .admin_sidebar_menu_list {
+    display: block;
+}
+
+.closed .admin_sidebar_menu_items {
+    text-align: center;
+    font-size: 14px;
+}
+
+.closed .admin_sidebar_menu_items:hover {
+    background-color: var(--secondary-color);
+}
+
+.closed .admin_sidebar_menu_items::before {
+    content: '•';
+    font-size: 18px;
+    color: white;
+    margin-right: 5px;
+}
+
+.Link_tag {
     text-decoration: none;
     color: white;
-  }
-  
-  .Link_tag:hover {
+}
+
+.Link_tag:hover {
     text-decoration: underline;
-  }
-  
-  /* Styling for submenu items */
-  .admin_sidebar_submenu {
-    padding-left: 20px;
-  }
-  
-  .admin_sidebar_submenu_items {
+}
+
+.admin_sidebar_submenu {
+    padding-left: 15px;
+}
+
+.admin_sidebar_submenu_items {
     padding: 10px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
-  
-  .admin_sidebar_submenu_items:hover {
+}
+
+.admin_sidebar_submenu_items:hover {
     background-color: var(--secondary-color);
-  }
+}
 
+button.btn-danger {
+    width: 80%;
+    padding: 8px;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
 
-  
+button.btn-danger:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}

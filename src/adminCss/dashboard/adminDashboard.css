@@ -1,39 +1,74 @@
-   /* adminDashboard.css */
+/* Admin Dashboard */
 .dashboard-container {
   display: flex;
-  gap: 20px;
-  width: 100%;
-  margin-top: 100px;
-
   flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  margin-top: 20px;
 }
 
+/* Dashboard Cards */
 .dashboard-card {
   background-color: #fff;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 30%;
+  width: 250px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .dashboard-card h2 {
   color: var(--primary-color);
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
 }
 
 .dashboard-card p {
   font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--secondary-color);
 }
 
-/* graph */
-.main_admin_all_graph_div{
-  display: flex;
-  justify-content: space-around;
+/* Links inside dashboard cards */
+.dashboard-card a {
+  text-decoration: none;
+  color: inherit;
 }
-.main_order_pie_chart_graph{
-  width: 30%;
+
+.dashboard-card a:hover {
+  text-decoration: underline;
+}
+
+/* Graph Container */
+.main_admin_all_graph_div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  gap: 30px;
+}
+
+/* Graph Sections */
+.main_order_pie_chart_graph {
+  width: 350px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.main_order_pie_chart_graph h2 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
 }
 
 /* Loader Styles */
@@ -45,15 +80,26 @@
 }
 
 .loader-spinner {
-  border: 8px solid rgba(0, 0, 0, 0.1);
-  border-top: 8px solid var(--primary-color);
+  border: 6px solid rgba(0, 0, 0, 0.1);
+  border-top: 6px solid var(--primary-color);
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-card {
+    width: 100%;
+  }
+
+  .main_order_pie_chart_graph {
+    width: 100%;
+  }
 }
