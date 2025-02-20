@@ -345,13 +345,7 @@ function AdminaddProduct() {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <input
-            type="text"
-            className="add_product_input_filed"
-            placeholder="Description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
+         
         </div>
 
 {/* Product Sizes */}
@@ -443,7 +437,6 @@ function AdminaddProduct() {
         />
       </div>
       <br/>
-
       {/* Height Input */}
       <div className="input-group">
         <label htmlFor={`height-${index}`} className="product_add_label">Height</label>
@@ -581,16 +574,7 @@ function AdminaddProduct() {
         <div className="section-wrapper">
           <h3>Product Thumbnail</h3>
           <div className="file-upload-form">
-            <label htmlFor="file" className="file-upload-label">
-              <div className="file-upload-design">
-                <svg viewBox="0 0 1024 1024" className="add_product_upload_image">
-                  <path className="path1" d="M384 512m-42.666667 0a42.666667 42.666667 0 1 0 85.333334 0 42.666667 42.666667 0 1 0-85.333334 0Z"></path>
-                  <path className="path2" d="M853.333333 725.333333v106.666667H170.666667v-106.666667H106.666667v106.666667c0 35.413333 28.586667 64 64 64h682.666666c35.413333 0 64-28.586667 64-64v-106.666667h-64z"></path>
-                  <path className="path3" d="M469.333333 554.666667l85.333334-113.066667 128 170.666667H341.333333L213.333333 469.333333l170.666667-213.333333 85.333333 106.666667 149.333334-192h-448c-35.413333 0-64 28.586667-64 64v554.666666h64v-405.333333l128 149.333333 85.333333 106.666667z"></path>
-                  <path className="path4" d="M725.333333 298.666667m-42.666666 0a42.666667 42.666667 0 1 0 85.333333 0 42.666667 42.666667 0 1 0-85.333333 0Z"></path>
-                </svg>
-              </div>
-            </label>
+           
             <input
               type="file"
               name="file"

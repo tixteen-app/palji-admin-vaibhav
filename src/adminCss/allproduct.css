@@ -2,35 +2,33 @@
 .product-list {
   gap: 20px;  
   display: flex;
+  width: 100%;
   flex-wrap: wrap;
+  justify-content: space-between;;
+  align-items: space-between;
 }
 /* allproduct.css */
 
 .main_admin_all_product_filter_bar {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #f9f9f9;
-  padding: 10px 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  justify-content: center;
+  width: 100%;
+  gap: 30px;
 }
 
-
-.main_admin_all_product_filter_bar > div {
-  flex: 1;
-  margin-right: 10px;
+.main_admin_all_product_filter_bar div{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
 }
-
-
 
 .inputBox_container {
   position: relative;
 }
 
 .inputBox_container input {
-  width: 100%;
+  width: 390px;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -60,15 +58,29 @@
 
 
 .product-card {
-  background-color: #fff;
-  padding: 20px;
+  background-color: #eaeaea;
+  padding: 10px 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  max-height:  700px  ;
-  overflow-y: scroll;
-  font-size: 16px;
+  height:  420px  ;
+  width: 250px;
+  font-size: 15px;
 }
+.admin_all_product_image_div {
+  height: 200px;
+  width: 220px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin_all_product_image {
+  height: 100%;  
+  width: 100%;   
+  object-fit: cover;  
+}
+
 
 .product-card:hover {
   transform: translateY(-5px);
@@ -89,18 +101,21 @@
   filter: grayscale(0%) !important;
 }
 
-
-.product-card h3 {
-  color: var(--primary-color);
-  font-size: 18px;
-  font-weight: bold;
+.product-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-weight: 500;
   text-transform: capitalize;
-  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  height: 70px;
 }
-
-.product-card p {
-  font-size: 16px;
-  margin-bottom: 8px;
+.all_products_page_button{
+}
+.all_products_page_view_button_div{
+  width: 100%;
+  text-align: center;
 }
 
 .all_products_page_button button {

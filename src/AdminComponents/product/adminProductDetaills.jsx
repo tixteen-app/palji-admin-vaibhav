@@ -46,7 +46,7 @@ function ProductDetails() {
           </div>
         </div>
       ) : (
-        <div>
+        <div className="adminProductDetaills_main_div_top"  >
           <div>
             <Link to={"/admin/allproducts"}>
               <svg

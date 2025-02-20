@@ -28,10 +28,10 @@ function Admin() {
 			</div>
 			<div className="admin_page_main_div">
 				<Routes>
-					<Route
+					{/* <Route
 						path="/sidebar"
 						element={<Adminsidebar />}
-					/>
+					/> */}
 					{/* products */}
 					<Route
 						path="/allproducts"

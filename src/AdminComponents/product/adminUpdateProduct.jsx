@@ -518,7 +518,7 @@ function UpdateProduct() {
                     {nutrition._id && (
                       <button
                         type="button"
-                        className="btn btn-danger"
+                        className="btn btn-danger w-25"
 
                         onClick={() => handleDeleteNutrition(nutrition._id)}
                       >
@@ -529,7 +529,7 @@ function UpdateProduct() {
                 ))}
                 <button
                   type="button"
-                  className="add-more-sizes-button"
+                  className="add-more-sizes-button w-25"
                   onClick={handleAddMoreNutrition}
                 >
                   Add More Nutrition
@@ -554,6 +554,7 @@ function UpdateProduct() {
                     {include._id && (
                       <button
                         type="button"
+                        className="btn btn-danger"
                         onClick={() => handleDeleteInclude(include._id)}
                       >
                         Delete Include
@@ -595,7 +596,7 @@ function UpdateProduct() {
                       <img src={img} alt={`Product ${index}`} />
                       <button
                         type="button"
-                        className="remove_image_button"
+                        className="btn btn-danger w-25"
                         onClick={() => handleImageRemove(index)}
                       >
                         Remove

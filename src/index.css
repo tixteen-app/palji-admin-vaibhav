@@ -14,14 +14,16 @@ code {
 
 .main_admin_pages {
   display: flex;
+  width: 100%;
 }
 
 .admin_page_sidebar_div {
-  width: 23%;
+  width: 20%;
 }
 
 .admin_page_main_div {
   width: 100%;
+
 }
 
 :root {
