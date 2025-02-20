@@ -1,11 +1,11 @@
 /* allproduct.css */
 .product-list {
-  gap: 20px;  
+  gap: 40px;  
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-between;;
-  align-items: space-between;
+  justify-content: center;
+  align-items: center;
 }
 /* allproduct.css */
 
@@ -112,6 +112,13 @@
   height: 70px;
 }
 .all_products_page_button{
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.all_products_page_button div{
+  width: 50%;
 }
 .all_products_page_view_button_div{
   width: 100%;
@@ -120,7 +127,7 @@
 
 .all_products_page_button button {
   margin-right: 5px;
-  padding: 10px 20px;
+  padding: 10px 24px;
   border: none;
   cursor: pointer;
   border-radius: 8px;

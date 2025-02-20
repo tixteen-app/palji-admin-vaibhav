@@ -96,14 +96,7 @@ const AddCategory = () => {
               required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="description">Description:</label>
-            <textarea
-              id="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </div>
+        
 
           {/* Pin Codes Section */}
           <div className="form-group">
@@ -146,18 +139,7 @@ const AddCategory = () => {
                     }
                   />
                 </div>
-                <div className="form-group">
-                  <label htmlFor={`subcategory-description-${index}`}>
-                    Subcategory Description:
-                  </label>
-                  <textarea
-                    id={`subcategory-description-${index}`}
-                    value={subcategory.description}
-                    onChange={(e) =>
-                      handleSubcategoryChange(index, "description", e.target.value)
-                    }
-                  />
-                </div>
+              
                 <button
                   type="button"
                   onClick={() => removeSubcategory(index)}

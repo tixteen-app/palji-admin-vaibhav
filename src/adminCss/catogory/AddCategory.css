@@ -1,69 +1,200 @@
 /* AddCategory.css */
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
+  padding: 0;
+}
+
+/* Wrapper for the entire page */
 .add-category {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.add_category_div {
-  font-size: 1.5rem;
-  font-weight: bold;
+/* Heading */
+.add-category h2 {
+  text-align: center;
+  color: #5f6368;
   margin-bottom: 20px;
-  color: var(--primary-color);
 }
 
-.error-message {
-  color: red;
-  margin-bottom: 10px;
-}
-
+/* Form group styles */
 .form-group {
   margin-bottom: 20px;
 }
 
-label {
+.form-group label {
   font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  color: #5f6368;
 }
 
-input[type="text"],
-textarea {
+.form-group input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   border-radius: 5px;
+  font-size: 16px;
+  background-color: #fafafa;
 }
 
-textarea {
-  height: 100px;
+.form-group input:focus {
+  border-color: #4caf50;
+  outline: none;
 }
 
-.add_category_button {
-  padding: 10px 20px;
-  background-color: var(--primary-color);
-  color: #fff;
+/* Subcategory Section */
+.subcategory-section h2 {
+  text-align: center;
+  color: #4a4a4a;
+  margin-bottom: 20px;
+}
+
+.subcategory-form {
+  margin-bottom: 15px;
+}
+
+.subcategory-form .form-group {
+  margin-bottom: 10px;
+}
+
+.subcategory-form button {
+  display: block;
+  width: 100%;
+  background-color: #ffb74d;
+  color: white;
   border: none;
+  padding: 10px;
+  font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.add_category_button:hover {
-  background-color: var(--secondary-color);
+.subcategory-form button:hover {
+  background-color: #fb8c00;
 }
 
-.subcategory-section {
-  background: #d6d5d5;
-  padding: 25px; 
-  margin-top: 50px ;
+/* Pincode Section */
+.pincode-entry {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-/* Back Button Styles */
-.back_button_add_catogory {
-  margin-bottom: 20px;
+.pincode-entry input {
+  width: 80%;
+  margin-right: 10px;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 8px;
+}
+
+.pincode-entry button {
+  background-color: #ffb74d;
+  color: white;
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+}
+
+.pincode-entry button:hover {
+  background-color: #fb8c00;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-warning {
+  background-color: #ffb74d;
+  color: white;
+  border: none;
+}
+
+.btn-warning:hover {
+  background-color: #fb8c00;
+}
+
+.admin_add_product_button {
+  background-color: #81c784;
+  color: white;
+  font-size: 18px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.admin_add_product_button:hover {
+  background-color: #66bb6a;
+}
+
+/* Error message */
+.error-message {
+  color: #e57373;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Back Button */
+.back_arrow_icon {
+  display: inline-block;
+  margin-bottom: 20px;
   transition: transform 0.3s;
 }
 
-.back_button_add_catogory:hover {
-  transform: translateX(-3px);
+.back_arrow_icon:hover {
+  transform: translateX(-5px);
+}
+
+.back_button_add_category {
+  color: #4caf50;
+  text-decoration: none;
+}
+
+.back_button_add_category:hover {
+  text-decoration: underline;
+}
+
+/* Text Center */
+.text-center {
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .add-category {
+    padding: 20px;
+  }
+
+  .form-group input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+
+  .admin_add_product_button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
 }

@@ -14,7 +14,8 @@ const Orders = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedStatus, setSelectedStatus] = useState("");
+  // const [selectedStatus, setSelectedStatus] = useState("");
+  const [selectedStatus, setSelectedStatus] = useState(Dstatus.toUpperCase());
   const [status, setStatus] = useState(Dstatus);
 
 
@@ -48,10 +49,16 @@ const Orders = () => {
       fetchOrders();
   }, []);
 
+  // const handleStatusChange = (newStatus) => {
+  //   console.log(newStatus);
+  //   setStatus(newStatus);
+  //   setSelectedStatus(newStatus);
+  // };
   const handleStatusChange = (newStatus) => {
-    setStatus(newStatus);
-    setSelectedStatus(newStatus);
+    setSelectedStatus(newStatus.toUpperCase()); // Ensure uppercase matching
+    setStatus(newStatus.toUpperCase());
   };
+  
 
   if (loading) {
     return <div className="loading" style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }} >
@@ -86,7 +93,7 @@ const Orders = () => {
       <div className="all_orders_status_buttons">
         <button
           className={`admin_add_product_button  ${selectedStatus === "Pending" ? "selectedStatus" : ""}`}
-          onClick={() => handleStatusChange("Pending")}
+          onClick={() => handleStatusChange("new")}
         >
           Pending Orders
         </button>
