@@ -99,7 +99,7 @@ const AddCategory = () => {
         
 
           {/* Pin Codes Section */}
-          <div className="form-group">
+          <div className="form-group-for-pincode">
             <h3>Available Pin Codes</h3>
             {pinCodes.map((pinCode, index) => (
               <div key={index} className="pincode-entry">

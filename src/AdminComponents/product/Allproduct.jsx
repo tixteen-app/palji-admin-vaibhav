@@ -164,6 +164,8 @@ const Allproduct = () => {
                     <div><b>Category:</b> {product?.category?.name}</div>
                   </div>
                   <div className="all_products_page_button">
+
+
                     <div>
                     <Link to={`/admin/product-update/${product._id}`} target="_blank">
                       <button className="edit_button_all_product"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -187,7 +189,7 @@ const Allproduct = () => {
                     </div>
                     <div className="all_products_page_view_button_div" >
                       <Link to={`/admin/product-details/${product._id}`}>
-                        <button className="view_button_all_product">View</button>
+                        <button className="">View</button>
                       </Link>
                     </div>
                   </div>

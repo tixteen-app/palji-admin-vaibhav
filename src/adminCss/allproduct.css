@@ -63,7 +63,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  height:  420px  ;
+  height:  400px  ;
   width: 250px;
   font-size: 15px;
 }
@@ -114,8 +114,9 @@
 .all_products_page_button{
   text-align: center;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  height: 100px;
 }
 .all_products_page_button div{
   width: 50%;
