@@ -53,7 +53,8 @@ function Admin() {
 					{/* category */}
 					<Route
 						path="/all-categories"
-						element={<Getallcatogory />}
+						element={<Addcatogory />}
+						// element={<Getallcatogory />}
 					/>
 					<Route
 						path="/add-category"

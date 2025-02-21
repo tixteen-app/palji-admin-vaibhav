@@ -20,21 +20,6 @@ const Orders = () => {
 
 
   useEffect(() => {
-    // Fetch API data
-    // fetch("http://localhost:7000/api/shiprocket/get-all-orders")
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     if (data.success) {
-    //       setOrders(data.data.data);
-    //     } else {
-    //       setError("Failed to fetch orders.");
-    //     }
-      //   setLoading(false);
-      // })
-      // .catch((err) => {
-      //   setError("Error fetching data.");
-      //   setLoading(false);
-      // });
       const fetchOrders = async () => {
         try {
           setLoading(true);
@@ -48,12 +33,6 @@ const Orders = () => {
       }
       fetchOrders();
   }, []);
-
-  // const handleStatusChange = (newStatus) => {
-  //   console.log(newStatus);
-  //   setStatus(newStatus);
-  //   setSelectedStatus(newStatus);
-  // };
   const handleStatusChange = (newStatus) => {
     setSelectedStatus(newStatus.toUpperCase()); // Ensure uppercase matching
     setStatus(newStatus.toUpperCase());

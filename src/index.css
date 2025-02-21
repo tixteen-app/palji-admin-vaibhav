@@ -13,12 +13,13 @@ code {
 }
 
 .main_admin_pages {
-  display: flex;
+  display: flex ;
+  gap: 20px;
   width: 100%;
 }
 
 .admin_page_sidebar_div {
-  width: 20%;
+  width: 18%;
 }
 
 .admin_page_main_div {
@@ -46,6 +47,10 @@ code {
    --body-font: 'Open Sans', sans-serif;
 }
 .Link_tag{
+  text-decoration: none;
+  color: var(--main-white-color);
+}
+.Link_tag:hover{
   text-decoration: none;
   color: var(--main-white-color);
 }
