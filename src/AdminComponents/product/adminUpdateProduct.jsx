@@ -276,14 +276,14 @@ function UpdateProduct() {
                     onChange={handleChange}
                   />
                 </div>
-                <div className="form-group">
+                {/* <div className="form-group">
                   <label>Description:</label>
                   <textarea
                     name="description"
                     value={formData.description}
                     onChange={handleChange}
                   />
-                </div>
+                </div> */}
               </div>
 
               {/* Stock & Quantity Section */}
@@ -353,24 +353,24 @@ function UpdateProduct() {
                           onChange={(e) => handleSizeChange(e, index, "sizetype")}
                         />
                       </div> */}
-                    <div className="input-group">
-          <label htmlFor={`sizetype-${index}`} className="product_add_label">Size Type</label>
-          <select
-            name={`sizetype_${index}`}
-            id={`sizetype-${index}`}
-            value={size.sizetype}
-            onChange={(e) => handleSizeChange(e, index, "sizetype")}
-          >
-            <option value="null">null</option>
-            <option value="Kg">Kg</option>
-            <option value="Gram">Gram</option>
-            <option value="Litre">Litre</option>
-            <option value="ML">ML</option>
-            <option value="Pound">Pound</option>
-            <option value="Meter">Meter</option>
-            <option value={size.sizetype}>{size.sizetype || "Select Size Type"}</option>
-          </select>
-        </div>
+                      <div className="input-group">
+                        <label htmlFor={`sizetype-${index}`} className="product_add_label">Size Type</label>
+                        <select
+                          name={`sizetype_${index}`}
+                          id={`sizetype-${index}`}
+                          value={size.sizetype}
+                          onChange={(e) => handleSizeChange(e, index, "sizetype")}
+                        >
+                          <option value="null">null</option>
+                          <option value="Kg">Kg</option>
+                          <option value="Gram">Gram</option>
+                          <option value="Litre">Litre</option>
+                          <option value="ML">ML</option>
+                          <option value="Pound">Pound</option>
+                          <option value="Meter">Meter</option>
+                          <option value={size.sizetype}>{size.sizetype || "Select Size Type"}</option>
+                        </select>
+                      </div>
 
                       <div className="input-group">
                         <label htmlFor={`quantity_${index}`} className="product_add_label">Quantity</label>
@@ -435,7 +435,7 @@ function UpdateProduct() {
                   ))}
                   <button
                     type="button"
-                    className="add-more-sizes-button"
+                    className="add-more-sizes-button w-25"
                     onClick={handleAddMoreSizes}
                   >
                     Add More Sizes
@@ -564,7 +564,7 @@ function UpdateProduct() {
                 ))}
                 <button
                   type="button"
-                  className="add-more-sizes-button"
+                  className="add-more-sizes-button w-25"
                   onClick={handleAddMoreInclude}
                 >
                   Add More Includes
