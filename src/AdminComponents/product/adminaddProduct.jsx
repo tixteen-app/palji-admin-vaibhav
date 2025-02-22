@@ -91,7 +91,7 @@ function AdminaddProduct() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const requiredFields = [];
+    const requiredFields = []; 
     if (!name) requiredFields.push("Name");
     // if (!price) requiredFields.push("Price");
     // if (!quantity) requiredFields.push("Quantity");

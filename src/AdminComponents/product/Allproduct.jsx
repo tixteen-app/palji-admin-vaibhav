@@ -230,11 +230,11 @@ const Allproduct = () => {
                       
                       >Delete</div>
                     </div>
-                    <div className="new_all_product_action_preview" >
+                    {/* <div className="new_all_product_action_preview" >
                 <Link to={`/admin/product-details/${product._id}`} target="_blank" className="Link_tag" >
                       Preview
                       </Link>
-                    </div>
+                    </div> */}
 
                   </div>
 
