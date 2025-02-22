@@ -220,6 +220,12 @@ function AdminaddProduct() {
       console.log("Thumbnail upload error", error);
     }
   };
+  const handleRemoveImage = (index) => {
+    const updatedImages = [...images];
+    updatedImages.splice(index, 1);  
+    setImages(updatedImages);  
+  };
+  
   return (
     <div className="p-1">
       <div className="add-product-container">
@@ -271,6 +277,7 @@ function AdminaddProduct() {
             <div className="add_more_products_items_div add_product_input_fileds" >
               <div className="add_more_products_items_div_input_field">
                 {images.map((image, index) => (
+
                   <div key={index} className="add_product_input_fileds" >
                     <input
                       type="file"
@@ -283,17 +290,10 @@ function AdminaddProduct() {
                         {uploadProgress[index] < 100 && <div className="loader"></div>}
                       </div>
                     )}
-                    {/* {image && (
-                      <img
-                        loading="lazy"
-                        src={image}
-                        alt={`Product ${index + 1}`}
-                        width={150}
-                        height={150}
-                      />
-                    )} */}
                   </div>
                 ))}
+
+
               </div>
               <div className="add_more_products_items_div_button_field" >
                 <button
@@ -305,6 +305,26 @@ function AdminaddProduct() {
                   Add More
                 </button>
               </div>
+            </div>
+            <div className="product_images_div_add_product">
+              {images.map((image, index) => (
+                image && (
+                  <div className="" key={index}>
+                    <div className="product_images_div_add_product_card">
+                      <div className="remove_image_Add_product" onClick={() => handleRemoveImage(index)} >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                          <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
+                        </svg>
+                      </div>
+                      <img
+                        loading="lazy"
+                        src={image}
+                        alt={`Product ${index + 1}`}
+                      />
+                    </div>
+                  </div>
+                )
+              ))}
             </div>
           </div>
 
@@ -328,6 +348,8 @@ function AdminaddProduct() {
                     {thumbnailUploadProgress < 100 && <div className="loader"></div>}
                   </div>
                 )}
+              </div>
+            </div>
                 {thumbnail && (
                   <img
                     loading="lazy"
@@ -337,8 +359,6 @@ function AdminaddProduct() {
                     height={150}
                   />
                 )}
-              </div>
-            </div>
 
           </div>
 
@@ -594,13 +614,13 @@ function AdminaddProduct() {
                   />
                 </div>
                 <div className="input-group-for-size">
-                <button
-                  className="remove_btton_add_product w-50"
-                  onClick={() => handleRemoveNutrition(index)}
+                  <button
+                    className="remove_btton_add_product w-50"
+                    onClick={() => handleRemoveNutrition(index)}
                   >
-                  Remove
-                </button>
-                  </div>
+                    Remove
+                  </button>
+                </div>
               </div>
             ))}
             <button
