@@ -261,8 +261,8 @@ font-weight: 550;}
 
 .new_add_cat_modal {
   background: white;
-  width: 40%;
-  padding: 3%;
+  width: 30%;
+  padding: 1%;
   border-radius: 2vw;
   box-shadow: 0 0 2vw rgba(0, 0, 0, 0.5);
   display: flex;
