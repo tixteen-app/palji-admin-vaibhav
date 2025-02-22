@@ -271,6 +271,7 @@ function Orders() {
         <div className='Grid'>
           {orders.map((order) => (
             <>
+              <Link target="_blank" to={`/admin/order/${order.id}`} style={{ textDecoration: "none" , color:"black" }} >
               <div className="receipt-container">
                 <div>
                   <div class="order-id"><strong>Order ID:</strong> {order.channel_order_id}</div>
@@ -323,7 +324,7 @@ function Orders() {
                   <p>Shipping Charges: ₹N/A</p>
                 </div>
               </div>
-              
+              </Link>
             </>
           ))}
         </div>

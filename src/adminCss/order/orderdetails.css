@@ -1,151 +1,186 @@
 
-/* Add styles for the back arrow icon */
-.back_arrow_icon {
-  margin-top: 10px; /* Adjust as needed */
-  cursor: pointer;
-}
+  
+  .main-orderdetail {
+    background: white;
+    width: 99%;
+    margin: 0 auto;
+    border-radius: 0.5vw;
+  }
+  
+  .order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 2%; */
+    
+    border-radius: 15px;
+  }
+  .order-whole{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
+  .order-left{
+    display: flex;
+    flex-direction: column;
+    width:35%;
+  }
+  .back-button {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.5vw;
+  }
+  
+  .cancel-button {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 1% 2%;
+    border-radius: 0.3vw;
+    cursor: pointer;
+  }
+  
+  .status-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+    margin:1% 2%;
+  }
+  .status-left p, 
+  .status-right span{
+    font-weight: 600;
+    margin: 5% 0;
+  }
 
-/* Add styles for the main order details container */
-.order-details-container {
-  padding: 20px;
-}
+  .status-badge {
+    background: #4CAF50;
+    color: white;
+    padding: 10% 22%;
+    border-radius: 1vw;
+    font-size: 0.9vw;
+  }
+  .status-right p{
+    margin: 0;
+  }
+  
+  /* .details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2%;
+    padding: 2%;
+  } */
+  
+  .user-box ,.shipping-box{
+    background: white;
+    padding: 2%;
+    border: 0.1vw solid #eee;
+    border-radius: 0.5vw;
+    text-align: start;
+    margin: 1% 2%;
+    box-shadow: 0 0.5em 0.8em rgba(0, 0, 0, 0.1);
+  }
+  .shipping-box{
+    height: 40vh;
+  }
+  .user-box p{
+    display: flex;
+    justify-content: space-between;
+  }
+  .user-title, .shipping-title {
+    font-weight: bold;
+    margin-bottom: 2%;
+    color: #333;
+  }
+  
+  .order-right{
+    display: flex;
+    width:65%;
+    flex-direction: column;
+  }
 
-/* Add styles for the main mini order dashboard div */
-.main_mini_order_dashboard_div {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  position: relative;
-}
+  .order-right-top{
+    display:flex;
+    justify-content: space-evenly;
 
-/* Add styles for the mini order dashboard contact div */
-.mini_order_dashboard_contact_div {
-  width: calc(50% - 10px); /* Adjust as needed */
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+  }
+  .left-det{
+    font: bold;
+  }
 
-/* Add styles for the order details main section */
-.order_details_main_section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
+  .payment-box , .pickup-box {
+    background: white;
+    width: 50%;
+    padding: 2%;
+    border: 0.1vw solid #eee;
+    border-radius: 0.5vw;
+    text-align: start;
+    margin:1% ;
+    box-shadow: 0 0.5em 0.8em rgba(0, 0, 0, 0.1);
+    
+  }
+  .payment-box p{
+    display: flex;
+    justify-content: space-between;
+  }
+  .payment-title , .pickup-title{
+    font-weight: bold;
+    margin-bottom: 2%;
+    color: #333;
+    
+  }
+  .order-items-container{
+    text-align: start;
+    margin:2%;
+    max-height: 50vh;
+  }
+  .order-items-container h3{
+    text-align: start;
+  }
+  .order-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2%;
+    max-height: 46vh;
+    overflow-y: auto;
+    box-shadow: 0 0.5em 0.8em rgba(0, 0, 0, 0.1);
 
-/* Add styles for the order details cards */
-.order_details_cards {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  max-height: 600px;
-  overflow: scroll;
-  position: relative;
-}
+  }
+  
+  .item-card {
+    border: 0.1vw solid #eee;
+    border-radius: 0.5vw;
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0.5em 0.8em rgba(0, 0, 0, 0.1);
 
-/* Add styles for the user image */
-.user-image {
-  width: 100px; /* Adjust as needed */
-  height: 100px; /* Adjust as needed */
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
+  }
+  
+  .item-image {
+    width: 4vw;
+    height: 4vw;
+    margin-right: 5%;
+    background: #f0f0f0;
+    border-radius: 0.3vw;
+  }
+  
+  .item-details {
+    flex: 1;
+    text-align: start;
+  }
+  
+  .item-name {
+    font-size: 0.9vw;
+    margin-bottom: 2%;
+  }
+  
+  .item-price p {
+    margin: 0;
+    color: #666;
+    font-size: 0.8vw;
+  }
 
-/* Add styles for the product thumbnail */
-.product-thumbnail {
-  width: 100px; /* Adjust as needed */
-  height: 100px; /* Adjust as needed */
-  margin-bottom: 10px;
-}
-
-/* Add styles for the headings */
-/* h2, h3 {
-  color: #333;
-} */
-
-/* Add styles for the links */
-a {
-  color: #007bff; /* Adjust link color as needed */
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.order_item_section{
-  width: 100% ;
-  text-align: center;
-}
-.order_item_div_section_div{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-gap: 30px;
-
-}
-.order_item_details_div{
-  width: 48%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid black;
-  /* background: #000; */
-}
-/* .order_details_header{
-  width: 100%;
-  position: sticky;
-  top: 1px;
-  align-items: start;
-  gap: 0;
-  background: white;
-} */
-
-.popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  z-index: 1000;
-  border-radius: 8px;
-}
-
-.popup-content {
-  text-align: center;
-}
-
-.popup-actions {
-  margin-top: 20px;
-}
-
-.confirm-btn,
-.close-btn,
-.undo-btn,
-.cancel-btn {
-  padding: 10px 20px;
-  margin: 5px;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.confirm-btn {
-  background-color: #f44336;
-  color: #fff;
-}
-
-.close-btn {
-  background-color: #ddd;
-  color: #333;
-}
-
+  
 .undo-btn {
   background-color: #4caf50;
   color: #fff;
@@ -155,6 +190,10 @@ gap: 30px;
   background-color: #f44336;
   color: #fff;
   margin-bottom: 20px;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .toaster {
@@ -169,4 +208,54 @@ gap: 30px;
   align-items: center;
   gap: 10px;
   z-index: 1000;
+}
+
+.toaster_for_undo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  animation: slideIn 0.5s ease-out;
+  z-index: 1000;
+}
+
+.toaster_for_undo p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.undo_btn {
+  background-color: #ff4757;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.undo_btn:hover {
+  background-color: #ff6b81;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
