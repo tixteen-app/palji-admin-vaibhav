@@ -28,7 +28,7 @@ export const makeApi = async (
 
       headers,
       data
-    };
+    }; 
 
     const response = await axios(config);
     return response;

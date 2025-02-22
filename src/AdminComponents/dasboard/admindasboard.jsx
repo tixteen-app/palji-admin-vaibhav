@@ -283,7 +283,7 @@ function Admindasboard() {
             <p>{dashboardData?.totalOrders}</p>
           </div>
 
-          <Link to="/admin/all-orders?status=Pending" className="dashboard-card link">
+          <Link to="/admin/all-orders?status=NEW" className="dashboard-card link">
             <FaShippingFast className="dashboard-icon" />
             <h2>Pending Orders</h2>
             <p>{dashboardData?.totalPandingOrders}</p>
@@ -300,11 +300,15 @@ function Admindasboard() {
             <h2>Delivered Orders</h2>
             <p>{dashboardData?.totalDeliveredOrders}</p>
           </Link>
-
+          
           <div className="dashboard-card">
+          <Link to="/admin/all-orders?status=CANCELED" className="dashboard-card link">
+
             <FaTimesCircle className="dashboard-icon" />
             <h2>Canceled Orders</h2>
             <p>{dashboardData?.totalCanceledOrders}</p>
+          </Link>
+
           </div>
 
           <div className="dashboard-card">
