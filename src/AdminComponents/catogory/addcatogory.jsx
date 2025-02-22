@@ -96,63 +96,63 @@
 //               required
 //             />
 //           </div>
-        
+
 
 //           {/* Pin Codes Section */}
-//           <div className="form-group-for-pincode">
-//             <h3>Available Pin Codes</h3>
-//             {pinCodes.map((pinCode, index) => (
-//               <div key={index} className="pincode-entry">
-//                 <input
-//                   type="text"
-//                   value={pinCode}
-//                   onChange={(e) => handlePinCodeChange(index, e.target.value)}
-//                   placeholder="Enter pin code"
-//                 />
-//                 <button
-//                   type="button"
-//                   onClick={() => removePinCode(index)}
-//                   className="btn btn-danger remove-button"
-//                 >
-//                   Remove
-//                 </button>
-//               </div>
-//             ))}
-//             <button type="button" onClick={addPinCode} className="btn btn-warning">
-//               Add Pin Code
-//             </button>
-//           </div>
+//   <div className="form-group-for-pincode">
+//     <h3>Available Pin Codes</h3>
+//     {pinCodes.map((pinCode, index) => (
+//       <div key={index} className="pincode-entry">
+//         <input
+//           type="text"
+//           value={pinCode}
+//           onChange={(e) => handlePinCodeChange(index, e.target.value)}
+//           placeholder="Enter pin code"
+//         />
+//         <button
+//           type="button"
+//           onClick={() => removePinCode(index)}
+//           className="btn btn-danger remove-button"
+//         >
+//           Remove
+//         </button>
+//       </div>
+//     ))}
+//     <button type="button" onClick={addPinCode} className="btn btn-warning">
+//       Add Pin Code
+//     </button>
+//   </div>
 
 //           {/* Subcategory Section */}
-//           <div className="subcategory-section">
-//             <h2 className="text-center">Subcategories</h2>
-//             {subcategories.map((subcategory, index) => (
-//               <div key={index} className="subcategory-form">
-//                 <div className="form-group">
-//                   <label htmlFor={`subcategory-name-${index}`}>Subcategory Name:</label>
-//                   <input
-//                     type="text"
-//                     id={`subcategory-name-${index}`}
-//                     value={subcategory.name}
-//                     onChange={(e) =>
-//                       handleSubcategoryChange(index, "name", e.target.value)
-//                     }
-//                   />
-//                 </div>
-              
-//                 <button
-//                   type="button"
-//                   onClick={() => removeSubcategory(index)}
-//                   className="btn btn-danger w-75"
-//                 >
-//                   Remove Subcategory
-//                 </button>
-//               </div>
-//             ))}
-//             <button type="button" onClick={addSubcategory} className="btn btn-warning my-4">
-//               Add Subcategory
-//             </button>
-//           </div>
+//   <div className="subcategory-section">
+//     <h2 className="text-center">Subcategories</h2>
+//     {subcategories.map((subcategory, index) => (
+//       <div key={index} className="subcategory-form">
+//         <div className="form-group">
+//           <label htmlFor={`subcategory-name-${index}`}>Subcategory Name:</label>
+//           <input
+//             type="text"
+//             id={`subcategory-name-${index}`}
+//             value={subcategory.name}
+//             onChange={(e) =>
+//               handleSubcategoryChange(index, "name", e.target.value)
+//             }
+//           />
+//         </div>
+
+//         <button
+//           type="button"
+//           onClick={() => removeSubcategory(index)}
+//           className="btn btn-danger w-75"
+//         >
+//           Remove Subcategory
+//         </button>
+//       </div>
+//     ))}
+//     <button type="button" onClick={addSubcategory} className="btn btn-warning my-4">
+//       Add Subcategory
+//     </button>
+//   </div>
 
 //           <div className="text-center">
 //             <button
@@ -191,7 +191,7 @@
 //       const [categories, setCategories] = useState([]);
 //       const [loading, setLoading] = useState(false);
 //       const [deleteProductId, setDeleteProductId] = useState(null);
-    
+
 
 
 //       useEffect(() => {
@@ -234,7 +234,7 @@
 //           setDeleteProductId(null);
 //         }
 //       };
-    
+
 //       const deleteProduct = async (productId) => {
 //         try {
 //           console.log(productId);
@@ -335,18 +335,25 @@ const AddCategory = () => {
     const [loading, setLoading] = useState(false);
     const [deleteCategoryId, setDeleteCategoryId] = useState(null);
 
-    useEffect(() => {
-        async function fetchCategories() {
-            try {
-                setLoading(true);
-                const response = await makeApi("/api/get-all-categories", "GET");
-                setCategories(response?.data?.categories);
-            } catch (error) {
-                console.log("Error fetching categories:", error);
-            } finally {
-                setLoading(false);
-            }
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
+    const [subcategories, setSubcategories] = useState([]);
+    const [pinCodes, setPinCodes] = useState([""]); // Pin codes as an array
+    const [errorMessage, setErrorMessage] = useState("");
+
+
+    async function fetchCategories() {
+        try {
+            setLoading(true);
+            const response = await makeApi("/api/get-all-categories", "GET");
+            setCategories(response?.data?.categories);
+        } catch (error) {
+            console.log("Error fetching categories:", error);
+        } finally {
+            setLoading(false);
         }
+    }
+    useEffect(() => {
         fetchCategories();
     }, []);
 
@@ -381,6 +388,66 @@ const AddCategory = () => {
             }
         }
     };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await makeApi("/api/create-category", "POST", {
+                name,
+                description,
+                subcategorieslist: subcategories,
+                availablePinCodes: pinCodes.filter((code) => code.trim() !== ""), // Filter out empty pin codes
+            });
+            setName("");
+            setDescription("");
+            setSubcategories([{ name: "", description: "" }]);
+            setPinCodes([""]);
+        } catch (error) {
+            console.error("Error adding category:", error);
+            setErrorMessage("Error adding category. Please try again.");
+        }finally{
+            setLoading(false);
+            setShowModal(false);
+        fetchCategories();
+            
+        }
+    };
+
+
+
+    const handleSubcategoryChange = (index, field, value) => {
+        const updatedSubcategories = subcategories.map((subcategory, i) =>
+            i === index ? { ...subcategory, [field]: value } : subcategory
+        );
+        setSubcategories(updatedSubcategories);
+    };
+
+    const addSubcategory = () => {
+        setSubcategories([...subcategories, { name: "", description: "" }]);
+    };
+
+    const removeSubcategory = (index) => {
+        const updatedSubcategories = subcategories.filter((_, i) => i !== index);
+        setSubcategories(updatedSubcategories);
+    };
+
+    const handlePinCodeChange = (index, value) => {
+        const updatedPinCodes = pinCodes.map((pinCode, i) =>
+            i === index ? value : pinCode
+        );
+        setPinCodes(updatedPinCodes);
+    };
+
+    const addPinCode = () => {
+        setPinCodes([...pinCodes, ""]);
+    };
+
+    const removePinCode = (index) => {
+        const updatedPinCodes = pinCodes.filter((_, i) => i !== index);
+        setPinCodes(updatedPinCodes);
+    };
+
+
 
     return (
         <div className="new_add_cat_Addcategory">
@@ -424,28 +491,104 @@ const AddCategory = () => {
             {/* Add Category Modal */}
             {showModal && (
                 <div className="new_add_cat_modal-overlay">
-                    <div className="new_add_cat_modal">
-                        <h2>Add Category</h2>
-                        <input type="text" placeholder="Name" value={newCategory.name} 
-                            onChange={(e) => setNewCategory({ ...newCategory, name: e.target.value })} />
-                        <input type="text" placeholder="Subcategory" value={newCategory.subcategory} 
-                            onChange={(e) => setNewCategory({ ...newCategory, subcategory: e.target.value })} />
+                    <div className="">
 
-                        <div className="new_add_cat_pincode-container">
-                            {newCategory.pincodes.map((pincode, index) => (
-                                <div key={index} className="new_add_cat_pincode-item">
-                                    <span>{pincode}</span>
-                                    <button onClick={() => removePincode(index)}>X</button>
+                        <form onSubmit={handleSubmit} className='new_add_coupan_form' >
+                            <div className='main_add_new_popup_heading_div' >
+                                <div onClick={() => setShowModal(false)} style={{ cursor: "pointer" }}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                                    </svg>
                                 </div>
-                            ))}
-                        </div>
+                                <div className="add_coupan_heading">Add category</div>
 
-                        <input type="text" placeholder="Enter Pin Code" value={tempPincode} 
-                            onChange={(e) => setTempPincode(e.target.value)} />
-                        <button className="new_add_cat_addPincodeBtn" onClick={addPincode}>+ Add Pin Code</button>
+                            </div>
+                            <div className='add_coupan_second_div' >
+                                <div className="form-group-for-add-coupan">
+                                    <label htmlFor="name">Name:</label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group-for-add-coupan">
+                                    <label>Available Pin Codes</label>
+                                    <br/>
 
-                        <button className="new_add_cat_submitBtn" onClick={addCategory}>Add Category</button>
-                        <button className="new_add_cat_closeBtn" onClick={() => setShowModal(false)}>Close</button>
+                                    {pinCodes.map((pinCode, index) => (
+                                        <div key={index} className="form-group-for-add-coupan div_popup_input_div">
+                                            <div className="popup_input_div_new">
+                                                <input
+                                                    type="text"
+                                                    value={pinCode}
+                                                    onChange={(e) => handlePinCodeChange(index, e.target.value)}
+                                                    placeholder="Enter pin code"
+                                                    className="add_product_input_filed_new"
+                                                />
+                                            </div>
+                                            <div className="add_more_products_items_div_button_field popup_button_div_new" >
+                                                <button
+                                                    type="button"
+                                                    className="remove_item_button "
+                                                    onClick={() => removePinCode(index)}
+
+                                                >
+                                                    X
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                    <button type="button" onClick={addPinCode} className="add_item_button_new_popup">
+                                        Add Pin Code
+                                    </button>
+                                </div>
+
+                                <div className="form-group-for-add-coupan">
+                                    <label >Subcategories</label>
+                                    <br/>
+                                    {subcategories.map((subcategory, index) => (
+                                        <div key={index} className="form-group-for-add-coupan div_popup_input_div">
+                                            <div className="popup_input_div_new">
+                                                <input
+                                                    type="text"
+                                                    id={`subcategory-name-${index}`}
+                                                    value={subcategory.name}
+                                                    onChange={(e) =>
+                                                        handleSubcategoryChange(index, "name", e.target.value)
+                                                    }
+                                                    className="add_product_input_filed_new"
+                                                    placeholder="Enter subcategory name"
+
+                                                />
+                                            </div>
+                                            <div className="add_more_products_items_div_button_field popup_button_div_new" >
+                                                <button
+                                                    type="button"
+                                                    className="remove_item_button "
+                                                    onClick={() => removeSubcategory(index)}
+                                                >
+                                                    X
+                                                </button>
+                                            </div>
+                                        </div>
+                                    ))}
+                                    <button type="button" onClick={addSubcategory} className="add_item_button_new_popup">
+                                        Add Subcategory
+                                    </button>
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className="add_coupan_button_new"
+                                    onClick={addSubcategory}
+                                >
+                                    Add Category
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             )}

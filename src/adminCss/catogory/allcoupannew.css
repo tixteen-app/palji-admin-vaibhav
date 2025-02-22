@@ -43,5 +43,46 @@
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
+}
 
+.div_popup_input_div{
+  display: flex;
+  gap: 10px;
+  padding: 5px 0px;
+}
+.remove_item_button{
+  background: rgba(241, 35, 35, 0.897);
+  color: white;
+  font-size: 20px;
+  margin: 0px;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 8px;
+  transition: all 0.5s ease-in-out;
+}
+.remove_item_button:hover{
+  background: rgba(106, 103, 103, 0.897);
+  color: white;
+  font-size: 20px;
+  margin: 0px;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 8px;
+}
+
+.add_item_button_new_popup{
+  background: #000;
+  color: white;
+  padding : 7px 17px;
+  border-radius: 4px;
+  border: none;
+  margin: 0px;
+  margin-top: 10px;
+}
+
+.popup_input_div_new{
+  width: 100%;
+}
+.popup_button_div_new{
+  width: 10%;
 }
