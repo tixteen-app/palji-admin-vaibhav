@@ -111,7 +111,7 @@ const Allproduct = () => {
               onChange={(e) => setCategory(e.target.value)}
             >
               <option value="" disabled>Select Category</option>
-              <option value="">All</option>
+              {/* <option value="">All</option> */}
               {categories.map((category) => (
                 <option key={category._id} value={category._id}>
                   {category.name}
