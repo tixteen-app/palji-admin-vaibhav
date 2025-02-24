@@ -583,7 +583,7 @@ const AddCategory = () => {
 
       <div className="new_add_cat_lowerSection">
         <div className="new_add_cat_categoryHeading">
-          <p>All Coupons</p>
+          <h4>All Coupons</h4>
         </div>
 
         <div className="new_add_cat_categoryGrid">
