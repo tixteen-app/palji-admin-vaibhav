@@ -95,7 +95,7 @@
   background-color: #eaeaea;
   padding: 10px 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   height:  380px  ;
   width: 250px;
@@ -235,7 +235,7 @@
   background: #f1f0f0;
 }
 .main_new_all_prodduct_main_div{
-  box-shadow:  10px 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow:  3px 3px 10px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   width: 100%;
   max-width: 210px;
