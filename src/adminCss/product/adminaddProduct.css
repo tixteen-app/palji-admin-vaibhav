@@ -246,10 +246,11 @@
   color: white;
   margin: 0px;
   border: none;
+  padding: 10px  ;
 
 }
 .remove_btton_add_product{
-  background: rgb(132, 131, 131);
+  background: rgb(255, 0, 0);
   color: white;
   margin: 0px;
   padding: 8px 20px;
