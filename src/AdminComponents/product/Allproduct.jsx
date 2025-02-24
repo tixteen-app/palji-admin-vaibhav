@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../../adminCss/allproduct.css";
 import { makeApi } from "../../api/callApi";
-import { Link } from "react-router-dom";
+import { Link , useNavigate } from "react-router-dom";
 import ConfirmationModal from "./admindeleteproduct";
 import Loader from "../../components/loader/loader";
 
 const Allproduct = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [deleteProductId, setDeleteProductId] = useState(null);
@@ -219,7 +220,7 @@ const Allproduct = () => {
                   <div className="new_all_product_action_div" >
                     <div className="new_all_product_action_edit_delete_div" >
                       
-                      <div className="new_all_product_action_edit" >
+                      <div className="new_all_product_action_edit" onClick={()=>{navigate(`/admin/product-update/${product._id}`)}} style={{cursor:"pointer"}} >
                 <Link to={`/admin/product-update/${product._id}`} target="_blank" className="Link_tag" >
                 Edit
                 </Link>
