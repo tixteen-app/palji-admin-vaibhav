@@ -91,7 +91,7 @@ function AdminaddProduct() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const requiredFields = []; 
+    const requiredFields = [];
     if (!name) requiredFields.push("Name");
     // if (!price) requiredFields.push("Price");
     // if (!quantity) requiredFields.push("Quantity");
@@ -222,10 +222,10 @@ function AdminaddProduct() {
   };
   const handleRemoveImage = (index) => {
     const updatedImages = [...images];
-    updatedImages.splice(index, 1);  
-    setImages(updatedImages);  
+    updatedImages.splice(index, 1);
+    setImages(updatedImages);
   };
-  
+
   return (
     <div className="p-1">
       <div className="add-product-container">
@@ -274,22 +274,36 @@ function AdminaddProduct() {
             <div>
               <h3 className="add_product_text_new" >Product Images</h3>
             </div>
-            <div className="add_more_products_items_div add_product_input_fileds" >
+            <div className="add_product_input_fileds" >
               <div className="add_more_products_items_div_input_field">
                 {images.map((image, index) => (
-
-                  <div key={index} className="add_product_input_fileds" >
-                    <input
-                      type="file"
-                      className=" add_product_input_filed_new"
-                      onChange={(event) => handleImageUpload(event, index)}
-                    />
-                    {uploadProgress[index] !== undefined && (
-                      <div className="upload-progress">
-                        {uploadProgress[index]}%
-                        {uploadProgress[index] < 100 && <div className="loader"></div>}
+                  <div className="d-flex">
+                    <div key={index} className="add_product_input_fileds w-100">
+                      <div className="w-75 " >
+                        <input
+                          type="file"
+                          className="add_product_input_filed_new w-100"
+                          onChange={(event) => handleImageUpload(event, index)}
+                        />
                       </div>
-                    )}
+                    </div>
+                    {/* <div>
+
+
+                      <button
+                        type="button"
+                        className="w-100"
+                        onClick={() => handleRemoveImage(index)}
+                      >
+                        ✖
+                      </button>
+                    </div> */}
+                     <div className="add_more_products_items_div_button_field ms-3" >
+                  <button className='add_new_itms_Add_product_remove_button' onClick={() => handleRemoveImage(index)}>
+                    Remove
+                  </button>
+                </div>
+
                   </div>
                 ))}
 
@@ -350,15 +364,15 @@ function AdminaddProduct() {
                 )}
               </div>
             </div>
-                {thumbnail && (
-                  <img
-                    loading="lazy"
-                    src={thumbnail}
-                    alt="Thumbnail"
-                    width={150}
-                    height={150}
-                  />
-                )}
+            {thumbnail && (
+              <img
+                loading="lazy"
+                src={thumbnail}
+                alt="Thumbnail"
+                width={150}
+                height={150}
+              />
+            )}
 
           </div>
 

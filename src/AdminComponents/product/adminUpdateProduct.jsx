@@ -1561,25 +1561,25 @@ function UpdateProduct() {
                               {uploadProgress[index] < 100 && <div className="loader"></div>}
                             </div>
                           )}
-                          <button
+                          {/* <button
                             type="button"
                             className="remove_btton_add_product mt-3"
                             onClick={() => handleRemoveImageInput(index)}
                           >
                             Remove
-                          </button>
+                          </button> */}
                         </div>
                       ))}
                     </div>
                     <div className="add_more_products_items_div_button_field">
-                      <button
+                      {/* <button
                         type="button"
                         className="add_new_itms_Add_product_new_button"
                         onClick={handleAddMoreImageInput}
                       >
                         <span className="pe-5">+</span>
                         Add More
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                   <div className="product_images_div_add_product">
@@ -1786,7 +1786,7 @@ function UpdateProduct() {
                   Add More Sizes
                 </button>
               </div> */}
-              <div className="section-wrapper">
+              <div className="section-wrapper size_section_edit_page_new">
   <h3>Product Sizes</h3>
   {sizes.map((size, index) => (
     <div className="size-wrapper add_product_input_fileds" key={index}>
@@ -1903,10 +1903,10 @@ function UpdateProduct() {
           onChange={(e) => handleSizeChange(e, index, "length")}
         />
       </div>
-
+<div>
       <button
         type="button"
-        className="remove_btton_add_product"
+        className="remove_btton_add_product "
         onClick={() => {
           if (size._id) {
             setShowConfirm({ show: true, sizeId: size._id });
@@ -1917,6 +1917,7 @@ function UpdateProduct() {
       >
         Delete
       </button>
+      </div>
     </div>
   ))}
   <button

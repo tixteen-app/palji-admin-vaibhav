@@ -307,3 +307,12 @@
 }
 
 
+@media (min-width:1500px) {
+  .size_section_edit_page_new{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+  }
+
+}
