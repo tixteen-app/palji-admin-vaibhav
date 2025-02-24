@@ -909,7 +909,7 @@ const Orderdetails = () => {
                         <p className="item-name">{item?.productId?.name}</p>
                         <div className="item-price">
                           <p>Quantity: {item?.quantity}</p>
-                          <p>Price: ₹{item?.productId?.price}</p>
+                          {/* <p>Price: ₹{item?.productId?.price}</p> */}
                           <p>Total Price: ₹{item?.totalPrice}</p>
                         </div>
                       </div>
