@@ -131,6 +131,7 @@ function Adminsidebar() {
         <div className="admin_sidebar">
           {/* Sidebar Header */}
           <div className="admin_sidebar_header">
+              <Link to="/admin/admin-dashboard">
             <div className="admin_sidebar_header_logo">
               <img
                 alt="logo"
@@ -138,6 +139,7 @@ function Adminsidebar() {
                 className="admin_sidebar_header_logo_img"
               />
             </div>
+              </Link>
           </div>
 
           {/* Sidebar Menu */}

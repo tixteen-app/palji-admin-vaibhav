@@ -697,6 +697,143 @@ function UpdateProduct() {
                   />
                 </div>
               </div>
+              {/* Images Section */}
+              <div className="section-wrapper">
+                <div className="update_product_Image_section ">
+                  <label>Thumbnail:</label>
+                  <div className="add_product_input_fileds">
+
+                  <input
+                    type="file"
+                    className=" add_product_input_filed_new"
+                    
+                    onChange={(e) => handleImageUpload(e, "thumbnail")}
+                    />
+                    </div>
+                  {formData.thumbnail && (
+                    <img
+                      src={formData.thumbnail}
+                      alt="Thumbnail"
+                      className="update_product_image_thumbnail"
+                      width={150}
+                      height={150}
+                    />
+                  )}
+                </div>
+
+                <div className="section-wrapper">
+                  <div>
+                    <h3 className="add_product_text_new">Product Images</h3>
+                  </div>
+                  <div className="add_product_input_fileds d-flex pt-3">
+                    <div className="add_more_products_items_div_input_field">
+                      {imageInputs.map((input, index) => (
+                        <div key={index} className="add_product_input_fileds">
+                          <input
+                            type="file"
+                            className="add_product_input_filed_new"
+                            onChange={(e) => handleImageUpload(e, index)}
+                          />
+                          {uploadProgress[index] !== undefined && (
+                            <div className="upload-progress">
+                              {uploadProgress[index]}%
+                              {uploadProgress[index] < 100 && <div className="loader"></div>}
+                            </div>
+                          )}
+                          <button
+                            type="button"
+                            className="remove_btton_add_product mt-3"
+                            onClick={() => handleRemoveImageInput(index)}
+                          >
+                            Remove
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="add_more_products_items_div_button_field">
+                      <button
+                        type="button"
+                        className="add_new_itms_Add_product_new_button"
+                        onClick={handleAddMoreImageInput}
+                      >
+                        <span className="pe-5">+</span>
+                        Add More
+                      </button>
+                    </div>
+                  </div>
+                  <div className="product_images_div_add_product">
+                    {formData.image.map((image, index) => (
+                      image && (
+                        <div className="" key={index}>
+                          <div className="product_images_div_add_product_card">
+                            <div
+                              className="remove_image_Add_product"
+                              onClick={() => handleImageRemove(index)}
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="26"
+                                height="26"
+                                fill="currentColor"
+                                className="bi bi-dash"
+                                viewBox="0 0 16 16"
+                              >
+                                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
+                              </svg>
+                            </div>
+                            <img
+                              loading="lazy"
+                              src={image}
+                              alt={`Product ${index + 1}`}
+                            />
+                          </div>
+                        </div>
+                      )
+                    ))}
+                  </div>
+                </div>
+
+
+                {/* <div className="update_product_Image_section">
+          <label>Product Images:</label>
+          <input
+            type="file"
+            onChange={(e) => handleImageUpload(e, "image")}
+            className=" add_product_input_filed_new"
+          />
+
+          <div className="product_images_div_add_product" >
+          {formData.image.map((image, index) => (
+            // <div key={index} className="image_wrapper">
+            //   <img src={img} alt={`Product ${index}`} />
+            //   <button
+            //     type="button"
+            //     className="btn btn-danger w-25"
+            //     onClick={() => handleImageRemove(index)}
+            //   >
+            //     Remove
+            //   </button>
+            // </div>
+            <div className="" key={index}>
+                    <div className="product_images_div_add_product_card">
+                      <div className="remove_image_Add_product" onClick={() => handleImageRemove(index)} >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                          <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
+                        </svg>
+                      </div>
+                      <img
+                        loading="lazy"
+                        src={image}
+                        alt={`Product ${index + 1}`}
+                      />
+                    </div>
+                  </div>
+          ))}
+          </div>
+         
+        </div> */}
+              </div>
+
 
               {/* Stock & Quantity Section */}
               {/* <div className="section-wrapper">
@@ -790,7 +927,7 @@ function UpdateProduct() {
                         onChange={(e) => handleSizeChange(e, index, "sizetype")}
                         className="add_product_input_filed_for_size"
                       >
-                        <option value="null">null</option>
+                        <option value="null" >select size type</option>
                         <option value="Kg">Kg</option>
                         <option value="Gram">Gram</option>
                         <option value="Litre">Litre</option>
@@ -984,140 +1121,7 @@ function UpdateProduct() {
                 </button>
               </div>
 
-              {/* Images Section */}
-              <div className="section-wrapper">
-                <div className="update_product_Image_section">
-                  <label>Thumbnail:</label>
-                  <input
-                    type="file"
-                    className=" add_product_input_filed_new"
-
-                    onChange={(e) => handleImageUpload(e, "thumbnail")}
-                  />
-                  {formData.thumbnail && (
-                    <img
-                      src={formData.thumbnail}
-                      alt="Thumbnail"
-                      className="update_product_image_thumbnail"
-                      width={150}
-                      height={150}
-                    />
-                  )}
-                </div>
-
-                <div className="section-wrapper">
-                  <div>
-                    <h3 className="add_product_text_new">Product Images</h3>
-                  </div>
-                  <div className="add_product_input_fileds d-flex pt-3">
-                    <div className="add_more_products_items_div_input_field">
-                      {imageInputs.map((input, index) => (
-                        <div key={index} className="add_product_input_fileds">
-                          <input
-                            type="file"
-                            className="add_product_input_filed_new"
-                            onChange={(e) => handleImageUpload(e, index)}
-                          />
-                          {uploadProgress[index] !== undefined && (
-                            <div className="upload-progress">
-                              {uploadProgress[index]}%
-                              {uploadProgress[index] < 100 && <div className="loader"></div>}
-                            </div>
-                          )}
-                          <button
-                            type="button"
-                            className="remove_btton_add_product mt-3"
-                            onClick={() => handleRemoveImageInput(index)}
-                          >
-                            Remove
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="add_more_products_items_div_button_field">
-                      <button
-                        type="button"
-                        className="add_new_itms_Add_product_new_button"
-                        onClick={handleAddMoreImageInput}
-                      >
-                        <span className="pe-5">+</span>
-                        Add More
-                      </button>
-                    </div>
-                  </div>
-                  <div className="product_images_div_add_product">
-                    {formData.image.map((image, index) => (
-                      image && (
-                        <div className="" key={index}>
-                          <div className="product_images_div_add_product_card">
-                            <div
-                              className="remove_image_Add_product"
-                              onClick={() => handleImageRemove(index)}
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="26"
-                                height="26"
-                                fill="currentColor"
-                                className="bi bi-dash"
-                                viewBox="0 0 16 16"
-                              >
-                                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
-                              </svg>
-                            </div>
-                            <img
-                              loading="lazy"
-                              src={image}
-                              alt={`Product ${index + 1}`}
-                            />
-                          </div>
-                        </div>
-                      )
-                    ))}
-                  </div>
-                </div>
-
-
-                {/* <div className="update_product_Image_section">
-          <label>Product Images:</label>
-          <input
-            type="file"
-            onChange={(e) => handleImageUpload(e, "image")}
-            className=" add_product_input_filed_new"
-          />
-
-          <div className="product_images_div_add_product" >
-          {formData.image.map((image, index) => (
-            // <div key={index} className="image_wrapper">
-            //   <img src={img} alt={`Product ${index}`} />
-            //   <button
-            //     type="button"
-            //     className="btn btn-danger w-25"
-            //     onClick={() => handleImageRemove(index)}
-            //   >
-            //     Remove
-            //   </button>
-            // </div>
-            <div className="" key={index}>
-                    <div className="product_images_div_add_product_card">
-                      <div className="remove_image_Add_product" onClick={() => handleImageRemove(index)} >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
-                          <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
-                        </svg>
-                      </div>
-                      <img
-                        loading="lazy"
-                        src={image}
-                        alt={`Product ${index + 1}`}
-                      />
-                    </div>
-                  </div>
-          ))}
-          </div>
-         
-        </div> */}
-              </div>
-
+              
               {/* Submit Button */}
               <div className="submit_form_Add_product_admin">
                 {updateloader ? (
