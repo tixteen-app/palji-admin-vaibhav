@@ -1315,6 +1315,8 @@ function UpdateProduct() {
       }
       // Remove the nutrition from the local state
       setNutritions(nutritions.filter((_, i) => i !== index));
+      toast.success("Size deleted successfully!");
+
     } catch (error) {
       console.error("Error deleting nutrition:", error);
     }
@@ -1415,16 +1417,94 @@ function UpdateProduct() {
     setFormData({ ...formData, image: updatedImages });
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const updatedFormData = { ...formData };
+  //     if (!updatedFormData.subcategory) {
+  //       delete updatedFormData.subcategory;
+  //     }
+  //     setUpdateLoader(true);
+  //     // await makeApi(`/api/update-product/${productId}`, "PUT", formData);
+  //     await makeApi(`/api/update-product/${productId}`, "PUT", updatedFormData);
+  //     for (const nutrition of nutritions) {
+  //       if (nutrition._id) {
+  //         await makeApi(`/api/update-nutrition/${nutrition._id}`, "PUT", nutrition);
+  //       } else if (nutrition.nutrition && nutrition.value) {
+  //         await makeApi(`/api/add-nutrition`, "POST", {
+  //           productId,
+  //           ...nutrition,
+  //         });
+  //       }
+  //     }
+  //     for (const size of sizes) {
+  //       if (size._id) {
+  //         await makeApi(`/api/update-productsize/${size._id}`, "PUT", size);
+  //       } else {
+  //         await makeApi(`/api/add-productsize`, "POST", {
+  //           productId,
+  //           ...size,
+  //         });
+  //       }
+  //     }
+
+  //     for (const include of includes) {
+  //       if (include._id) {
+  //         await makeApi(`/api/update-include/${include._id}`, "PUT", include);
+  //       } else if (include.include) {
+  //         await makeApi(`/api/include-product`, "POST", {
+  //           productId,
+  //           ...include,
+  //         });
+  //       }
+  //     }
+  //     toast("product update successfully")
+  //     console.log("Product updated successfully!");
+  //   } catch (error) {
+  //     console.error("Error updating product:", error);
+  //   } finally {
+  //     fetchProduct()
+  //     setUpdateLoader(false);
+  //   }
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
+  
+    let requiredFields = [];
+  console.log(formData);
+    if (!formData.name) requiredFields.push("Name");
+    if (!formData.category) requiredFields.push("Category");
+    if (!formData.thumbnail) requiredFields.push("Thumbnail");
+   
+  
+    // Validate product sizes
+    for (let i = 0; i < sizes.length; i++) {
+      const { height, width, length } = sizes[i];
+      if (!height || !width || !length) {
+        toast.error(`Please provide height, width, and length for all product sizes.`);
+        return;
+      }
+    }
+  
+    // If required fields are missing, show an error message
+    if (requiredFields.length > 0) {
+      const fieldNames = requiredFields.join(", ");
+      toast.error(`Please fill all required fields: ${fieldNames}`);
+      return;
+    }
+  
     try {
       const updatedFormData = { ...formData };
       if (!updatedFormData.subcategory) {
         delete updatedFormData.subcategory;
       }
+  
       setUpdateLoader(true);
-      // await makeApi(`/api/update-product/${productId}`, "PUT", formData);
+  
+      // Update product details
       await makeApi(`/api/update-product/${productId}`, "PUT", updatedFormData);
+  
+      // Update or add nutrition details
       for (const nutrition of nutritions) {
         if (nutrition._id) {
           await makeApi(`/api/update-nutrition/${nutrition._id}`, "PUT", nutrition);
@@ -1435,6 +1515,8 @@ function UpdateProduct() {
           });
         }
       }
+  
+      // Update or add product sizes
       for (const size of sizes) {
         if (size._id) {
           await makeApi(`/api/update-productsize/${size._id}`, "PUT", size);
@@ -1445,7 +1527,8 @@ function UpdateProduct() {
           });
         }
       }
-
+  
+      // Update or add included items
       for (const include of includes) {
         if (include._id) {
           await makeApi(`/api/update-include/${include._id}`, "PUT", include);
@@ -1456,15 +1539,20 @@ function UpdateProduct() {
           });
         }
       }
-      toast("product update successfully")
+  
+      toast.success("Product updated successfully!");
       console.log("Product updated successfully!");
     } catch (error) {
       console.error("Error updating product:", error);
+      toast.error("Failed to update product.");
     } finally {
-      fetchProduct()
+      fetchProduct();
       setUpdateLoader(false);
+      toast.success("Product updated successfully!");
+
     }
   };
+  
 
   const handleRemoveImageInput = (index) => {
     const updatedInputs = imageInputs.filter((_, i) => i !== index);
@@ -1473,6 +1561,7 @@ function UpdateProduct() {
 
   return (
     <>
+    <ToastContainer/>
       {loading ? (
         <Loader />
       ) : (

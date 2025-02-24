@@ -154,11 +154,14 @@
 .back_arrow_div{
   width: 50%;
   padding-left: 40px;
+  display: flex;
+  align-items: center;
+  /* padding-top: 10px; */
 }
 .back_arrow_add_product{
   color: black;
   text-decoration: none;
-
+height: 40px;
 }
 .add_product_text{
   width: 70%;

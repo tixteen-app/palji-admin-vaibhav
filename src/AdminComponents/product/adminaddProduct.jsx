@@ -97,8 +97,15 @@ function AdminaddProduct() {
     // if (!quantity) requiredFields.push("Quantity");
     if (!category) requiredFields.push("Category");
     if (!thumbnail) requiredFields.push("Thumbnail");
-    if (!productType) requiredFields.push("Product Type");
     if (images.length === 0 || images.includes("")) requiredFields.push("Product Images");
+
+    for (let i = 0; i < productSizes.length; i++) {
+      const { height, width, length } = productSizes[i];
+      if (!height || !width || !length) {
+        toast.error(`Please provide height, width, and length for all product sizes.`);
+        return;
+      }
+    }
 
     if (requiredFields.length > 0) {
       const fieldNames = requiredFields.join(", ");
@@ -130,6 +137,7 @@ function AdminaddProduct() {
         payload.subcategory = subcategory;
       }
 
+
       const response = await makeApi("/api/create-product", "POST", payload);
       setName("");
       setDescription("");
@@ -149,6 +157,9 @@ function AdminaddProduct() {
 
     } catch (error) {
       console.error("Error adding product:", error);
+    }finally{
+      setLoading(false);
+      toast("Product update successfully");
     }
   };
   // include
@@ -277,7 +288,7 @@ function AdminaddProduct() {
             <div className="add_product_input_fileds" >
               <div className="add_more_products_items_div_input_field">
                 {images.map((image, index) => (
-                  <div className="d-flex">
+                  <div className="d-flex">``
                     <div key={index} className="add_product_input_fileds w-100">
                       <div className="w-75 " >
                         <input
@@ -287,22 +298,12 @@ function AdminaddProduct() {
                         />
                       </div>
                     </div>
-                    {/* <div>
 
-
-                      <button
-                        type="button"
-                        className="w-100"
-                        onClick={() => handleRemoveImage(index)}
-                      >
-                        ✖
+                    <div className="add_more_products_items_div_button_field ms-3" >
+                      <button className='add_new_itms_Add_product_remove_button' onClick={() => handleRemoveImage(index)}>
+                        Remove
                       </button>
-                    </div> */}
-                     <div className="add_more_products_items_div_button_field ms-3" >
-                  <button className='add_new_itms_Add_product_remove_button' onClick={() => handleRemoveImage(index)}>
-                    Remove
-                  </button>
-                </div>
+                    </div>
 
                   </div>
                 ))}
