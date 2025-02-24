@@ -434,7 +434,8 @@ function Orders() {
               <div className="divider"></div>
 
               <div className="order-items">
-                {order.others.order_items.map((product) => (<>
+                {order.others.order_items.map((product) => (
+                  <>
 
                   <div className="item-card">
                     <div className="item-image">
@@ -461,7 +462,7 @@ function Orders() {
 
               <div className="shipping-details">
                 <p className="section-title">Shipping Details</p>
-                <p>Dimensions: 10x10x10</p>
+                <p>Dimensions: {order?.others?.dimensions  || "N/A" }</p>
                 <p>Weight: 10kg</p>
                 <p>Shipping Charges: ₹N/A</p>
               </div>
