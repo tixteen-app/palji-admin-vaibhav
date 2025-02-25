@@ -358,6 +358,7 @@ function Orders() {
       try {
         setLoading(true);
         const response = await makeApi(`/api/shiprocket/get-all-orders?status=${selectedStatus}`, "GET");
+        // const response = await makeApi(`/api/shiprocket/get-all-orders?status="PICKUP SCHEDULED"`, "GET");
         setOrders(response.data.data);
       } catch (error) {
         console.log(error);
@@ -405,6 +406,12 @@ function Orders() {
           onClick={() => handleStatusChange("CANCELED")}
         >
           Canceled Orders
+        </button>
+        <button 
+          className={selectedStatus === "PICKUP SCHEDULED" ? "active" : ""} 
+          onClick={() => handleStatusChange("PICKUP SCHEDULED")}
+        >
+          PICKUP SCHEDULED
         </button>
       </div>
 

@@ -108,21 +108,21 @@
 //   };
 
 
-//   const {
-//     customer_name,
-//     customer_email,
-//     customer_phone,
-//     customer_address,
-//     customer_city,
-//     customer_state,
-//     customer_country,
-//     customer_pincode,
-//     payment_method,
-//     total,
-//     net_total,
-//     products,
-//     shipments
-//   } = orderData || {};
+// const {
+//   customer_name,
+//   customer_email,
+//   customer_phone,
+//   customer_address,
+//   customer_city,
+//   customer_state,
+//   customer_country,
+//   customer_pincode,
+//   payment_method,
+//   total,
+//   net_total,
+//   products,
+//   shipments
+// } = orderData || {};
 
 //   return (
 //     <>
@@ -204,7 +204,7 @@
 //               </div>
 //             </div>
 //           </div>
-  
+
 //           <div className="order_details_main_section">
 //             {/* user section */}
 //             <div className="user_section order_details_cards">
@@ -228,7 +228,7 @@
 //                 </p>
 //               </div>
 //             </div>
-  
+
 //             {/* shipping address */}
 //             <div className="order_shipping_address_section order_details_cards">
 //               <h3 className="order_details_header">Shipping Address</h3>
@@ -259,75 +259,75 @@
 //                 </p>
 //               </div>
 
-//               {shipments && (
-//             <>
-//               <p> <strong>Shipment ID:</strong> {shipments.id || "N/A"}  </p>
-//               <p><strong>Order ID:</strong> {shipments.order_id || "N/A"}</p>
-//               <p><strong>Channel ID:</strong> {shipments.channel_id || "N/A"}</p>
-//               <p><strong>Code:</strong> {shipments.code || "N/A"}</p>
-//               <p><strong>Cost:</strong> {shipments.cost || "N/A"}</p>
-//               <p><strong>Tax:</strong> {shipments.tax || "N/A"}</p>
-//               <p><strong>AWB:</strong> {shipments.awb || "N/A"}</p>
-//               <p><strong>Last Mile AWB:</strong> {shipments.last_mile_awb || "N/A"}</p>
-//               <p><strong>ETD:</strong> {shipments.etd || "N/A"}</p>
-//               <p><strong>Quantity:</strong> {shipments.quantity || "N/A"}</p>
-//               <p><strong>Weight:</strong> {shipments.weight || "N/A"}</p>
-//               <p><strong>Dimensions:</strong> {shipments.dimensions || "N/A"}</p>
-//               <p><strong>Comment:</strong> {shipments.comment || "N/A"}</p>
-//               <p><strong>Courier:</strong> {shipments.courier || "N/A"}</p>
-//               <p><strong>Courier ID:</strong> {shipments.courier_id || "N/A"}</p>
-//               <p><strong>Manifest ID:</strong> {shipments.manifest_id || "N/A"}</p>
-//               <p><strong>Manifest Escalate:</strong> {shipments.manifest_escalate || "N/A"}</p>
-//               <p><strong>Status:</strong> {shipments.status || "N/A"}</p>
-//               <p><strong>ISD Code:</strong> {shipments.isd_code || "N/A"}</p>
-//               <p><strong>Created At:</strong> {shipments.created_at || "N/A"}</p>
-//               <p><strong>Updated At:</strong> {shipments.updated_at || "N/A"}</p>
-//               <p><strong>POD:</strong> {shipments.pod || "N/A"}</p>
-//               <p><strong>EWAY Bill Number:</strong> {shipments.eway_bill_number || "N/A"}</p>
-//               <p><strong>EWAY Bill Date:</strong> {shipments.eway_bill_date || "N/A"}</p>  
-//               <p><strong>Length:</strong> {shipments.length || "N/A"}</p>
-//               <p><strong>Breadth:</strong> {shipments.breadth || "N/A"}</p>
-//               <p><strong>Height:</strong> {shipments.height || "N/A"}</p>
-//               <p><strong>RTO Initiated Date:</strong> {shipments.rto_initiated_date || "N/A"}</p>
-//               <p><strong>RTO Delivered Date:</strong> {shipments.rto_delivered_date || "N/A"}</p>
-//               <p><strong>Package Images:</strong> {shipments.package_images || "N/A"}</p>
-//               <p><strong>Is RTO:</strong> {shipments.is_rto || "N/A"}</p>
-//               <p><strong>EWAY Required:</strong> {shipments.eway_required || "N/A"}</p>
-//               <p><strong>Invoice Link:</strong> {shipments.invoice_link || "N/A"}</p>
-//               <p><strong>Is Darkstore Courier:</strong> {shipments.is_darkstore_courier || "N/A"}</p>
-//               <p><strong>Courier Custom Rule:</strong> {shipments.courier_custom_rule || "N/A"}</p>
-//               <p><strong>Is Single Shipment:</strong> {shipments.is_single_shipment || "N/A"}</p>
-//               <p><strong>Shipment Type:</strong> {shipments.shipment_type || "N/A"}</p>
-//               <p><strong>Shipment Mode:</strong> {shipments.shipment_mode || "N/A"}</p>
-//               <p><strong>Shipment Mode ID:</strong> {shipments.shipment_mode_id || "N/A"}</p>
-//               <p><strong>Shipment Mode Name:</strong> {shipments.shipment_mode_name || "N/A"}</p>
-//               <p><strong>Shipment Mode Type:</strong> {shipments.shipment_mode_type || "N/A"}</p>
-//               <p><strong>Shipment Mode Type ID:</strong> {shipments.shipment_mode_type_id || "N/A"}</p>
-//               <p><strong>Shipment Mode Type Name:</strong> {shipments.shipment_mode_type_name || "N/A"}</p>
-//               <p><strong>Shipment Mode Type Description:</strong> {shipments.shipment_mode_type_description || "N/A"}</p>
-//               <p><strong>Shipment Mode Type Code:</strong> {shipments.shipment_mode_type_code || "N/A"}</p>
-//               <p><strong>Shipment Mode Type Status:</strong> {shipments.shipment_mode_type_status || "N/A"}</p>
-//               <p><strong>Shipment Mode Type Created At:</strong> {shipments.shipment_mode_type_created_at || "N/A"}</p>
-//               <p><strong>Shipment Mode Type Updated At:</strong> {shipments.shipment_mode_type_updated_at || "N/A"}</p>
+//     {shipments && (
+//   <>
+//     <p> <strong>Shipment ID:</strong> {shipments.id || "N/A"}  </p>
+//     <p><strong>Order ID:</strong> {shipments.order_id || "N/A"}</p>
+//     <p><strong>Channel ID:</strong> {shipments.channel_id || "N/A"}</p>
+//     <p><strong>Code:</strong> {shipments.code || "N/A"}</p>
+//     <p><strong>Cost:</strong> {shipments.cost || "N/A"}</p>
+//     <p><strong>Tax:</strong> {shipments.tax || "N/A"}</p>
+//     <p><strong>AWB:</strong> {shipments.awb || "N/A"}</p>
+//     <p><strong>Last Mile AWB:</strong> {shipments.last_mile_awb || "N/A"}</p>
+//     <p><strong>ETD:</strong> {shipments.etd || "N/A"}</p>
+//     <p><strong>Quantity:</strong> {shipments.quantity || "N/A"}</p>
+//     <p><strong>Weight:</strong> {shipments.weight || "N/A"}</p>
+//     <p><strong>Dimensions:</strong> {shipments.dimensions || "N/A"}</p>
+//     <p><strong>Comment:</strong> {shipments.comment || "N/A"}</p>
+//     <p><strong>Courier:</strong> {shipments.courier || "N/A"}</p>
+//     <p><strong>Courier ID:</strong> {shipments.courier_id || "N/A"}</p>
+//     <p><strong>Manifest ID:</strong> {shipments.manifest_id || "N/A"}</p>
+//     <p><strong>Manifest Escalate:</strong> {shipments.manifest_escalate || "N/A"}</p>
+//     <p><strong>Status:</strong> {shipments.status || "N/A"}</p>
+//     <p><strong>ISD Code:</strong> {shipments.isd_code || "N/A"}</p>
+//     <p><strong>Created At:</strong> {shipments.created_at || "N/A"}</p>
+//     <p><strong>Updated At:</strong> {shipments.updated_at || "N/A"}</p>
+//     <p><strong>POD:</strong> {shipments.pod || "N/A"}</p>
+//     <p><strong>EWAY Bill Number:</strong> {shipments.eway_bill_number || "N/A"}</p>
+//     <p><strong>EWAY Bill Date:</strong> {shipments.eway_bill_date || "N/A"}</p>  
+//     <p><strong>Length:</strong> {shipments.length || "N/A"}</p>
+//     <p><strong>Breadth:</strong> {shipments.breadth || "N/A"}</p>
+//     <p><strong>Height:</strong> {shipments.height || "N/A"}</p>
+//     <p><strong>RTO Initiated Date:</strong> {shipments.rto_initiated_date || "N/A"}</p>
+//     <p><strong>RTO Delivered Date:</strong> {shipments.rto_delivered_date || "N/A"}</p>
+//     <p><strong>Package Images:</strong> {shipments.package_images || "N/A"}</p>
+//     <p><strong>Is RTO:</strong> {shipments.is_rto || "N/A"}</p>
+//     <p><strong>EWAY Required:</strong> {shipments.eway_required || "N/A"}</p>
+//     <p><strong>Invoice Link:</strong> {shipments.invoice_link || "N/A"}</p>
+//     <p><strong>Is Darkstore Courier:</strong> {shipments.is_darkstore_courier || "N/A"}</p>
+//     <p><strong>Courier Custom Rule:</strong> {shipments.courier_custom_rule || "N/A"}</p>
+//     <p><strong>Is Single Shipment:</strong> {shipments.is_single_shipment || "N/A"}</p>
+//     <p><strong>Shipment Type:</strong> {shipments.shipment_type || "N/A"}</p>
+//     <p><strong>Shipment Mode:</strong> {shipments.shipment_mode || "N/A"}</p>
+//     <p><strong>Shipment Mode ID:</strong> {shipments.shipment_mode_id || "N/A"}</p>
+//     <p><strong>Shipment Mode Name:</strong> {shipments.shipment_mode_name || "N/A"}</p>
+//     <p><strong>Shipment Mode Type:</strong> {shipments.shipment_mode_type || "N/A"}</p>
+//     <p><strong>Shipment Mode Type ID:</strong> {shipments.shipment_mode_type_id || "N/A"}</p>
+//     <p><strong>Shipment Mode Type Name:</strong> {shipments.shipment_mode_type_name || "N/A"}</p>
+//     <p><strong>Shipment Mode Type Description:</strong> {shipments.shipment_mode_type_description || "N/A"}</p>
+//     <p><strong>Shipment Mode Type Code:</strong> {shipments.shipment_mode_type_code || "N/A"}</p>
+//     <p><strong>Shipment Mode Type Status:</strong> {shipments.shipment_mode_type_status || "N/A"}</p>
+//     <p><strong>Shipment Mode Type Created At:</strong> {shipments.shipment_mode_type_created_at || "N/A"}</p>
+//     <p><strong>Shipment Mode Type Updated At:</strong> {shipments.shipment_mode_type_updated_at || "N/A"}</p>
 
-//               <p><strong>Shipped Date:</strong> {shipments.shipped_date || "N/A"}</p>
-//               <p><strong>Delivered Date:</strong> {shipments.delivered_date || "N/A"}</p>
-//               <p><strong>Courier:</strong> {shipments.courier_name || "N/A"}</p>
-//               <p><strong>Tracking ID:</strong> {shipments.tracking_id || "N/A"}</p>
-//               <p>
-//                 <strong>Tracking URL:</strong>{" "}
-//                 {shipments.tracking_url ? (
-//                   <a href={shipments.tracking_url} target="_blank" rel="noopener noreferrer">
-//                     Track Order
-//                   </a>
-//                 ) : (
-//                   "N/A"
-//                 )}
-//               </p>
-//             </>
-//           )}
-//             </div>
-  
+//     <p><strong>Shipped Date:</strong> {shipments.shipped_date || "N/A"}</p>
+//     <p><strong>Delivered Date:</strong> {shipments.delivered_date || "N/A"}</p>
+//     <p><strong>Courier:</strong> {shipments.courier_name || "N/A"}</p>
+//     <p><strong>Tracking ID:</strong> {shipments.tracking_id || "N/A"}</p>
+//     <p>
+//       <strong>Tracking URL:</strong>{" "}
+//       {shipments.tracking_url ? (
+//         <a href={shipments.tracking_url} target="_blank" rel="noopener noreferrer">
+//           Track Order
+//         </a>
+//       ) : (
+//         "N/A"
+//       )}
+//     </p>
+//   </>
+// )}
+//   </div>
+
 //             {/* payment details */}
 //             <div className="order_payment_details_section order_details_cards">
 //               <h3>Payment Details</h3>
@@ -365,7 +365,7 @@
 //                 </p>
 //               </div>
 //             </div>
-  
+
 //             {/* Pickup details */}
 //             <div className="order_payment_details_section order_details_cards">
 //               <h2>Pickup Address</h2>
@@ -376,10 +376,10 @@
 //                 {`${orderData?.pickup_address?.address || ""}, ${orderData?.pickup_address?.city || ""}, ${orderData?.pickup_address?.state || ""} - ${orderData?.pickup_address?.pin_code || "N/A"}`}
 //               </p>
 //             </div>
-  
+
 //             {/* order items */}
 //           </div>
-  
+
 //           <div className="order_item_section order_details_cards">
 //             <h3>Order Items</h3>
 //             <div className="order_item_div_section_div">
@@ -437,12 +437,12 @@
 //           )}
 
 //         </div>
-       
+
 
 //       )}
 //     </>
 //   );
-  
+
 // }
 
 // export default Orderdetails;
@@ -669,7 +669,7 @@
 //         <div className="order-items-container">
 //             <h3>Order Items</h3>
 //         <div className="order-items">
-            
+
 //         <div className="item-card">
 //             <div className="item-image">
 //             <img src="" alt="Product" />
@@ -696,7 +696,7 @@
 //             </div>
 //             </div>
 //         </div>
-        
+
 //         <div className="item-card">
 //             <div className="item-image">
 //             <img src="" alt="Product" />
@@ -741,6 +741,7 @@ import Loader from "../../components/loader/loader";
 
 const Orderdetails = () => {
   const [order, setOrder] = useState({});
+  console.log(order);
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const [orderData, setOrderData] = useState(null);
@@ -774,6 +775,7 @@ const Orderdetails = () => {
           "GET"
         );
         await setOrderData(response?.data?.data?.data);
+        console.log(orderData.invoice_no)
         setLoading(false);
       } catch (error) {
         console.error('Error fetching order details:', error);
@@ -837,7 +839,8 @@ const Orderdetails = () => {
     total,
     net_total,
     products,
-    shipments
+    shipments,
+    awb_data
   } = orderData || {};
 
   return (
@@ -849,7 +852,7 @@ const Orderdetails = () => {
           <div className="order-header">
             <Link to={"/admin/all-orders"} className="back-button">←</Link>
             <h1>Order Details</h1>
-            {order?.status !== ("CANCELED" || "Delivered" || "canceled" ) && (
+            {order?.status !== ("CANCELED" || "Delivered" || "canceled") && (
               <button onClick={handleCancelClick} className="cancel-button">Cancel Order</button>
             )}
           </div>
@@ -875,8 +878,12 @@ const Orderdetails = () => {
 
               <div className="shipping-box">
                 <h3 className="shipping-title">Shipping Address</h3>
-                <p>{`${order?.shippingAddress?.address}, ${order?.shippingAddress?.city}, ${order?.shippingAddress?.state} - ${order?.shippingAddress?.pincode}`}</p>
-                <p>{order?.shippingAddress?.country}</p>
+                <p> <span className='left-det'>Phone:</span> <span className='right-det'>{order?.shippingAddress?.phonenumber}</span> </p>
+                <p> <span className='left-det'>Address:</span> <span className='right-det'>{order?.shippingAddress?.address}</span> </p>
+                <p> <span className='left-det'>State:</span> <span className='right-det'>{order?.shippingAddress?.state}</span> </p>
+                <p> <span className='left-det'>City:</span> <span className='right-det'>{order?.shippingAddress?.city}</span> </p>
+                <p> <span className='left-det'>Pincode:</span> <span className='right-det'>{order?.shippingAddress?.pincode}</span> </p>
+                <p> <span className='left-det'>User Id:</span> <span className='right-det'>{order?.shippingAddress?.userId}</span> </p>
               </div>
             </div>
 
@@ -885,6 +892,7 @@ const Orderdetails = () => {
                 <div className="payment-box">
                   <h3 className="payment-title">Payment Details</h3>
                   <p><span className='left-det'>Method:</span> <span className='right-det'>{order?.paymentMethod}</span></p>
+                  <p><span className='left-det'>payment type:</span> <span className='right-det'>{order?.payment_method}</span></p>
                   <p><span className='left-det'>Total Price:</span> <span className='right-det'>₹{order?.CartId?.totalPrice}</span></p>
                   <p><span className='left-det'>Status:</span> <span className='right-det'>{order?.status}</span></p>
                 </div>
@@ -919,39 +927,191 @@ const Orderdetails = () => {
               </div>
             </div>
           </div>
+          <div className="d-flex" >
+            <div className="shipping-box" style={{ maxHeight: "400px", overflowY: "scroll" }} >
+              <h3 className="shipping-title">Other details</h3>
+              <p> <span className='left-det'>invoice_no:</span> <span className='right-det'>{orderData?.invoice_no}</span> </p>
+              <p> <span className='left-det'>invoice_date:</span> <span className='right-det'>{orderData?.invoice_date}</span> </p>
+              <p> <span className='left-det'>State:</span> <span className='right-det'>{order?.shippingAddress?.state}</span> </p>
+              <p> <span className='left-det'>City:</span> <span className='right-det'>{order?.shippingAddress?.city}</span> </p>
+              <p> <span className='left-det'>Pincode:</span> <span className='right-det'>{order?.shippingAddress?.pincode}</span> </p>
+              <p> <span className='left-det'>User Id:</span> <span className='right-det'>{order?.shippingAddress?.userId}</span> </p>
+            </div>
+            <div className="shipping-box" style={{ maxHeight: "400px", overflowY: "scroll" }} >
+              {shipments && (
+                <>
+                  <p><strong>Invoice Link:</strong> {shipments.invoice_link || "N/A"}</p>
+                  <p> <strong>Shipment ID:</strong> {shipments.id || "N/A"}  </p>
+                  <p><strong>Order ID:</strong> {shipments.order_id || "N/A"}</p>
+                  <p><strong>Channel ID:</strong> {shipments.channel_id || "N/A"}</p>
+                  <p><strong>Code:</strong> {shipments.code || "N/A"}</p>
+                  <p><strong>Cost:</strong> {shipments.cost || "N/A"}</p>
+                  <p><strong>Tax:</strong> {shipments.tax || "N/A"}</p>
+                  <p><strong>AWB:</strong> {shipments.awb || "N/A"}</p>
+                  <p><strong>Last Mile AWB:</strong> {shipments.last_mile_awb || "N/A"}</p>
+                  <p><strong>ETD:</strong> {shipments.etd || "N/A"}</p>
+                  <p><strong>Quantity:</strong> {shipments.quantity || "N/A"}</p>
+                  <p><strong>Weight:</strong> {shipments.weight || "N/A"}</p>
+                  <p><strong>Dimensions:</strong> {shipments.dimensions || "N/A"}</p>
+                  <p><strong>Comment:</strong> {shipments.comment || "N/A"}</p>
+                  <p><strong>Courier:</strong> {shipments.courier || "N/A"}</p>
+                  <p><strong>Courier ID:</strong> {shipments.courier_id || "N/A"}</p>
+                  <p><strong>Manifest ID:</strong> {shipments.manifest_id || "N/A"}</p>
+                  <p><strong>Manifest Escalate:</strong> {shipments.manifest_escalate || "N/A"}</p>
+                  <p><strong>Status:</strong> {shipments.status || "N/A"}</p>
+                  <p><strong>ISD Code:</strong> {shipments.isd_code || "N/A"}</p>
+                  <p><strong>Created At:</strong> {shipments.created_at || "N/A"}</p>
+                  <p><strong>Updated At:</strong> {shipments.updated_at || "N/A"}</p>
+                  <p><strong>POD:</strong> {shipments.pod || "N/A"}</p>
+                  <p><strong>EWAY Bill Number:</strong> {shipments.eway_bill_number || "N/A"}</p>
+                  <p><strong>EWAY Bill Date:</strong> {shipments.eway_bill_date || "N/A"}</p>
+                  <p><strong>Length:</strong> {shipments.length || "N/A"}</p>
+                  <p><strong>Breadth:</strong> {shipments.breadth || "N/A"}</p>
+                  <p><strong>Height:</strong> {shipments.height || "N/A"}</p>
+                  <p><strong>RTO Initiated Date:</strong> {shipments.rto_initiated_date || "N/A"}</p>
+                  <p><strong>RTO Delivered Date:</strong> {shipments.rto_delivered_date || "N/A"}</p>
+                  <p><strong>Package Images:</strong> {shipments.package_images || "N/A"}</p>
+                  <p><strong>Is RTO:</strong> {shipments.is_rto || "N/A"}</p>
+                  <p><strong>EWAY Required:</strong> {shipments.eway_required || "N/A"}</p>
+                  <p><strong>Is Darkstore Courier:</strong> {shipments.is_darkstore_courier || "N/A"}</p>
+                  <p><strong>Courier Custom Rule:</strong> {shipments.courier_custom_rule || "N/A"}</p>
+                  <p><strong>Is Single Shipment:</strong> {shipments.is_single_shipment || "N/A"}</p>
+                  <p><strong>Shipment Type:</strong> {shipments.shipment_type || "N/A"}</p>
+                  <p><strong>Shipment Mode:</strong> {shipments.shipment_mode || "N/A"}</p>
+                  <p><strong>Shipment Mode ID:</strong> {shipments.shipment_mode_id || "N/A"}</p>
+                  <p><strong>Shipment Mode Name:</strong> {shipments.shipment_mode_name || "N/A"}</p>
+                  <p><strong>Shipment Mode Type:</strong> {shipments.shipment_mode_type || "N/A"}</p>
+                  <p><strong>Shipment Mode Type ID:</strong> {shipments.shipment_mode_type_id || "N/A"}</p>
+                  <p><strong>Shipment Mode Type Name:</strong> {shipments.shipment_mode_type_name || "N/A"}</p>
+                  <p><strong>Shipment Mode Type Description:</strong> {shipments.shipment_mode_type_description || "N/A"}</p>
+                  <p><strong>Shipment Mode Type Code:</strong> {shipments.shipment_mode_type_code || "N/A"}</p>
+                  <p><strong>Shipment Mode Type Status:</strong> {shipments.shipment_mode_type_status || "N/A"}</p>
+                  <p><strong>Shipment Mode Type Created At:</strong> {shipments.shipment_mode_type_created_at || "N/A"}</p>
+                  <p><strong>Shipment Mode Type Updated At:</strong> {shipments.shipment_mode_type_updated_at || "N/A"}</p>
+                  <p><strong>Shipped Date:</strong> {shipments.shipped_date || "N/A"}</p>
+                  <p><strong>Delivered Date:</strong> {shipments.delivered_date || "N/A"}</p>
+                  <p><strong>Courier:</strong> {shipments.courier_name || "N/A"}</p>
+                  <p><strong>Tracking ID:</strong> {shipments.tracking_id || "N/A"}</p>
+                  <p>
+                    <strong>Tracking URL:</strong>{" "}
+                    {shipments.tracking_url ? (
+                      <a href={shipments.tracking_url} target="_blank" rel="noopener noreferrer">
+                        Track Order
+                      </a>
+                    ) : (
+                      "N/A"
+                    )}
+                  </p>
+                </>
+              )}
+            </div>
+
+          </div>
+          <div className="d-flex" >
+            <div className="shipping-box" style={{ maxHeight: "400px", overflowY: "scroll" }} >
+              <h3 className="shipping-title">Courier details</h3>
+              <p> <span className='left-det'>shipments:</span> <span className='right-det'>{shipments?.courier}</span> </p>
+              <p> <span className='left-det'>shipments:</span> <span className='right-det'>{shipments?.status}</span> </p>
+              <p> <span className='left-det'>invoice_link:</span> <span className='right-det'>{shipments?.invoice_link}</span> </p>
+              <p> <span className='left-det'>pickup_scheduled_date:</span> <span className='right-det'>{shipments?.pickup_scheduled_date}</span> </p>
+              <p> <span className='left-det'>created_at:</span> <span className='right-det'>{shipments?.created_at}</span> </p>
+              <p> <span className='left-det'>updated_at:</span> <span className='right-det'>{shipments?.updated_at}</span> </p>
+            </div>
+            <div className="shipping-box" style={{ maxHeight: "400px", overflowY: "scroll" }} >
+              {awb_data && (
+                <>
+                  <p><strong>applied_weight_amount:</strong> {awb_data.charges.applied_weight_amount || "N/A"}</p>
+                  <p> <strong>freight_charges:</strong> {awb_data.charges.freight_charges || "N/A"}  </p>
+                  <p><strong>applied_weight:</strong> {awb_data.charges.applied_weight || "N/A"}</p>
+                  <p><strong>billing_amount:</strong> {awb_data.charges.billing_amount || "N/A"}</p>
+                  <p><strong>Channel ID:</strong> {shipments.channel_id || "N/A"}</p>
+                  <p><strong>Code:</strong> {shipments.code || "N/A"}</p>
+                  <p><strong>Cost:</strong> {shipments.cost || "N/A"}</p>
+                  <p><strong>Tax:</strong> {shipments.tax || "N/A"}</p>
+                  <p><strong>AWB:</strong> {shipments.awb || "N/A"}</p>
+                  <p><strong>Last Mile AWB:</strong> {shipments.last_mile_awb || "N/A"}</p>
+                  <p><strong>ETD:</strong> {shipments.etd || "N/A"}</p>
+                  <p><strong>Quantity:</strong> {shipments.quantity || "N/A"}</p>
+                  <p><strong>Weight:</strong> {shipments.weight || "N/A"}</p>
+                  <p><strong>Dimensions:</strong> {shipments.dimensions || "N/A"}</p>
+                  <p><strong>Comment:</strong> {shipments.comment || "N/A"}</p>
+                  <p><strong>Courier:</strong> {shipments.courier || "N/A"}</p>
+                  <p><strong>Courier ID:</strong> {shipments.courier_id || "N/A"}</p>
+                  <p><strong>Manifest ID:</strong> {shipments.manifest_id || "N/A"}</p>
+                  <p><strong>Manifest Escalate:</strong> {shipments.manifest_escalate || "N/A"}</p>
+                  <p><strong>Status:</strong> {shipments.status || "N/A"}</p>
+                  <p><strong>ISD Code:</strong> {shipments.isd_code || "N/A"}</p>
+                  <p><strong>Created At:</strong> {shipments.created_at || "N/A"}</p>
+                  <p><strong>Updated At:</strong> {shipments.updated_at || "N/A"}</p>
+                  <p><strong>POD:</strong> {shipments.pod || "N/A"}</p>
+                  <p><strong>EWAY Bill Number:</strong> {shipments.eway_bill_number || "N/A"}</p>
+                  <p><strong>EWAY Bill Date:</strong> {shipments.eway_bill_date || "N/A"}</p>
+                  <p><strong>Length:</strong> {shipments.length || "N/A"}</p>
+                  <p><strong>Breadth:</strong> {shipments.breadth || "N/A"}</p>
+                  <p><strong>Height:</strong> {shipments.height || "N/A"}</p>
+                  <p><strong>RTO Initiated Date:</strong> {shipments.rto_initiated_date || "N/A"}</p>
+                  <p><strong>RTO Delivered Date:</strong> {shipments.rto_delivered_date || "N/A"}</p>
+                  <p><strong>Package Images:</strong> {shipments.package_images || "N/A"}</p>
+                  <p><strong>Is RTO:</strong> {shipments.is_rto || "N/A"}</p>
+                  <p><strong>EWAY Required:</strong> {shipments.eway_required || "N/A"}</p>
+                  <p><strong>Is Darkstore Courier:</strong> {shipments.is_darkstore_courier || "N/A"}</p>
+                  <p><strong>Courier Custom Rule:</strong> {shipments.courier_custom_rule || "N/A"}</p>
+                  <p><strong>Is Single Shipment:</strong> {shipments.is_single_shipment || "N/A"}</p>
+                  <p><strong>Shipment Type:</strong> {shipments.shipment_type || "N/A"}</p>
+                  <p><strong>Shipment Mode:</strong> {shipments.shipment_mode || "N/A"}</p>
+                  <p><strong>Shipment Mode ID:</strong> {shipments.shipment_mode_id || "N/A"}</p>
+                  <p><strong>Shipment Mode Name:</strong> {shipments.shipment_mode_name || "N/A"}</p>
+                  <p><strong>Shipment Mode Type:</strong> {shipments.shipment_mode_type || "N/A"}</p>
+                  <p><strong>Shipment Mode Type ID:</strong> {shipments.shipment_mode_type_id || "N/A"}</p>
+                  <p><strong>Shipment Mode Type Name:</strong> {shipments.shipment_mode_type_name || "N/A"}</p>
+                  <p><strong>Shipment Mode Type Description:</strong> {shipments.shipment_mode_type_description || "N/A"}</p>
+                  <p><strong>Shipment Mode Type Code:</strong> {shipments.shipment_mode_type_code || "N/A"}</p>
+                  <p><strong>Shipment Mode Type Status:</strong> {shipments.shipment_mode_type_status || "N/A"}</p>
+                  <p><strong>Shipment Mode Type Created At:</strong> {shipments.shipment_mode_type_created_at || "N/A"}</p>
+                  <p><strong>Shipment Mode Type Updated At:</strong> {shipments.shipment_mode_type_updated_at || "N/A"}</p>
+                  <p><strong>Shipped Date:</strong> {shipments.shipped_date || "N/A"}</p>
+                  <p><strong>Delivered Date:</strong> {shipments.delivered_date || "N/A"}</p>
+                  <p><strong>Courier:</strong> {shipments.courier_name || "N/A"}</p>
+                  <p><strong>Tracking ID:</strong> {shipments.tracking_id || "N/A"}</p>
+                  <p>
+                    <strong>Tracking URL:</strong>{" "}
+                    {shipments.tracking_url ? (
+                      <a href={shipments.tracking_url} target="_blank" rel="noopener noreferrer">
+                        Track Order
+                      </a>
+                    ) : (
+                      "N/A"
+                    )}
+                  </p>
+                </>
+              )}
+            </div>
+
+          </div>
 
           {showPopup && (
-            // <div className="popup">
-            //   <div className="popup-content">
-            //     <h3>Are you sure you want to cancel this order?</h3>
-            //     <div className="popup-actions">
-            //       <button onClick={confirmCancel} className="confirm-btn">Confirm Cancel</button>
-            //       <button onClick={() => setShowPopup(false)} className="close-btn">Close</button>
-            //     </div>
-            //   </div>
-            // </div>
             <div className="new_add_cat_modal-overlay">
-            <div className="new_add_cat_modal">
+              <div className="new_add_cat_modal">
                 <h2>Confirm Cancel </h2>
                 <p>Are you sure you want to cancel this order?</p>
                 <div className="new_add_cat_modal-actions">
-                    <button className="new_add_cat_modal-deleteBtn" onClick={confirmCancel}>Confirm Cancel</button>
-                    <button className="new_add_cat_modal-cancelBtn" onClick={() => setShowPopup(false)}>Cancel</button>
+                  <button className="new_add_cat_modal-deleteBtn" onClick={confirmCancel}>Confirm Cancel</button>
+                  <button className="new_add_cat_modal-cancelBtn" onClick={() => setShowPopup(false)}>Cancel</button>
                 </div>
+              </div>
             </div>
-        </div>
           )}
 
           {showToaster && (
             <>
-            <div className="toaster_for_undo">
-              <p>Order will be canceled in {countdown} seconds.</p>
-              <button onClick={undoCancel} className="undo_btn">Undo</button>
-            </div>
+              <div className="toaster_for_undo">
+                <p>Order will be canceled in {countdown} seconds.</p>
+                <button onClick={undoCancel} className="undo_btn">Undo</button>
+              </div>
             </>
           )}
         </>
-      )}  
+      )}
     </div>
   );
 };
