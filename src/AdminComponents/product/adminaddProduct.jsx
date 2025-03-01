@@ -24,7 +24,7 @@ function AdminaddProduct() {
   const [productType, setProductType] = useState("Domestic");
   const [uploadProgress, setUploadProgress] = useState({});
   const [thumbnailUploadProgress, setThumbnailUploadProgress] = useState(0);
-  const [productSizes, setProductSizes] = useState([{ size: 'null', sizetype: 'null', quantity: '', price: '', discountPercentage: 0, FinalPrice: '', height: '', width: '', length: '' }]);
+  const [productSizes, setProductSizes] = useState([{ size: '', sizetype: 'KG', quantity: '', price: '', discountPercentage: 0, FinalPrice: '', height: '', width: '', length: '' }]);
   const [productNuturitions, setProductNuturitions] = useState([{ nutrition: '', value: '' }]);
   const [deliverables, setDeliverables] = useState([]);
   const [subcategory, setSubcategory] = useState();
@@ -288,7 +288,7 @@ function AdminaddProduct() {
             <div className="add_product_input_fileds" >
               <div className="add_more_products_items_div_input_field">
                 {images.map((image, index) => (
-                  <div className="d-flex">``
+                  <div className="d-flex">
                     <div key={index} className="add_product_input_fileds w-100">
                       <div className="w-75 " >
                         <input
@@ -453,6 +453,7 @@ function AdminaddProduct() {
                     placeholder="Size"
                     value={size.size}
                     onChange={(event) => handleSizeChange(index, event)}
+                    required
                   />
                 </div>
 
@@ -466,8 +467,7 @@ function AdminaddProduct() {
                     onChange={(event) => handleSizeChange(index, event)}
                     className="add_product_input_filed_for_size"
                   >
-                    <option value="Kg" >null</option>
-                    <option value="Kg">Kg</option>
+                    <option value="KG">Kg</option>
                     <option value="Gram">Gram</option>
                     <option value="Litre">Litre</option>
                     <option value="ML">ML</option>
