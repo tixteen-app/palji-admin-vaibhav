@@ -4,6 +4,7 @@ import { makeApi } from '../api/callApi';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from 'react-router-dom';
+import Logo from "./logo.png"
 function LoginForm() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("")
@@ -68,7 +69,8 @@ function LoginForm() {
       <ToastContainer autoClose={2000} />
 
       <div className='main_login_page_div_admin' >
-        <form action="" className="form_main">
+        <img src={Logo} alt="" className="logo_for_admin_panle"  />
+        <form action="" className="form_section_login_page">
           <p className="heading">Welcome To Palji Admin</p>
           <div className="inputContainer">
             <svg className="inputIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#2e2e2e" viewBox="0 0 16 16">
@@ -94,9 +96,7 @@ function LoginForm() {
               {Islogin ? null :
                 <div className='w-100 text-center' >
                   <button id="button" onClick={(e) => handleSubmit(e)} >Submit</button>
-                  <Link to="/Forgot-Password" className='foget_pass_link' >
-                    Forgot your password?
-                  </Link>
+                
                 </div>
               }
             </>
