@@ -91,7 +91,7 @@ function LoginForm() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          {Loading ? <div className='loginloader' ></div> :
+          {!Loading ? <div className='text-center d-flex justify-content-center' > <div className='loginloader' ></div> </div> :
             <>
               {Islogin ? null :
                 <div className='w-100 text-center' >
