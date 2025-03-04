@@ -593,7 +593,7 @@ const AddCategory = () => {
                 <div className="new_add_cat_categoryUpper">
                   <div className="new_add_cat_cuLeft">
                     <div style={{ textTransform: "capitalize" }}>{cat.coupanfor}</div>
-                    <p>code: <b> {cat.name}</b></p>
+                    <p>code: <b> {cat.Coupancode}</b></p>
                     <p><span>{cat.subcategory}</span></p>
                   </div>
                   <div className="new_add_cat_cuRight">
@@ -612,24 +612,24 @@ const AddCategory = () => {
                     {/* <p className='pt-2'>Start: <span className='snap_all_couapn'>{cat.startDate}</span></p>
                     <p className='pt-2'>End: <span className='snap_all_couapn'>{cat.endDate}</span></p> */}
                     <p className='pt-2'>
-  Start: <span className='snap_all_couapn'>
-    {cat.startDate ? new Date(cat.startDate).toLocaleDateString("en-GB", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "2-digit",
-    }) : ""}
-  </span>
-</p>
+                      Start: <span className='snap_all_couapn'>
+                        {cat.startDate ? new Date(cat.startDate).toLocaleDateString("en-GB", {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "2-digit",
+                        }) : ""}
+                      </span>
+                    </p>
 
-<p className='pt-2'>
-  End: <span className='snap_all_couapn'>
-    {cat.endDate ? new Date(cat.endDate).toLocaleDateString("en-GB", {
-      day: "2-digit",
-      month: "2-digit",
-      year: "2-digit",
-    }) : ""}
-  </span>
-</p>
+                    <p className='pt-2'>
+                      End: <span className='snap_all_couapn'>
+                        {cat.endDate ? new Date(cat.endDate).toLocaleDateString("en-GB", {
+                          day: "2-digit",
+                          month: "2-digit",
+                          year: "2-digit",
+                        }) : ""}
+                      </span>
+                    </p>
 
                   </div>
                 </div>
