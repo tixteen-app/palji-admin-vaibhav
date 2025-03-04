@@ -1,111 +1,105 @@
 :root {
-  --pink-color: #e335a0;
-  --white-color: #ffffff;
+  --pink-color: #e83e8c; /* Define your pink color */
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: var(--white-color);
-  font-family: Arial, sans-serif;
-}
-
-.main_login_page_div_admin {
+/* General Styles */
+.login-page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--white-color);
-  padding: 10px 30px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  width: 550px;
-}
-.form_section_login_page{
-  width: 100%;
-  background: none;
-  box-shadow: none;
-}
-.logo_for_admin_panle {
-  width: 300px;
+  justify-content: center;
+  height: 100vh;
+  background-color: white;
 }
 
-.heading {
-  font-size: 22px;
+.login-page-logo {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.login-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-heading {
+  font-size: 24px;
   font-weight: bold;
   color: var(--pink-color);
   text-align: center;
   margin-bottom: 20px;
 }
 
-.inputContainer {
-  position: relative;
-  width: 100%;
+.login-input-container {
+  display: flex;
+  align-items: center;
   margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #f9f9f9;
 }
 
-.inputIcon {
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  fill: #555;
+.login-input-icon {
+  margin-right: 10px;
+  color: #2e2e2e;
 }
 
-.inputField {
-  width: 100%;
-  padding: 12px 12px 12px 40px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-  outline: none;
-}
-
-.inputField:focus {
-  border-color: var(--pink-color);
-  box-shadow: 0 0 5px rgba(227, 53, 160, 0.5);
-}
-
-.w-100 {
-  width: 100%;
-}
-
-.text-center {
-  text-align: center;
-}
-
-#button {
-  width: 100%;
-  padding: 12px;
-  background-color: var(--pink-color);
-  color: var(--white-color);
+.login-input-field {
+  flex: 1;
   border: none;
-  border-radius: 5px;
+  outline: none;
+  background-color: transparent;
   font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  color: #2e2e2e;
 }
 
-#button:hover {
-  background-color: #c02888;
+.login-input-field::placeholder {
+  color: #999;
 }
 
-.loginloader {
+.login-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.login-loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--pink-color);
+  border-radius: 50%;
   width: 30px;
   height: 30px;
-  border: 4px solid var(--pink-color);
-  border-top: 4px solid transparent;
-  border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.login-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.login-submit-button {
+  background-color: var(--pink-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-submit-button:hover {
+  background-color: #d6336c; /* Darker shade of pink */
 }
