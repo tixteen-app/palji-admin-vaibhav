@@ -108,7 +108,7 @@ const Addpincode = () => {
                 <div className="new_add_cat_categoryLower">
                   <div className="new_add_cat_categoryL1">
                     <p>Serviceable pincode: <span className='snap_all_couapn' >{cat.pincode}</span></p>
-                    <p>active: <span className='snap_all_couapn'>{cat.available}</span></p>
+              
                   </div>
                 </div>
                   <div className="new_add_cat_cuRight">
@@ -152,21 +152,7 @@ const Addpincode = () => {
                   />
                 </div>
               
-                <div className='form-group-for-add-coupan'>
-                  <label htmlFor="discountPercentage">Available:</label>
-                  <select
-                    className="add_product_input_filed add_product_dropdown"
-                    value={selectedCoupanFor}
-                    onChange={(e) => setavailable(e.target.value)}
-                    required
-                  >
-                    {CoupanForList.map((Coupan) => (
-                      <option key={Coupan} value={Coupan} style={{ textTransform: 'capitalize' }} >
-                        {Coupan}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+               
 
                 <button type="submit" className="add_coupan_button_new">
                   Add pincode
@@ -201,22 +187,7 @@ const Addpincode = () => {
                     required
                   />
                 </div>
-               
-                <div className='form-group-for-add-coupan'>
-                  <label htmlFor="discountPercentage">Coupon For:</label>
-                  <select
-                    className="add_product_input_filed add_product_dropdown"
-                    value={available}
-                    onChange={(e) => setavailable(e.target.value)}
-                    required
-                  >
-                    {CoupanForList.map((Coupan) => (
-                      <option key={Coupan} value={Coupan}>
-                        {Coupan}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                
                 <button type="submit" className="add_coupan_button_new">
                   Update Pincode
                 </button>
