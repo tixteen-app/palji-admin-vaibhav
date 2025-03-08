@@ -12,11 +12,14 @@
 }
 .add_coupan_second_div {
   width: 100%;
-  min-width: 450px;
+  min-width: 550px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding-top: 20px;
+  padding: 10px;
+  max-height: 500px;
+  overflow-y: scroll;
 }
 .form-group-for-add-coupan {
   width: 100%;

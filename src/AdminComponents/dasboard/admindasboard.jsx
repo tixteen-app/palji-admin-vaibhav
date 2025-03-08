@@ -300,7 +300,7 @@
 //             <h2>Delivered Orders</h2>
 //             <p>{dashboardData?.totalDeliveredOrders}</p>
 //           </Link>
-          
+
 //           <div className="dashboard-card">
 //           <Link to="/admin/all-orders?status=CANCELED" className="dashboard-card link">
 
@@ -411,9 +411,11 @@ function Admindasboard() {
         <div className="dashboard-grid">
           {/* Existing Cards */}
           <div className="dashboard-card">
-            <FaBox className="dashboard-icon" />
-            <h2>Products</h2>
-            <p>{dashboardData?.totalProducts}</p>
+            <Link to="/admin/allproducts" className="dashboard-card link">
+              <FaBox className="dashboard-icon" />
+              <h2>Products</h2>
+              <p>{dashboardData?.totalProducts}</p>
+            </Link>
           </div>
 
           {/* <div className="dashboard-card">
@@ -433,7 +435,7 @@ function Admindasboard() {
             <h2>Shipped Orders</h2>
             <p>{dashboardData?.totalShippedOrders}</p>
           </Link> */}
-{/* 
+          {/* 
           <Link to="/admin/all-orders?status=Delivered" className="dashboard-card link">
             <FaCheckCircle className="dashboard-icon" />
             <h2>Delivered Orders</h2>
@@ -456,29 +458,29 @@ function Admindasboard() {
 
           {/* New Cards for Shiprocket Data */}
           <div className="dashboard-card">
-          <Link to="/admin/all-orders?status=NEW" className="dashboard-card link">
+            <Link to="/admin/all-orders?status=NEW" className="dashboard-card link">
 
-            <FaShippingFast className="dashboard-icon" />
-            <h2>Shiprocket New Orders</h2>
-            <p>{dashboardData?.shiprocketNewOrders || 0}</p>
+              <FaShippingFast className="dashboard-icon" />
+              <h2>Shiprocket New Orders</h2>
+              <p>{dashboardData?.shiprocketNewOrders || 0}</p>
             </Link>
           </div>
 
           <div className="dashboard-card">
-          <Link to="/admin/all-orders?status=CANCELED" className="dashboard-card link">
+            <Link to="/admin/all-orders?status=CANCELED" className="dashboard-card link">
 
-            <FaTimesCircle className="dashboard-icon" />
-            <h2>Shiprocket Canceled Orders</h2>
-            <p>{dashboardData?.shiprocketCanceledOrders || 0}</p>
+              <FaTimesCircle className="dashboard-icon" />
+              <h2>Shiprocket Canceled Orders</h2>
+              <p>{dashboardData?.shiprocketCanceledOrders || 0}</p>
             </Link>
           </div>
 
           <div className="dashboard-card">
-          <Link to="/admin/all-orders?status=Delivered" className="dashboard-card link">
+            <Link to="/admin/all-orders?status=Delivered" className="dashboard-card link">
 
-            <FaCheckCircle className="dashboard-icon" />
-            <h2>Shiprocket Delivered Orders</h2>
-            <p>{dashboardData?.shiprocketDeliveredOrders || 0}</p>
+              <FaCheckCircle className="dashboard-icon" />
+              <h2>Shiprocket Delivered Orders</h2>
+              <p>{dashboardData?.shiprocketDeliveredOrders || 0}</p>
             </Link>
           </div>
 

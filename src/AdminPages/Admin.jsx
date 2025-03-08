@@ -19,6 +19,9 @@ import EditCoupan from "../AdminComponents/Coupan/coupanUpdate";
 import CouponDetails from "../AdminComponents/Coupan/couapndetails";
 import Orders from "../AdminComponents/shiprocket/Allshiporders";
 import OrderDetails from "../AdminComponents/shiprocket/shiporderdetails";
+import Addpincode from "../AdminComponents/pincode/allpincode";
+import Localorderdetails from "../AdminComponents/Order/orderdetails";
+import Localorder from "../AdminComponents/Order/Localorder";
 
 function Admin() {
 	return (
@@ -61,6 +64,10 @@ function Admin() {
 						element={<Addcatogory />}
 					/>
 					<Route
+						path="/pincode"
+						element={<Addpincode />}
+					/>
+					<Route
 						path="/category-update/:Id"
 						element={<Editcategories />}
 					/>
@@ -79,8 +86,12 @@ function Admin() {
 						element={<Allorder />}
 					/> */}
 					<Route
-						path="/order/:id"
+						path="/order-shiprocket/:id"
 						element={<Orderdetails />}
+					/> 
+					<Route
+						path="/local-vaibhav-order/:id"
+						element={<Localorder />}
 					/> 
 
 					<Route path="/All-coupan" element={<GetallCoupan />} />

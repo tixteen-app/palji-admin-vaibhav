@@ -128,7 +128,6 @@ const OrderDetails = () => {
         <div className="order_item_section d-flex flex-wrap gap-1">
           {orderData.others.order_items.map((product, index) => {
             return <div key={index} className="order_item_details_div">
-              {/* Image Display */}
               <img src={product.product_image} alt={product.name} className="product-thumbnail" />
               <p><strong>Product Name:</strong> {product.name}</p>
               <p><strong>Quantity:</strong> {product.units}</p>
@@ -137,7 +136,6 @@ const OrderDetails = () => {
               <p>
                 <b>Product Id:</b> <Link to={`/admin/product-details/${product.product_id}`} target="_blank" >View</Link>
               </p>
-
             </div>
           })}
         </div>

@@ -195,6 +195,16 @@ function Adminsidebar() {
                   Coupon
                 </div>
               </Link>
+              <Link className="Link_tag" to={"/admin/pincode"}>
+                <div
+                  className={`admin_sidebar_menu_items ${
+                    selectedItem === "pincode" ? "selected" : ""
+                  }`}
+                  onClick={() => handleMenuItemClick("pincode")}
+                >
+                  pincode
+                </div>
+              </Link>
             </div>
           </div>
         </div>
