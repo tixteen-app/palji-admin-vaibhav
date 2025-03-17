@@ -8,6 +8,7 @@ import { FaShippingFast, FaTimesCircle } from "react-icons/fa";
 
 const Localorder = () => {
     const [order, setOrder] = useState({});
+
     const { id } = useParams();
     const [loading, setLoading] = useState(false);
     const [orderData, setOrderData] = useState(null);
@@ -20,7 +21,6 @@ const Localorder = () => {
     const [undo, setUndo] = useState(false);
     const [undoforship, setUndoforship] = useState(false);
     const [courierServiceability, setCourierServiceability] = useState([]);
-    console.log("----", courierServiceability?.data?.available_courier_companies)
     const [selectedCourier, setSelectedCourier] = useState(null);
 
 
@@ -62,7 +62,7 @@ const Localorder = () => {
     const cancelOrder = async () => {
         try {
             setLoading(true);
-            await makeApi(`/api/shiprocket/cancel-order-by-id/${id}`, "POST");
+         await makeApi(`/api/update-second-order-by-id/${id}`, "PUT", { status: "Canceled" });
             setOrder((prev) => ({ ...prev, status: "Canceled" }));
         } catch (error) {
             console.error("Error canceling order:", error);
@@ -71,33 +71,12 @@ const Localorder = () => {
         }
     };
 
-    const fetchCourierServiceability = async () => {
-        try {
-            setLoading(true);
-
-            // Build the query string from the parameters
-            const queryParams = new URLSearchParams({
-                pickup_postcode: orderData?.pickup_address?.pin_code, // Pickup postcode
-                delivery_postcode: order?.shippingAddress?.pincode, // Delivery postcode
-                weight: "0.5", // Replace with the actual weight
-                cod: "0", // Default to "0" if not provided
-                order_id: id, // Order ID
-            }).toString();
-
-            // Send GET request with query parameters
-            const response = await makeApi(`/api/shiprocket/check-serviceability?${queryParams}`, "GET");
-            setCourierServiceability(response?.data?.data || []);
-        } catch (error) {
-            console.error("Error fetching courier serviceability:", error);
-        } finally {
-            setLoading(false);
-        }
-    };
+   
 
     const shipOrder = async (courierId) => {
         try {
             setLoading(true);
-            const response = await makeApi(`/api/shiprocket/create-shipment/${id}/${courierId}`, "POST");
+            const response = await makeApi(`/api/update-second-order-by-id/${id}`, "PUT", { status: "Shipped" });
             console.log("Shipment created:", response.data);
             setOrder((prev) => ({ ...prev, status: "Shipped" }));
         } catch (error) {
@@ -112,7 +91,6 @@ const Localorder = () => {
     };
 
     const handleshipClick = async () => {
-        await fetchCourierServiceability();
         setShowPopupforship(true);
     };
 
@@ -124,14 +102,10 @@ const Localorder = () => {
     };
 
     const confirmShip = () => {
-        if (selectedCourier) {
             setShowPopupforship(false);
             setShowToasterforship(true);
             setCountdownforship(5);
             setUndoforship(false);
-        } else {
-            alert("Please select a courier partner.");
-        }
     };
 
     useEffect(() => {
@@ -206,7 +180,7 @@ const Localorder = () => {
                             <div className="status-section">
                                 <div className="status-left">
                                     <p>Status</p>
-                                    <span className="status-badge">{orderData?.status}</span>
+                                    <span className="status-badge">{order?.status}</span>
                                 </div>
                                 <div className="status-right">
                                     <span>Order Date</span>
@@ -284,26 +258,8 @@ const Localorder = () => {
                         </div>
                     )}
                     {showPopupforship && (
-                        <div className="courier-popup-overlay">
+                        <div className="courier-popup-overlay ">
                             <div className="courier-popup-container">
-                                <h2 className="courier-popup-title">Select Courier Partner</h2>
-                                <div className="courier-popup-list" style={{ maxHeight: '400px', overflowY: 'auto' }}>
-                                    {courierServiceability?.data?.available_courier_companies.map((courier, index) => (
-                                        <div key={index} className="courier-popup-item">
-                                            <div className="courier-popup-details">
-                                                <p className="courier-popup-name"><strong>Courier:</strong> {courier.courier_name}</p>
-                                                <p className="courier-popup-price"><strong>Price:</strong> ₹{courier.rate}</p>
-                                                <p className="courier-popup-delivery"><strong>Estimated Delivery:</strong> {courier.etd}</p>
-                                            </div>
-                                            <button
-                                                className={`courier-popup-select-btn ${selectedCourier === courier.courier_company_id ? 'courier-popup-selected' : ''}`}
-                                                onClick={() => setSelectedCourier(courier.courier_company_id)}
-                                            >
-                                                {selectedCourier === courier.courier_company_id ? 'Selected' : 'Select'}
-                                            </button>
-                                        </div>
-                                    ))}
-                                </div>
                                 <div className="courier-popup-actions">
                                     <button className="courier-popup-confirm-btn" onClick={confirmShip}>Confirm Ship</button>
                                     <button className="courier-popup-cancel-btn" onClick={() => setShowPopupforship(false)}>Cancel</button>
