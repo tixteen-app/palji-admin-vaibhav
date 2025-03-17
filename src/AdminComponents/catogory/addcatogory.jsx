@@ -409,7 +409,7 @@
 //             setLoading(false);
 //             setShowModal(false);
 //         fetchCategories();
-            
+
 //         }
 //     };
 
@@ -497,7 +497,7 @@
 //                             <div className='main_add_new_popup_heading_div' >
 //                                 <div onClick={() => setShowModal(false)} style={{ cursor: "pointer" }}>
 //                                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-//                                         <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+//                                         <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
 //                                     </svg>
 //                                 </div>
 //                                 <div className="add_coupan_heading">Add category</div>
@@ -631,6 +631,7 @@ const AddCategory = () => {
 
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [tax, setTax] = useState();
     const [subcategories, setSubcategories] = useState([]);
     const [pinCodes, setPinCodes] = useState([""]); // Pin codes as an array
     const [errorMessage, setErrorMessage] = useState("");
@@ -688,11 +689,13 @@ const AddCategory = () => {
             const response = await makeApi("/api/create-category", "POST", {
                 name,
                 description,
+                tax,
                 subcategorieslist: subcategories,
                 availablePinCodes: pinCodes.filter((code) => code.trim() !== ""), // Filter out empty pin codes
             });
             setName("");
             setDescription("");
+            setTax();
             setSubcategories([{ name: "", description: "" }]);
             setPinCodes([""]);
         } catch (error) {
@@ -711,11 +714,13 @@ const AddCategory = () => {
             const response = await makeApi(`/api/update-category/${editCategoryId}`, "PUT", {
                 name,
                 description,
+                tax,
                 subcategorieslist: subcategories,
                 availablePinCodes: pinCodes.filter((code) => code.trim() !== ""), // Filter out empty pin codes
             });
             setName("");
             setDescription("");
+            setTax()
             setSubcategories([{ name: "", description: "" }]);
             setPinCodes([""]);
             setShowEditModal(false);
@@ -761,6 +766,7 @@ const AddCategory = () => {
     const handleEditClick = (category) => {
         setEditCategoryId(category._id);
         setName(category.name);
+        setTax(category.tax || 0);
         setDescription(category.description);
         setSubcategories(category.subcategorieslist || []);
         setPinCodes(category.availablePinCodes || [""]);
@@ -796,11 +802,14 @@ const AddCategory = () => {
                             </div>
                             <div className="new_add_cat_marginLine"></div>
                             <div className="new_add_cat_categoryLower">
+
                                 <div className="new_add_cat_categoryL1">
                                     <p>Available Pin Codes:</p>
                                     <p>{cat.availablePinCodes.length > 0 ? cat.availablePinCodes.join(', ') : "No Pin Codes Available"}</p>
                                 </div>
                             </div>
+                            <p>tax:{cat.tax}</p>
+
                         </div>
                     ))}
                 </div>
@@ -814,7 +823,7 @@ const AddCategory = () => {
                             <div className='main_add_new_popup_heading_div'>
                                 <div onClick={() => setShowModal(false)} style={{ cursor: "pointer" }}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                                        <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
                                     </svg>
                                 </div>
                                 <div className="add_coupan_heading">Add category</div>
@@ -827,6 +836,16 @@ const AddCategory = () => {
                                         id="name"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group-for-add-coupan">
+                                    <label htmlFor="name">Tax:</label>
+                                    <input
+                                        type="number"
+                                        id="tax"
+                                        value={tax}
+                                        onChange={(e) => setTax(e.target.value)}
                                         required
                                     />
                                 </div>
@@ -913,7 +932,7 @@ const AddCategory = () => {
                             <div className='main_add_new_popup_heading_div'>
                                 <div onClick={() => setShowEditModal(false)} style={{ cursor: "pointer" }}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                                        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+                                        <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
                                     </svg>
                                 </div>
                                 <div className="add_coupan_heading">Edit category</div>
@@ -926,6 +945,16 @@ const AddCategory = () => {
                                         id="name"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group-for-add-coupan">
+                                    <label htmlFor="name">Tax:</label>
+                                    <input
+                                        type="number"
+                                        id="name"
+                                        value={tax}
+                                        onChange={(e) => setTax(e.target.value)}
                                         required
                                     />
                                 </div>

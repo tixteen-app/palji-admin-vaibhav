@@ -109,18 +109,18 @@ function Localorders() {
                 <div className="customer-section">
                   <div className="customer-info">
                     <p className="customer-name">
-                      Customer Name: {order.userId.firstName} {order.userId.lastName}
+                      Customer Name: {order?.userId?.firstName} {order?.userId?.lastName}
                     </p>
-                    <p>Email: {order.userId.email}</p>
-                    <p>Phone: {order.shippingAddress.phonenumber}</p>
+                    <p>Email: {order?.userId?.email}</p>
+                    <p>Phone: {order?.shippingAddress?.phonenumber}</p>
                     <p>
-                      Address: {order.shippingAddress.address}, {order.shippingAddress.city},{" "}
-                      {order.shippingAddress.state}, {order.shippingAddress.country} -{" "}
-                      {order.shippingAddress.pincode}
+                      Address: {order?.shippingAddress?.address}, {order?.shippingAddress?.city},{" "}
+                      {order?.shippingAddress?.state}, {order?.shippingAddress?.country} -{" "}
+                      {order?.shippingAddress?.pincode}
                     </p>
                   </div>
                   <div className="status-badge">
-                    <span>{order.status}</span>
+                    <span>{order?.status}</span>
                   </div>
                 </div>
 
