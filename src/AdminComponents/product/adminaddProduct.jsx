@@ -275,6 +275,20 @@ function AdminaddProduct() {
                 type="text"
                 className="add_product_input_filed_new"
                 placeholder="Name"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="section-wrapper">
+            <div>
+              <h3 className="add_product_text_new" >Product Description</h3>
+            </div>
+            <div className="add_product_input_fileds" >
+              <input
+                type="text"
+                className="add_product_input_filed_new"
+                placeholder="description"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
