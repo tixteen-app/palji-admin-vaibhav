@@ -22,6 +22,7 @@ import OrderDetails from "../AdminComponents/shiprocket/shiporderdetails";
 import Addpincode from "../AdminComponents/pincode/allpincode";
 import Localorderdetails from "../AdminComponents/Order/orderdetails";
 import Localorder from "../AdminComponents/Order/Localorder";
+import Localorders from "../AdminComponents/Order/allorder";
 
 function Admin() {
 	return (
@@ -76,6 +77,10 @@ function Admin() {
 					<Route
 						path="/all-orders"
 						element={<Orders />}
+					/>
+					<Route
+						path="/localorders"
+						element={<Localorders />}
 					/>
 					{/* <Route
 						path="/order/:id"
