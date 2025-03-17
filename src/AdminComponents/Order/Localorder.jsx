@@ -166,7 +166,7 @@ const Localorder = () => {
                 <>
 
                     <div className="order-header">
-                        <Link to={"/admin/all-orders"} className="back-button">←</Link>
+                        <Link to={"/admin/localorders?status=pending"} className="back-button">←</Link>
                         <h1>Order Details</h1>
                         {order?.status !== ("CANCELED" || "Delivered" || "canceled") && (
                             <button onClick={handleCancelClick} className="cancel-button">Cancel Order <FaTimesCircle className="dashboard-icon" style={{ color: "black", fontSize: "24px" }} /></button>
