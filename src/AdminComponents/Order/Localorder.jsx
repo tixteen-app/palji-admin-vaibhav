@@ -22,7 +22,9 @@ const Localorder = () => {
     const [undoforship, setUndoforship] = useState(false);
     const [courierServiceability, setCourierServiceability] = useState([]);
     const [selectedCourier, setSelectedCourier] = useState(null);
+    const [pincode , setPincode] = useState("");
 
+    console.log("--------------");
 
     const fetchOrder = async () => {
         try {
@@ -34,8 +36,22 @@ const Localorder = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }; 
+    const fetchpincode  = async () => {
+        try {
+            setLoading(true);
+            const response = await makeApi(`/api/api/get-all-pincode`, "GET");
+            setPincode(response?.data);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
+    }; 
 
+    useEffect(() => {
+        fetchpincode();
+    }, [id]);
     useEffect(() => {
         fetchOrder();
     }, [id]);
