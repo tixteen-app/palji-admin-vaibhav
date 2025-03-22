@@ -570,14 +570,14 @@ function Localorders() {
                   {order.CartId.orderItems.map((item) => (
                     <div className="item-card" key={item._id}>
                       <div className="item-image">
-                        <img src={item.productId.thumbnail} alt={item.productId.name} />
+                        <img src={item?.productId?.thumbnail} alt={item?.productId?.name} />
                       </div>
                       <div className="item-details">
-                        <p className="item-name">{item.productId.name}</p>
-                        <p>Quantity: {item.quantity}</p>
-                        <p>Price: ₹{item.singleProductPrice}</p>
+                        <p className="item-name">{item?.productId?.name}</p>
+                        <p>Quantity: {item?.quantity}</p>
+                        <p>Price: ₹{item?.singleProductPrice}</p>
                         <p>
-                          Total Price: <b>₹{item.totalPrice}</b>
+                          Total Price: <b>₹{item?.totalPrice}</b>
                         </p>
                       </div>
                     </div>
