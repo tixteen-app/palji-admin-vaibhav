@@ -15,7 +15,7 @@ function AdminaddProduct() {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState();
   const [discountPercentage, setDiscountPercentage] = useState("0");
-  const [quantity, setQuantity] = useState("");
+  const [quantity, setQuantity] = useState();
   const [images, setImages] = useState([{}]);
   const [thumbnail, setThumbnail] = useState("");
   const [category, setCategory] = useState("");
@@ -24,7 +24,7 @@ function AdminaddProduct() {
   const [productType, setProductType] = useState("Domestic");
   const [uploadProgress, setUploadProgress] = useState({});
   const [thumbnailUploadProgress, setThumbnailUploadProgress] = useState(0);
-  const [productSizes, setProductSizes] = useState([{ size: '', sizetype: 'KG', quantity: '', price: '', discountPercentage: 0, FinalPrice: '', height: '', width: '', length: '' }]);
+  const [productSizes, setProductSizes] = useState([{ size: '', sizetype: 'KG',  price: '', discountPercentage: 0, FinalPrice: '', height: '', width: '', length: '' }]);
   const [productNuturitions, setProductNuturitions] = useState([{ nutrition: '', value: '' }]);
   const [deliverables, setDeliverables] = useState([]);
   const [subcategory, setSubcategory] = useState();
@@ -58,7 +58,7 @@ function AdminaddProduct() {
   };
 
   const handleAddSize = () => {
-    setProductSizes([...productSizes, { size: '', sizetype: '', quantity: '', price: '', discountPercentage: 0, FinalPrice: '', height: '', width: '', length: '' }]);
+    setProductSizes([...productSizes, { size: '', sizetype: '',  price: '', discountPercentage: 0, FinalPrice: '', height: '', width: '', length: '' }]);
   };
 
   const handleAddNutrition = () => {
@@ -491,7 +491,7 @@ function AdminaddProduct() {
                 </div>
 
                 {/* Existing Quantity Input */}
-                <div className="input-group-for-size">
+                {/* <div className="input-group-for-size">
                   <label htmlFor={`quantity-${index}`} className="product_add_label">Stock</label>
                   <input
                     type="number"
@@ -502,7 +502,7 @@ function AdminaddProduct() {
                     value={size.quantity}
                     onChange={(event) => handleSizeChange(index, event)}
                   />
-                </div>
+                </div> */}
 
                 {/* Existing Price Input */}
                 <div className="input-group-for-size">

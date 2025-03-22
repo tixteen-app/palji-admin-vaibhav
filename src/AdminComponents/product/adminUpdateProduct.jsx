@@ -205,7 +205,7 @@ function UpdateProduct() {
   };
 
   const handleAddMoreSizes = () => {
-    setSizes([...sizes, { size: "null", sizetype: "null", quantity: "", price: '', discountPercentage: 0, FinalPrice: '' }]);
+    setSizes([...sizes, { size: "null", sizetype: "null",  price: '', discountPercentage: 0, FinalPrice: '' }]);
   };
 
   // const handleDeleteSize = async (sizeId) => {
@@ -757,7 +757,7 @@ function UpdateProduct() {
         </select>
       </div>
 
-      <div className="input-group-for-size">
+      {/* <div className="input-group-for-size">
         <label htmlFor={`quantity-${index}`} className="product_add_label">Quantity</label>
         <input
           type="text"
@@ -767,7 +767,7 @@ function UpdateProduct() {
           value={size.quantity}
           onChange={(e) => handleSizeChange(e, index, "quantity")}
         />
-      </div>
+      </div> */}
 
       <div className="input-group-for-size">
         <label htmlFor={`price-${index}`} className="product_add_label">Price</label>
