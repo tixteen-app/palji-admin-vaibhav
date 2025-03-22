@@ -567,7 +567,7 @@ function Localorders() {
                 <div className="divider"></div>
 
                 <div className="order-items">
-                  {order.CartId.orderItems.map((item) => (
+                  {order?.CartId?.orderItems?.map((item) => (
                     <div className="item-card" key={item._id}>
                       <div className="item-image">
                         <img src={item?.productId?.thumbnail} alt={item?.productId?.name} />
