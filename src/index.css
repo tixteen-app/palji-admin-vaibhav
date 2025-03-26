@@ -14,7 +14,7 @@ code {
 
 .main_admin_pages {
   display: flex ;
-  gap: 20px;
+  gap: 40px;
   width: 100%;
 }
 

@@ -10,7 +10,6 @@ const Orderdetails = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const [orderData, setOrderData] = useState(null);
-  
   const [showPopup, setShowPopup] = useState(false);
   const [showPopupforship, setShowPopupforship] = useState(false);
   const [showToaster, setShowToaster] = useState(false);
@@ -20,6 +19,7 @@ const Orderdetails = () => {
   const [undo, setUndo] = useState(false);
   const [undoforship, setUndoforship] = useState(false);
   const [courierServiceability, setCourierServiceability] = useState([]);
+  console.log("---1",courierServiceability)
   const [selectedCourier, setSelectedCourier] = useState(null);
 
 
@@ -449,6 +449,7 @@ const Orderdetails = () => {
     <div className="courier-popup-container">
       <h2 className="courier-popup-title">Select Courier Partner</h2>
       <div className="courier-popup-list" style={{ maxHeight: '400px', overflowY: 'auto' }}>
+        { courierServiceability?.message && <> {courierServiceability?.message }</> }
         {courierServiceability?.data?.available_courier_companies.map((courier, index) => (
           <div key={index} className="courier-popup-item">
             <div className="courier-popup-details">
