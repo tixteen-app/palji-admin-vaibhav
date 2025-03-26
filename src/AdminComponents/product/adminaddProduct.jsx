@@ -276,7 +276,7 @@ function AdminaddProduct() {
                 className="add_product_input_filed_new"
                 placeholder="Name"
                 value={name}
-                onChange={(e) => setDescription(e.target.value)}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
           </div>
@@ -290,7 +290,8 @@ function AdminaddProduct() {
                 className="add_product_input_filed_new"
                 placeholder="description"
                 value={description}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => setDescription(e.target.value)}
+
               />
             </div>
           </div>
