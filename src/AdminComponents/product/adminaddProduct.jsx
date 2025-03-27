@@ -24,7 +24,7 @@ function AdminaddProduct() {
   const [productType, setProductType] = useState("Domestic");
   const [uploadProgress, setUploadProgress] = useState({});
   const [thumbnailUploadProgress, setThumbnailUploadProgress] = useState(0);
-  const [productSizes, setProductSizes] = useState([{ size: '', sizetype: 'KG',  price: '', discountPercentage: 0, FinalPrice: '', height: '', width: '', length: '' }]);
+  const [productSizes, setProductSizes] = useState([{ size: '', sizetype: 'KG', price: '', discountPercentage: 0, FinalPrice: '', height: '', width: '', length: '' }]);
   const [productNuturitions, setProductNuturitions] = useState([{ nutrition: '', value: '' }]);
   const [deliverables, setDeliverables] = useState([]);
   const [subcategory, setSubcategory] = useState();
@@ -58,7 +58,7 @@ function AdminaddProduct() {
   };
 
   const handleAddSize = () => {
-    setProductSizes([...productSizes, { size: '', sizetype: '',  price: '', discountPercentage: 0, FinalPrice: '', height: '', width: '', length: '' }]);
+    setProductSizes([...productSizes, { size: '', sizetype: '', price: '', discountPercentage: 0, FinalPrice: '', height: '', width: '', length: '' }]);
   };
 
   const handleAddNutrition = () => {
@@ -157,7 +157,7 @@ function AdminaddProduct() {
 
     } catch (error) {
       console.error("Error adding product:", error);
-    }finally{
+    } finally {
       setLoading(false);
       toast("Product update successfully");
     }
@@ -488,6 +488,7 @@ function AdminaddProduct() {
                     <option value="ML">ML</option>
                     <option value="Pound">Pound</option>
                     <option value="Meter">Meter</option>
+                    <option value="Pack">Pack</option>
                   </select>
                 </div>
 

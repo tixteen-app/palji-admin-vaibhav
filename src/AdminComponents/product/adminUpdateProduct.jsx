@@ -754,6 +754,7 @@ function UpdateProduct() {
           <option value="ML">ML</option>
           <option value="Pound">Pound</option>
           <option value="Meter">Meter</option>
+          <option value="Pack">Pack</option>
         </select>
       </div>
 
