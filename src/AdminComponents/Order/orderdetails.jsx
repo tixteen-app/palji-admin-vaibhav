@@ -19,7 +19,6 @@ const Orderdetails = () => {
   const [undo, setUndo] = useState(false);
   const [undoforship, setUndoforship] = useState(false);
   const [courierServiceability, setCourierServiceability] = useState([]);
-  console.log("---1",courierServiceability)
   const [selectedCourier, setSelectedCourier] = useState(null);
 
 

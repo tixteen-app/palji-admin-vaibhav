@@ -24,7 +24,6 @@ const Localorder = () => {
     const [selectedCourier, setSelectedCourier] = useState(null);
     const [pincode , setPincode] = useState("");
 
-    console.log("--------------");
 
     const fetchOrder = async () => {
         try {
@@ -250,6 +249,7 @@ const Localorder = () => {
                                             </div>
                                             <div className="item-details">
                                                 <p className="item-name">{item?.productId?.name}</p>
+                                                <p className="item-name">message : {item?.cakemessage}</p>
                                                 <div className="item-price">
                                                     <p>Quantity: {item?.quantity}</p>
                                                     <p>Total Price: ₹{item?.totalPrice}</p>
