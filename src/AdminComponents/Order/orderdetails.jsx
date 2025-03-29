@@ -189,7 +189,10 @@ const Orderdetails = () => {
       ) : (
         <>
           <div className="order-header p-3">
+            <div style={{paddingBottom:"7px"}} >
+
             <Link to={"/admin/all-orders"} className="back-button">←</Link>
+            </div>
             <div style={{fontSize:"24px"}}>Order Details</div>
             <div className="gap-3 d-flex" >
             {order?.status !== ("CANCELED" || "Delivered" || "canceled") && (
