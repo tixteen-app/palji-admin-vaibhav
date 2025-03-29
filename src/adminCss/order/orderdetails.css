@@ -28,7 +28,7 @@
   .back-button {
     color: #333;
     text-decoration: none;
-    font-size: 1.5vw;
+    font-size: 30px;
   }
   
   .cancel-button {
@@ -53,6 +53,7 @@
     justify-content: space-between;
     padding: 2%;
     margin:1% 2%;
+    box-shadow: 0 0.5em 0.8em rgba(0, 0, 0, 0.1);
   }
   .status-left p, 
   .status-right span{

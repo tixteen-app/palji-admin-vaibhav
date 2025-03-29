@@ -188,15 +188,17 @@ const Orderdetails = () => {
         <Loader />
       ) : (
         <>
-          <div className="order-header">
+          <div className="order-header p-3">
             <Link to={"/admin/all-orders"} className="back-button">←</Link>
-            <h1>Order Details</h1>
+            <div style={{fontSize:"24px"}}>Order Details</div>
+            <div className="gap-3 d-flex" >
             {order?.status !== ("CANCELED" || "Delivered" || "canceled") && (
               <button onClick={handleCancelClick} className="cancel-button">Cancel Order <FaTimesCircle className="dashboard-icon" style={{ color: "black", fontSize: "24px" }} /></button>
             )}
             {order?.status !== ("CANCELED" || "Delivered" || "canceled") && (
               <button onClick={handleshipClick} className="ship-button">  Ship Order <FaShippingFast className="dashboard-icon" style={{ color: "black", fontSize: "24px" }} /></button>
             )}
+            </div>
           </div>
           <div className="order-whole">
             <div className="order-left">
