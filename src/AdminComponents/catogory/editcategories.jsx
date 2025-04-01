@@ -47,7 +47,7 @@ function Editcategories() {
       setUpdateLoader(true);
       const updatedCategory = {
         ...formData,
-        availablePinCodes: pinCodes.filter((code) => code.trim() !== ""), // Filter out empty pin codes
+        availablePinCodes: pinCodes.filter((code) => code.trim() !== ""), 
       };
       await makeApi(`/api/update-category/${Id}`, "PUT", updatedCategory);
       navigate("/admin/all-categories");
