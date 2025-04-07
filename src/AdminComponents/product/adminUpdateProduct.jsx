@@ -20,6 +20,35 @@ function UpdateProduct() {
   const [categories, setCategories] = useState([]);
   const [subcategory, setSubcategory] = useState("");
   const [imageInputs, setImageInputs] = useState([0]); // Track input fields
+  const [draggedIndex, setDraggedIndex] = useState(null);
+
+
+  const handleDragStart = (index) => {
+    setDraggedIndex(index);
+  };
+
+  const handleDragOver = (e, index) => {
+    e.preventDefault();
+  };
+
+
+  const handleDrop = (e, index) => {
+    e.preventDefault();
+    if (draggedIndex === null) return;
+
+    const newImages = [...formData.image];
+    const draggedItem = newImages[draggedIndex];
+
+    // Remove the dragged item
+    newImages.splice(draggedIndex, 1);
+    // Insert it at the new position
+    newImages.splice(index, 0, draggedItem);
+
+    setFormData({ ...formData, image: newImages });
+    setDraggedIndex(null);
+  };
+
+
 
   const [formData, setFormData] = useState({
     name: "",
@@ -454,9 +483,16 @@ function UpdateProduct() {
                     </div>
                   </div>
                   <div className="product_images_div_add_product">
-                    {formData?.image?.map((image, index) => (
+                    {formData.image.map((image, index) => (
                       image && (
-                        <div className="" key={index}>
+                        <div
+                          key={index}
+                          draggable
+                          onDragStart={() => handleDragStart(index)}
+                          onDragOver={(e) => handleDragOver(e, index)}
+                          onDrop={(e) => handleDrop(e, index)}
+                          className="draggable-image-container" // Add some CSS for visual feedback
+                        >
                           <div className="product_images_div_add_product_card">
                             <div
                               className="remove_image_Add_product"
@@ -558,7 +594,7 @@ function UpdateProduct() {
                       <input
                         type="text"
                         className="add_product_input_filed_for_size"
-                        id={`quantity-${index}`}z
+                        id={`quantity-${index}`}
                         placeholder="Quantity"
                         value={size.quantity}
                         onChange={(e) => handleSizeChange(e, index, "quantity")}
