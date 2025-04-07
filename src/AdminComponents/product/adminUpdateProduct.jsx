@@ -454,7 +454,7 @@ function UpdateProduct() {
                     </div>
                   </div>
                   <div className="product_images_div_add_product">
-                    {formData.image.map((image, index) => (
+                    {formData?.image?.map((image, index) => (
                       image && (
                         <div className="" key={index}>
                           <div className="product_images_div_add_product_card">
@@ -558,7 +558,7 @@ function UpdateProduct() {
                       <input
                         type="text"
                         className="add_product_input_filed_for_size"
-                        id={`quantity-${index}`}
+                        id={`quantity-${index}`}z
                         placeholder="Quantity"
                         value={size.quantity}
                         onChange={(e) => handleSizeChange(e, index, "quantity")}
