@@ -26,6 +26,7 @@ function AdminaddProduct() {
   const [productSizes, setProductSizes] = useState([{ size: '', sizetype: 'KG', price: '', discountPercentage: 0, FinalPrice: '', height: '', width: '', length: '' }]);
   const [productNuturitions, setProductNuturitions] = useState([{ nutrition: '', value: '' }]);
   const [deliverables, setDeliverables] = useState([]);
+  const [Ingredient, setIngredient] = useState([]);
   const [subcategory, setSubcategory] = useState();
 
   const handleSizeChange = (index, event) => {
@@ -129,7 +130,8 @@ function AdminaddProduct() {
         productSizes,
         productNuturitions,
         deliverables,
-        topsaller
+        topsaller,
+        Ingredient
       };
 
       // Only add subcategory to payload if it's not empty or just spaces
@@ -154,6 +156,7 @@ function AdminaddProduct() {
       setProductSizes([{ size: '', sizetype: '', quantity: '' }]);
       setProductNuturitions([{ nutrition: '', value: '' }]);
       setDeliverables([]);
+      setIngredient([]);
       setTopsaller("false");
 
     } catch (error) {
@@ -167,10 +170,16 @@ function AdminaddProduct() {
   const handleAddDeliverable = () => {
     setDeliverables([...deliverables, '']);
   };
-
+  const handelAddIngredient = () => {
+    setIngredient([...Ingredient, '']);
+  }
   const handleRemoveDeliverable = (index) => {
     const newDeliverables = deliverables.filter((_, i) => i !== index);
     setDeliverables(newDeliverables);
+  };
+  const handleRemoveIngredient = (index) => {
+    const newIngredient = Ingredient.filter((_, i) => i !== index);
+    setIngredient(newIngredient);
   };
 
   const handleDeliverableChange = (e, index) => {
@@ -179,6 +188,11 @@ function AdminaddProduct() {
     setDeliverables(newDeliverables);
   };
 
+  const handleIngredientChange = (e, index) => {
+    const newIngredient = [...Ingredient];
+    newIngredient[index] = e.target.value;
+    setIngredient(newIngredient);
+  };
 
 
   const handleImageChange = (index, value) => {
@@ -467,6 +481,29 @@ function AdminaddProduct() {
           Add Include
         </button>
       </div>
+
+{/* ingredients */}
+      <div className='add_product_input_fileds'>
+        <h5>Ingredients</h5>
+
+        {Ingredient.map((ingredient, index) => (
+          <div key={index} className='add_more_products_items_div pt-2 pb-2' >
+            <div className="add_more_products_items_div_input_field " >
+              <input type="text" value={ingredient} className='add_product_input_filed_new' placeholder="Ingredient" onChange={(e) => handleIngredientChange(e, index)} />
+            </div>
+            <div className="add_more_products_items_div_button_field ms-3" >
+              <button className='add_new_itms_Add_product_remove_button' onClick={() => handleRemoveIngredient(index)}>
+                Remove
+              </button>
+            </div>
+          </div>
+        ))}
+        <button type="button" className="add_new_itms_Add_product_new_button"
+          style={{ width: "200px" }} onClick={handelAddIngredient}>
+          Add Ingredient
+        </button>
+      </div>
+
       {/* Product Sizes */}
       <h3>Product Sizes</h3>
       <div className="section-wrapper add_product_input_fileds">

@@ -15,6 +15,7 @@ function UpdateProduct() {
   const [sizes, setSizes] = useState([]);
   const [nutritions, setNutritions] = useState([]);
   const [includes, setIncludes] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [showConfirm, setShowConfirm] = useState({ show: false, sizeId: null });
   const [categories, setCategories] = useState([]);
@@ -80,6 +81,7 @@ function UpdateProduct() {
       await setSizes(response?.data?.sizes);
       await setNutritions(response?.data?.productNuturitions || []);
       await setIncludes(response?.data?.include || []);
+      await setIngredients(response?.data?.Ingredients || []);
 
       // Set form data with the product details
       await setFormData({
@@ -168,8 +170,16 @@ function UpdateProduct() {
     updatedIncludes[index][field] = e.target.value;
     setIncludes(updatedIncludes);
   };
+  const handleIngredientChange = (e, index , field) => {
+    const updatedIngredients = [...ingredients];
+    updatedIngredients[index][field] = e.target.value;
+    setIngredients(updatedIngredients);
+  }
   const handleAddMoreInclude = () => {
     setIncludes([...includes, { include: "" }]);
+  };
+  const handleAddMoreIngredient = () => {
+    setIngredients([...ingredients, { Ingredient: "" }]);
   };
 
   const handleDeleteInclude = async (includeId, index) => {
@@ -180,6 +190,18 @@ function UpdateProduct() {
       }
       // Remove the include from the local state
       setIncludes(includes.filter((_, i) => i !== index));
+    } catch (error) {
+      console.error("Error deleting include:", error);
+    }
+  };
+  const handleDeleteIngredient = async (includeId, index) => {
+    try {
+      if (includeId) {
+        // If include has an _id, it exists in the database, so delete it via API
+        await makeApi(`/api/delete-include/${includeId}`, "DELETE");
+      }
+      // Remove the include from the local state
+      setIngredients(ingredients.filter((_, i) => i !== index));
     } catch (error) {
       console.error("Error deleting include:", error);
     }
@@ -312,6 +334,16 @@ function UpdateProduct() {
           await makeApi(`/api/include-product`, "POST", {
             productId,
             ...include,
+          });
+        }
+      }
+      for (const Ingredient of ingredients) {
+        if (Ingredient._id) {
+          await makeApi(`/api/update-ingredient/${Ingredient._id}`, "PUT", Ingredient);
+        } else if (Ingredient.ingredient) {
+          await makeApi(`/api/ingredient-product`, "POST", {
+            productId,
+            ...Ingredient,
           });
         }
       }
@@ -982,6 +1014,38 @@ function UpdateProduct() {
                   type="button"
                   className="add_new_itms_Add_product_new_button mt-2"
                   onClick={handleAddMoreInclude}
+                >
+                  <span className="pe-5">+</span>
+                  Add More Includes
+                </button>
+              </div>
+{/* for ingredients */}
+<div className="section-wrapper">
+                <h3>Ingredients</h3>
+                {ingredients.map((include, index) => (
+                  <div className="size-wrapper pt-3" key={index}>
+                    <div className="input-group-for-size">
+                      <input
+                        type="text"
+                        className="add_product_input_filed_for_size"
+                        placeholder="Ingredient"
+                        value={include.ingredient}
+                        onChange={(e) => handleIngredientChange(e, index, "ingredient")}
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      className="remove_btton_add_product"
+                      onClick={() => handleDeleteIngredient(include._id, index)}
+                    >
+                      Delete Ingredient
+                    </button>
+                  </div>
+                ))}
+                <button
+                  type="button"
+                  className="add_new_itms_Add_product_new_button mt-2"
+                  onClick={handleAddMoreIngredient}
                 >
                   <span className="pe-5">+</span>
                   Add More Includes
