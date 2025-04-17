@@ -23,7 +23,7 @@ function UpdateProduct() {
   const [imageInputs, setImageInputs] = useState([0]); // Track input fields
   const [draggedIndex, setDraggedIndex] = useState(null);
 
-  
+
 
 
   const handleDragStart = (index) => {
@@ -177,7 +177,7 @@ function UpdateProduct() {
     updatedIncludes[index][field] = e.target.value;
     setIncludes(updatedIncludes);
   };
-  const handleIngredientChange = (e, index , field) => {
+  const handleIngredientChange = (e, index, field) => {
     const updatedIngredients = [...ingredients];
     updatedIngredients[index][field] = e.target.value;
     setIngredients(updatedIngredients);
@@ -487,7 +487,7 @@ function UpdateProduct() {
                   />
                 </div>
               </div>
-             
+
 
 
 
@@ -1072,38 +1072,7 @@ function UpdateProduct() {
                   Add More Includes
                 </button>
               </div>
-{/* for ingredients */}
-<div className="section-wrapper">
-                <h3>Ingredients</h3>
-                {ingredients.map((include, index) => (
-                  <div className="size-wrapper pt-3" key={index}>
-                    <div className="input-group-for-size">
-                      <input
-                        type="text"
-                        className="add_product_input_filed_for_size"
-                        placeholder="Ingredient"
-                        value={include.ingredient}
-                        onChange={(e) => handleIngredientChange(e, index, "ingredient")}
-                      />
-                    </div>
-                    <button
-                      type="button"
-                      className="remove_btton_add_product"
-                      onClick={() => handleDeleteIngredient(include._id, index)}
-                    >
-                      Delete Ingredient
-                    </button>
-                  </div>
-                ))}
-                <button
-                  type="button"
-                  className="add_new_itms_Add_product_new_button mt-2"
-                  onClick={handleAddMoreIngredient}
-                >
-                  <span className="pe-5">+</span>
-                  Add More Includes
-                </button>
-              </div>
+
 
               {/* Submit Button */}
               <div className="submit_form_Add_product_admin">
