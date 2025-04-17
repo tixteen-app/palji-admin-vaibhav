@@ -27,6 +27,8 @@ function AdminaddProduct() {
   const [productNuturitions, setProductNuturitions] = useState([{ nutrition: '', value: '' }]);
   const [deliverables, setDeliverables] = useState([]);
   const [Ingredient, setIngredient] = useState([]);
+  const [Ingredientdata, setIngredientdata] = useState([]);
+  const [allergen, setallergen] = useState([]);
   const [subcategory, setSubcategory] = useState();
 
   const handleSizeChange = (index, event) => {
@@ -118,6 +120,8 @@ function AdminaddProduct() {
       const payload = {
         name,
         description,
+        allergen,
+        ingridents : Ingredientdata ,
         price,
         discountPercentage: discountPercentage || 0,
         quantity: quantity || 0,
@@ -324,6 +328,35 @@ function AdminaddProduct() {
           />
         </div>
       </div>
+      <div className="section-wrapper">
+        <div>
+          <h3 className="add_product_text_new" >Product Ingredient</h3>
+        </div>
+        <div className="add_product_input_fileds" >
+          <input
+            type="text"
+            className="add_product_input_filed_new"
+            placeholder="description"
+            value={Ingredientdata}
+            onChange={(e) => setIngredientdata(e.target.value)}
+
+          />
+        </div>
+      </div>
+      <div className="section-wrapper">
+        <div>
+          <h3 className="add_product_text_new" >Product allergen</h3>
+        </div>
+        <div className="add_product_input_fileds" >
+          <input
+            type="text"
+            className="add_product_input_filed_new"
+            placeholder="description"
+            value={allergen}
+            onChange={(e) => setallergen(e.target.value)}
+          />
+        </div>
+      </div>
       {/* Images & Thumbnail */}
       <div className="section-wrapper">
         <div>
@@ -483,7 +516,7 @@ function AdminaddProduct() {
       </div>
 
 {/* ingredients */}
-      <div className='add_product_input_fileds'>
+      {/* <div className='add_product_input_fileds'>
         <h5>Ingredients</h5>
 
         {Ingredient.map((ingredient, index) => (
@@ -502,7 +535,7 @@ function AdminaddProduct() {
           style={{ width: "200px" }} onClick={handelAddIngredient}>
           Add Ingredient
         </button>
-      </div>
+      </div> */}
 
       {/* Product Sizes */}
       <h3>Product Sizes</h3>

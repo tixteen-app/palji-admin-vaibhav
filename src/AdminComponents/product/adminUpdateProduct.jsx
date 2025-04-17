@@ -23,6 +23,8 @@ function UpdateProduct() {
   const [imageInputs, setImageInputs] = useState([0]); // Track input fields
   const [draggedIndex, setDraggedIndex] = useState(null);
 
+  
+
 
   const handleDragStart = (index) => {
     setDraggedIndex(index);
@@ -68,7 +70,9 @@ function UpdateProduct() {
     height: "",
     width: "",
     length: "",
-    topsaller: ""
+    topsaller: "",
+    ingridents: "",
+    allergen: "",
   });
   const fetchProduct = async () => {
     try {
@@ -98,7 +102,10 @@ function UpdateProduct() {
         productType: productData?.productType,
         Tax: productData?.Tax,
         PriceAfterDiscount: productData?.PriceAfterDiscount,
-        topsaller: productData?.topsaller
+        topsaller: productData?.topsaller,
+        allergen: productData?.allergen,
+        ingridents: productData?.ingridents
+
       });
     } catch (error) {
       console.error("Error fetching product details:", error);
@@ -450,6 +457,52 @@ function UpdateProduct() {
                   />
                 </div>
               </div>
+              <div className="section-wrapper">
+                <div>
+                  <h3 className="add_product_text_new">Product Ingridents</h3>
+                </div>
+                <div className="add_product_input_fileds">
+                  <input
+                    type="text"
+                    className="add_product_input_filed_new"
+                    placeholder="description"
+                    name="ingridents"
+                    value={formData.ingridents}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+              <div className="section-wrapper">
+                <div>
+                  <h3 className="add_product_text_new">Product allergen</h3>
+                </div>
+                <div className="add_product_input_fileds">
+                  <input
+                    type="text"
+                    className="add_product_input_filed_new"
+                    placeholder="allergen"
+                    name="allergen"
+                    value={formData.allergen}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
               {/* Images Section */}
               <div className="section-wrapper">
                 <div className="update_product_Image_section ">
