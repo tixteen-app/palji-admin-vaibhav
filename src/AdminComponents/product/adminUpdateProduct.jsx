@@ -447,7 +447,7 @@ function UpdateProduct() {
                   <h3 className="add_product_text_new">Product Description</h3>
                 </div>
                 <div className="add_product_input_fileds">
-                  <input
+                  <textarea
                     type="text"
                     className="add_product_input_filed_new"
                     placeholder="description"
@@ -462,7 +462,7 @@ function UpdateProduct() {
                   <h3 className="add_product_text_new">Product Ingridents</h3>
                 </div>
                 <div className="add_product_input_fileds">
-                  <input
+                  <textarea
                     type="textarea"
                     className="add_product_input_filed_new"
                     placeholder="description"
@@ -477,7 +477,7 @@ function UpdateProduct() {
                   <h3 className="add_product_text_new">Product allergen</h3>
                 </div>
                 <div className="add_product_input_fileds">
-                  <input
+                  <textarea
                     type="text"
                     className="add_product_input_filed_new"
                     placeholder="allergen"

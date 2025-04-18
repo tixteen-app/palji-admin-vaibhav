@@ -305,7 +305,7 @@ function AdminaddProduct() {
               <h3 className="add_product_text_new" >Product Description</h3>
             </div>
             <div className="add_product_input_fileds" >
-              <input
+              <textarea
                 type="text"
                 className="add_product_input_filed_new"
                 placeholder="description"
@@ -320,12 +320,13 @@ function AdminaddProduct() {
               <h3 className="add_product_text_new">Product Ingredient</h3>
             </div>
             <div className="add_product_input_fileds">
-              <input
+              <textarea
                 type="text"
                 className="add_product_input_filed_new"
                 placeholder="Ingredient"
                 value={Ingredientdata}
                 onChange={(e) => setIngredientdata(e.target.value)}
+                //  rows={4}
               />
             </div>
           </div>
@@ -333,7 +334,7 @@ function AdminaddProduct() {
             <div>
               <h3 className="add_product_text_new">Product allergen</h3>
             </div>
-            <div className="add_product_input_fileds">
+            {/* <div className="add_product_input_fileds">
               <input
                 type="text"
                 className="add_product_input_filed_new"
@@ -341,7 +342,15 @@ function AdminaddProduct() {
                 value={allergen}
                 onChange={(e) => setallergen(e.target.value)}
               />
-            </div>
+            </div> */}
+            <div className="add_product_input_fileds">
+  <textarea
+    className="add_product_input_filed_new"
+    placeholder="Allergen"
+    value={allergen}
+    onChange={(e) => setallergen(e.target.value)}
+  />
+</div>
             </div>
             {/* Images & Thumbnail */}
             <div className="section-wrapper">
