@@ -587,15 +587,15 @@ function Localorders() {
                 <div className="divider"></div>
 
                 <div className="total-amount">
-                  <p>Total Amount: ₹{order.CartId.totalPrice}</p>
+                  <p>Total Amount: ₹{order?.CartId?.totalPrice}</p>
                 </div>
 
                 <div className="divider"></div>
 
                 <div className="shipping-details">
                   <p className="section-title">Shipping Details</p>
-                  <p>Payment Method: {order.paymentMethod}</p>
-                  <p>Currency: {order.currency}</p>
+                  <p>Payment Method: {order?.paymentMethod}</p>
+                  <p>Currency: {order?.currency}</p>
                 </div>
               </div>
             ))}
