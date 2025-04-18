@@ -463,7 +463,7 @@ function UpdateProduct() {
                 </div>
                 <div className="add_product_input_fileds">
                   <input
-                    type="text"
+                    type="textarea"
                     className="add_product_input_filed_new"
                     placeholder="description"
                     name="ingridents"

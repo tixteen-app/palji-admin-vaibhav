@@ -136,7 +136,39 @@
   background-color: #b02a37;
 } */
 
+.seller_selection {
+  margin-top: 10px;
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
 
+.seller_checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.seller_checkbox_item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.assign_seller_button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.assign_seller_button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
 .add-product-container {
   width: 100%;
   font-family: 'Poppins', sans-serif;
