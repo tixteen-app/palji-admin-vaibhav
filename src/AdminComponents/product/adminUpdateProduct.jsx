@@ -465,7 +465,7 @@ function UpdateProduct() {
                   <textarea
                     type="textarea"
                     className="add_product_input_filed_new"
-                    placeholder="description"
+                    placeholder="Ingridents"
                     name="ingridents"
                     value={formData.ingridents}
                     onChange={handleChange}
