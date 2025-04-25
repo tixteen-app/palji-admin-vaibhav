@@ -215,6 +215,9 @@ const Orderdetails = () => {
                   <p>{new Date(order?.createdAt).toLocaleString("en-US", { timeZone: "UTC" })}</p>
                 </div>
               </div>
+              <div className="status-section">
+                order id: {order?.orderId}
+              </div>
 
               <div className="user-box">
                 <h3 className="user-title">User Details</h3>

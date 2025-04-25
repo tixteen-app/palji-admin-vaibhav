@@ -542,7 +542,7 @@ function Localorders() {
               >
                 <div>
                   <div className="order-id">
-                    <strong>Order ID:</strong> {order._id}
+                    <strong>Order ID:</strong> {order.orderId}
                   </div>
                   <p>Order Date: {new Date(order.createdAt).toLocaleDateString()}</p>
                 </div>

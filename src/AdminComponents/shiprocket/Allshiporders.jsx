@@ -286,8 +286,8 @@ function Orders() {
             {orders?.map((order) => (
               <div key={order.id} className="receipt-container" onClick={() => navigate(`/admin/order-shiprocket/${order.id}`)}>
                 <div>
-                  <div className="order-id"><strong>Order ID:</strong> {order.channel_order_id}</div>
-                  <p>Id: {order.id}</p>
+                  {/* <div className="order-id"><strong>Order ID-=-=:</strong> {order.channel_order_id}</div> */}
+                  <p> <b>shipment Id: </b> {order.id}</p>
                 </div>
                 <div className="customer-section">
                   <div className="customer-info">
