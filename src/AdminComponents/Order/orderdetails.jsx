@@ -7,6 +7,7 @@ import { FaShippingFast, FaTimesCircle } from "react-icons/fa";
 
 const Orderdetails = () => {
   const [order, setOrder] = useState({});
+  console.log("order", order.shippingAddress.firstname);
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const [orderData, setOrderData] = useState(null);
@@ -228,8 +229,9 @@ const Orderdetails = () => {
 
               <div className="shipping-box" style={{ maxHeight: "400px", overflowY: "scroll" }}>
                 <h3 className="shipping-title">Shipping Address</h3>
-                <p> <span className='left-det'>Phone:</span> <span className='right-det'>{order?.shippingAddress?.phonenumber}</span> </p>
+                <p> <span className='left-det'>Name:</span> <span className='right-det'>{order?.shippingAddress?.firstname } {order?.shippingAddress?.lastname }</span> </p>
                 <p> <span className='left-det'>Address:</span> <span className='right-det'>{order?.shippingAddress?.address}</span> </p>
+                <p> <span className='left-det'>Phone:</span> <span className='right-det'>{order?.shippingAddress?.phonenumber}</span> </p>
                 <p> <span className='left-det'>State:</span> <span className='right-det'>{order?.shippingAddress?.state}</span> </p>
                 <p> <span className='left-det'>City:</span> <span className='right-det'>{order?.shippingAddress?.city}</span> </p>
                 <p> <span className='left-det'>Pincode:</span> <span className='right-det'>{order?.shippingAddress?.pincode}</span> </p>
