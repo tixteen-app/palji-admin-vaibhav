@@ -47,6 +47,14 @@
     border-radius: 0.3vw;
     cursor: pointer;
   }
+  .delivered-button{
+    background: #18980db6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0.3vw;
+    cursor: pointer;
+  }
 
   .status-section {
     display: flex;

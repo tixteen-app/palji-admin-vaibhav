@@ -4,7 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import { makeApi } from "../../api/callApi";
 import "../../adminCss/order/orderdetails.css";
 import Loader from "../../components/loader/loader";
-import { FaShippingFast, FaTimesCircle } from "react-icons/fa";
+// import { FaShippingFast, FaTimesCircle } from "react-icons/fa";
+import { FaShippingFast, FaTimesCircle, FaCheckCircle } from "react-icons/fa";
 
 const Localorder = () => {
     const [order, setOrder] = useState({});
@@ -22,7 +23,12 @@ const Localorder = () => {
     const [undoforship, setUndoforship] = useState(false);
     const [courierServiceability, setCourierServiceability] = useState([]);
     const [selectedCourier, setSelectedCourier] = useState(null);
-    const [pincode , setPincode] = useState("");
+    const [pincode, setPincode] = useState("");
+
+    const [showPopupForDelivered, setShowPopupForDelivered] = useState(false);
+    const [showToasterForDelivered, setShowToasterForDelivered] = useState(false);
+    const [countdownForDelivered, setCountdownForDelivered] = useState(5);
+    const [undoForDelivered, setUndoForDelivered] = useState(false);
 
 
     const fetchOrder = async () => {
@@ -35,8 +41,8 @@ const Localorder = () => {
         } finally {
             setLoading(false);
         }
-    }; 
-    const fetchpincode  = async () => {
+    };
+    const fetchpincode = async () => {
         try {
             setLoading(true);
             const response = await makeApi(`/api/api/get-all-pincode`, "GET");
@@ -46,7 +52,7 @@ const Localorder = () => {
         } finally {
             setLoading(false);
         }
-    }; 
+    };
 
     useEffect(() => {
         fetchpincode();
@@ -74,10 +80,23 @@ const Localorder = () => {
         fetchOrderDetails();
     }, [id]);
 
+    const markAsDelivered = async () => {
+        try {
+            setLoading(true);
+            const response = await makeApi(`/api/update-second-order-by-id/${id}`, "PUT", { status: "Delivered" });
+            console.log("Order marked as delivered:", response.data);
+            setOrder((prev) => ({ ...prev, status: "Delivered" }));
+        } catch (error) {
+            console.error("Error marking order as delivered:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
     const cancelOrder = async () => {
         try {
             setLoading(true);
-         await makeApi(`/api/update-second-order-by-id/${id}`, "PUT", { status: "Canceled" });
+            await makeApi(`/api/update-second-order-by-id/${id}`, "PUT", { status: "Canceled" });
             setOrder((prev) => ({ ...prev, status: "Canceled" }));
         } catch (error) {
             console.error("Error canceling order:", error);
@@ -86,7 +105,7 @@ const Localorder = () => {
         }
     };
 
-   
+
 
     const shipOrder = async (courierId) => {
         try {
@@ -109,6 +128,22 @@ const Localorder = () => {
         setShowPopupforship(true);
     };
 
+    const handleDeliveredClick = () => {
+        setShowPopupForDelivered(true);
+    };
+
+    const confirmDelivered = () => {
+        setShowPopupForDelivered(false);
+        setShowToasterForDelivered(true);
+        setCountdownForDelivered(5);
+        setUndoForDelivered(false);
+    };
+
+    const undoDelivered = () => {
+        setUndoForDelivered(true);
+        setShowToasterForDelivered(false);
+    };
+
     const confirmCancel = () => {
         setShowPopup(false);
         setShowToaster(true);
@@ -117,12 +152,22 @@ const Localorder = () => {
     };
 
     const confirmShip = () => {
-            setShowPopupforship(false);
-            setShowToasterforship(true);
-            setCountdownforship(5);
-            setUndoforship(false);
+        setShowPopupforship(false);
+        setShowToasterforship(true);
+        setCountdownforship(5);
+        setUndoforship(false);
     };
 
+    useEffect(() => {
+        let timer;
+        if (showToasterForDelivered && countdownForDelivered > 0) {
+            timer = setTimeout(() => setCountdownForDelivered((prev) => prev - 1), 1000);
+        } else if (countdownForDelivered === 0 && !undoForDelivered) {
+            markAsDelivered();
+            setShowToasterForDelivered(false);
+        }
+        return () => clearTimeout(timer);
+    }, [countdownForDelivered, showToasterForDelivered, undoForDelivered]);
     useEffect(() => {
         let timer;
         if (showToaster && countdown > 0) {
@@ -183,11 +228,14 @@ const Localorder = () => {
                     <div className="order-header">
                         <Link to={"/admin/localorders?status=pending"} className="back-button">←</Link>
                         <h1>Order Details</h1>
-                        {order?.status !== ("CANCELED" || "Delivered" || "canceled") && (
+                        {order?.status !== "CANCELED" && order?.status !== "Delivered" && order?.status !== "canceled" && (
                             <button onClick={handleCancelClick} className="cancel-button">Cancel Order <FaTimesCircle className="dashboard-icon" style={{ color: "black", fontSize: "24px" }} /></button>
                         )}
-                        {order?.status !== ("CANCELED" || "Delivered" || "canceled") && (
-                            <button onClick={handleshipClick} className="ship-button">  Ship Order <FaShippingFast className="dashboard-icon" style={{ color: "black", fontSize: "24px" }} /></button>
+                        {order?.status !== "CANCELED" && order?.status !== "Delivered" && order?.status !== "canceled" && order?.status !== "Shipped" && (
+                            <button onClick={handleshipClick} className="ship-button">Ship Order <FaShippingFast className="dashboard-icon" style={{ color: "black", fontSize: "24px" }} /></button>
+                        )}
+                        {order?.status === "Shipped" && (
+                            <button onClick={handleDeliveredClick} className="delivered-button">Mark as Delivered <FaCheckCircle className="dashboard-icon" style={{ color: "black", fontSize: "24px" }} /></button>
                         )}
                     </div>
                     <div className="order-whole">
@@ -301,6 +349,27 @@ const Localorder = () => {
                             </div>
                         </>
                     )}
+
+
+{showPopupForDelivered && (
+    <div className="new_add_cat_modal-overlay">
+        <div className="new_add_cat_modal">
+            <h2>Confirm Delivery</h2>
+            <p>Are you sure you want to mark this order as delivered?</p>
+            <div className="new_add_cat_modal-actions">
+                <button className="new_add_cat_modal-deleteBtn" onClick={confirmDelivered}>Confirm Delivery</button>
+                <button className="new_add_cat_modal-cancelBtn" onClick={() => setShowPopupForDelivered(false)}>Cancel</button>
+            </div>
+        </div>
+    </div>
+)}
+
+{showToasterForDelivered && (
+    <div className="toaster_for_undo">
+        <p>Order will be marked as delivered in {countdownForDelivered} seconds.</p>
+        <button onClick={undoDelivered} className="undo_btn">Undo</button>
+    </div>
+)}
                 </>
             )}
         </div>

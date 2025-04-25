@@ -524,9 +524,9 @@ function Localorders() {
           </button>
           <button
             className={selectedStatus === "PICKUP SCHEDULED" ? "active" : ""}
-            onClick={() => handleStatusChange("PICKUP SCHEDULED")}
+            onClick={() => handleStatusChange("Shipped")}
           >
-            PICKUP SCHEDULED
+            Shipped order
           </button>
         </div>
 
