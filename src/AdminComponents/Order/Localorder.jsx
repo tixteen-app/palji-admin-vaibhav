@@ -212,6 +212,7 @@ const Localorder = () => {
 
                             <div className="shipping-box" style={{ maxHeight: "400px", overflowY: "scroll" }}>
                                 <h3 className="shipping-title">Shipping Address</h3>
+                                <p> <span className='left-det'>Name:</span> <span className='right-det'>{order?.shippingAddress?.firstname} {order?.shippingAddress?.lastname} </span> </p>
                                 <p> <span className='left-det'>Phone:</span> <span className='right-det'>{order?.shippingAddress?.phonenumber}</span> </p>
                                 <p> <span className='left-det'>Address:</span> <span className='right-det'>{order?.shippingAddress?.address}</span> </p>
                                 <p> <span className='left-det'>State:</span> <span className='right-det'>{order?.shippingAddress?.state}</span> </p>
