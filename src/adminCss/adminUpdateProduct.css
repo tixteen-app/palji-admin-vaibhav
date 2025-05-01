@@ -1,3 +1,44 @@
+/* Points Input Styles */
+.points-list {
+  margin-top: 10px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 10px;
+  /* max-height: 200px; */
+  overflow-y: auto;
+  width: 50%;
+}
+
+.point-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.point-item:last-child {
+  border-bottom: none;
+}
+
+.remove-point-btn {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  cursor: pointer;
+  font-size: 25px;
+  padding: 0 5px;
+}
+
+.remove-point-btn:hover {
+  color: #ff0000;
+}
+
+.add_product_input_filed_new {
+  margin-bottom: 10px;
+}
+
+
 /* General page layout */
 .main_update_product_page {
   padding: 20px;

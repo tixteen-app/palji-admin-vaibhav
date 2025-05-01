@@ -22,10 +22,10 @@ function UpdateProduct() {
   const [subcategory, setSubcategory] = useState("");
   const [imageInputs, setImageInputs] = useState([0]); // Track input fields
   const [draggedIndex, setDraggedIndex] = useState(null);
-
-
-
-
+  const [careInstructions, setCareInstructions] = useState([]);
+  const [deliveryInformation, setDeliveryInformation] = useState([]);
+  const [currentCarePoint, setCurrentCarePoint] = useState("");
+  const [currentDeliveryPoint, setCurrentDeliveryPoint] = useState("");
   const handleDragStart = (index) => {
     setDraggedIndex(index);
   };
@@ -33,7 +33,6 @@ function UpdateProduct() {
   const handleDragOver = (e, index) => {
     e.preventDefault();
   };
-
 
   const handleDrop = (e, index) => {
     e.preventDefault();
@@ -78,7 +77,6 @@ function UpdateProduct() {
     try {
       setLoading(true);
       const response = await makeApi(`/api/get-single-product/${productId}`, "GET");
-      console.log(response.data.product)
 
       const productData = await response?.data?.product;
       await setProduct(productData);
@@ -86,6 +84,8 @@ function UpdateProduct() {
       await setNutritions(response?.data?.productNuturitions || []);
       await setIncludes(response?.data?.include || []);
       await setIngredients(response?.data?.Ingredients || []);
+      setCareInstructions(productData?.careInstructions || []);
+      setDeliveryInformation(productData?.deliveryInformation || []);
 
       // Set form data with the product details
       await setFormData({
@@ -144,6 +144,38 @@ function UpdateProduct() {
         subcategory: "", // Reset subcategory when category changes
       }));
     }
+  };
+
+
+
+  const handleCarePointKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const point = e.target.value.trim();
+      if (point) {
+        setCareInstructions([...careInstructions, point]);
+        setCurrentCarePoint("");
+      }
+    }
+  };
+
+  const handleDeliveryPointKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const point = e.target.value.trim();
+      if (point) {
+        setDeliveryInformation([...deliveryInformation, point]);
+        setCurrentDeliveryPoint("");
+      }
+    }
+  };
+
+  const handleRemoveCarePoint = (index) => {
+    setCareInstructions(careInstructions.filter((_, i) => i !== index));
+  };
+
+  const handleRemoveDeliveryPoint = (index) => {
+    setDeliveryInformation(deliveryInformation.filter((_, i) => i !== index));
   };
 
   // nutrition
@@ -297,7 +329,9 @@ function UpdateProduct() {
     try {
       const updatedFormData = {
         ...formData,
-        topsaller: formData.topsaller === "true" ? true : false
+        topsaller: formData.topsaller === "true" ? true : false,
+        careInstructions,
+        deliveryInformation
       };
 
       if (!updatedFormData.subcategory) {
@@ -487,22 +521,6 @@ function UpdateProduct() {
                   />
                 </div>
               </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
               {/* Images Section */}
               <div className="section-wrapper">
                 <div className="update_product_Image_section ">
@@ -546,25 +564,12 @@ function UpdateProduct() {
                               {uploadProgress[index] < 100 && <div className="loader"></div>}
                             </div>
                           )}
-                          {/* <button
-                            type="button"
-                            className="remove_btton_add_product mt-3"
-                            onClick={() => handleRemoveImageInput(index)}
-                          >
-                            Remove
-                          </button> */}
+
                         </div>
                       ))}
                     </div>
                     <div className="add_more_products_items_div_button_field">
-                      {/* <button
-                        type="button"
-                        className="add_new_itms_Add_product_new_button"
-                        onClick={handleAddMoreImageInput}
-                      >
-                        <span className="pe-5">+</span>
-                        Add More
-                      </button> */}
+
                     </div>
                   </div>
                   <div className="product_images_div_add_product">
@@ -639,145 +644,6 @@ function UpdateProduct() {
               )}
 
 
-              {/* Sizes Section */}
-              {/* <div className="section-wrapper">
-                <h3>Product Sizes</h3>
-                {sizes.map((size, index) => (
-                  <div className="size-wrapper add_product_input_fileds" key={index}>
-                    <div className="input-group-for-size">
-                      <label htmlFor={`size-${index}`} className="product_add_label">Size</label>
-                      <input
-                        type="text"
-                        className="add_product_input_filed_for_size"
-                        id={`size-${index}`}
-                        placeholder="Size"
-                        value={size.size}
-                        onChange={(e) => handleSizeChange(e, index, "size")}
-                      />
-                    </div>
-
-                    <div className="input-group-for-size">
-                      <label htmlFor={`sizetype-${index}`} className="product_add_label">Size Type</label>
-                      <select
-                        id={`sizetype-${index}`}
-                        value={size.sizetype}
-                        onChange={(e) => handleSizeChange(e, index, "sizetype")}
-                        className="add_product_input_filed_for_size"
-                      >
-                        <option value="null" >select size type</option>
-                        <option value="Kg">Kg</option>
-                        <option value="Gram">Gram</option>
-                        <option value="Litre">Litre</option>
-                        <option value="ML">ML</option>
-                        <option value="Pound">Pound</option>
-                        <option value="Meter">Meter</option>
-                      </select>
-                    </div>
-
-                    <div className="input-group-for-size">
-                      <label htmlFor={`quantity-${index}`} className="product_add_label">Quantity</label>
-                      <input
-                        type="text"
-                        className="add_product_input_filed_for_size"
-                        id={`quantity-${index}`}
-                        placeholder="Quantity"
-                        value={size.quantity}
-                        onChange={(e) => handleSizeChange(e, index, "quantity")}
-                      />
-                    </div>
-
-                    <div className="input-group-for-size">
-                      <label htmlFor={`price-${index}`} className="product_add_label">Price</label>
-                      <input
-                        type="text"
-                        className="add_product_input_filed_for_size"
-                        id={`price-${index}`}
-                        placeholder="Price"
-                        value={size.price}
-                        onChange={(e) => handleSizeChange(e, index, "price")}
-                      />
-                    </div>
-
-                    <div className="input-group-for-size">
-                      <label htmlFor={`discountPercentage-${index}`} className="product_add_label">Discount Percentage</label>
-                      <input
-                        type="text"
-                        className="add_product_input_filed_for_size"
-                        id={`discountPercentage-${index}`}
-                        placeholder="Discount Percentage"
-                        value={size.discountPercentage}
-                        onChange={(e) => handleSizeChange(e, index, "discountPercentage")}
-                      />
-                    </div>
-
-                    <div className="input-group-for-size">
-                      <label htmlFor={`FinalPrice-${index}`} className="product_add_label">Final Price</label>
-                      <input
-                        type="text"
-                        className="add_product_input_filed_for_size"
-                        id={`FinalPrice-${index}`}
-                        placeholder="Final Price"
-                        value={calculateFinalPrice(size.price, size.discountPercentage)}
-                        onChange={(e) => handleSizeChange(e, index, "FinalPrice")}
-                      />
-                    </div>
-
-                    <div className="input-group-for-size">
-                      <label htmlFor={`height-${index}`} className="product_add_label">Height</label>
-                      <input
-                        type="text"
-                        className="add_product_input_filed_for_size"
-                        id={`height-${index}`}
-                        placeholder="Height"
-                        value={size.height}
-                        onChange={(e) => handleSizeChange(e, index, "height")}
-                      />
-                    </div>
-
-                    <div className="input-group-for-size">
-                      <label htmlFor={`width-${index}`} className="product_add_label">Width</label>
-                      <input
-                        type="text"
-                        className="add_product_input_filed_for_size"
-                        id={`width-${index}`}
-                        placeholder="Width"
-                        value={size.width}
-                        onChange={(e) => handleSizeChange(e, index, "width")}
-                      />
-                    </div>
-
-                    <div className="input-group-for-size">
-                      <label htmlFor={`length-${index}`} className="product_add_label">Length</label>
-                      <input
-                        type="text"
-                        className="add_product_input_filed_for_size"
-                        id={`length-${index}`}
-                        placeholder="Length"
-                        value={size.length}
-                        onChange={(e) => handleSizeChange(e, index, "length")}
-                      />
-                    </div>
-
-                    {size._id && (
-                      <button
-                        type="button"
-                        className="remove_btton_add_product"
-                        onClick={() => setShowConfirm({ show: true, sizeId: size._id })}
-                      >
-                        Delete
-                      </button>
-                    )}
-                  </div>
-                ))}
-                <button
-                  type="button"
-                  className="add_new_itms_Add_product_new_button"
-                  onClick={handleAddMoreSizes}
-                >
-                  <span className="pe-5">+</span>
-                  Add More Sizes
-                </button>
-              </div> */}
               <div className="section-wrapper size_section_edit_page_new">
                 <h3>Product Sizes</h3>
                 {sizes.map((size, index) => (
@@ -813,17 +679,6 @@ function UpdateProduct() {
                       </select>
                     </div>
 
-                    {/* <div className="input-group-for-size">
-        <label htmlFor={`quantity-${index}`} className="product_add_label">Quantity</label>
-        <input
-          type="text"
-          className="add_product_input_filed_for_size"
-          id={`quantity-${index}`}
-          placeholder="Quantity"
-          value={size.quantity}
-          onChange={(e) => handleSizeChange(e, index, "quantity")}
-        />
-      </div> */}
 
                     <div className="input-group-for-size">
                       <label htmlFor={`price-${index}`} className="product_add_label">Price</label>
@@ -923,49 +778,71 @@ function UpdateProduct() {
                 </button>
               </div>
 
-              {/* Nutrition Section */}
-              {/* <div className="section-wrapper">
-                <h3>Nutrition Facts</h3>
-                {nutritions.map((nutrition, index) => (
-                  <div className="size-wrapper pt-3" key={index}>
-                    <div className="input-group-for-size">
-                      <input
-                        type="text"
-                        className="add_product_input_filed_for_size"
-                        placeholder="Nutrition"
-                        value={nutrition.nutrition}
-                        onChange={(e) => handleNutritionChange(e, index, "nutrition")}
-                      />
-                    </div>
-                    <div className="input-group-for-size">
-                      <input
-                        type="text"
-                        className="add_product_input_filed_for_size"
-                        placeholder="Value"
-                        value={nutrition.value}
-                        onChange={(e) => handleNutritionChange(e, index, "value")}
-                      />
-                    </div>
-                    {nutrition._id && (
-                      <button
-                        type="button"
-                        className="remove_btton_add_product"
-                        onClick={() => handleDeleteNutrition(nutrition._id)}
-                      >
-                        Delete Nutrition
-                      </button>
-                    )}
+
+
+              {/* Care Instructions Section */}
+              <div className="section-wrapper">
+                <div>
+                  <h3 className="add_product_text_new">Care Instructions</h3>
+                  <small>Press Enter to add each point</small>
+                </div>
+                <div className="add_product_input_fileds">
+                  <input
+                    type="text"
+                    className="add_product_input_filed_new"
+                    placeholder="Add care instruction point and press Enter"
+                    value={currentCarePoint}
+                    onChange={(e) => setCurrentCarePoint(e.target.value)}
+                    onKeyDown={handleCarePointKeyDown}
+                  />
+                  <div className="points-list">
+                    {careInstructions.map((point, index) => (
+                      <div key={index} className="point-item">
+                        <span>• {point}</span>
+                        <button
+                          type="button"
+                          className="remove-point-btn"
+                          onClick={() => handleRemoveCarePoint(index)}
+                        >
+                          ×
+                        </button>
+                      </div>
+                    ))}
                   </div>
-                ))}
-                <button
-                  type="button"
-                  className="add_new_itms_Add_product_new_button mt-2"
-                  onClick={handleAddMoreNutrition}
-                >
-                  <span className="pe-5">+</span>
-                  Add More Nutrition
-                </button>
-              </div> */}
+                </div>
+              </div>
+
+              {/* Delivery Information Section */}
+              <div className="section-wrapper">
+                <div>
+                  <h3 className="add_product_text_new">Delivery Information</h3>
+                  <small>Press Enter to add each point</small>
+                </div>
+                <div className="add_product_input_fileds">
+                  <input
+                    type="text"
+                    className="add_product_input_filed_new"
+                    placeholder="Add delivery information point and press Enter"
+                    value={currentDeliveryPoint}
+                    onChange={(e) => setCurrentDeliveryPoint(e.target.value)}
+                    onKeyDown={handleDeliveryPointKeyDown}
+                  />
+                  <div className="points-list">
+                    {deliveryInformation.map((point, index) => (
+                      <div key={index} className="point-item">
+                        <span>• {point}</span>
+                        <button
+                          type="button"
+                          className="remove-point-btn"
+                          onClick={() => handleRemoveDeliveryPoint(index)}
+                        >
+                          ×
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
               <div className="section-wrapper">
                 <h3>Nutrition Facts</h3>
                 {nutritions.map((nutrition, index) => (
@@ -1007,40 +884,6 @@ function UpdateProduct() {
                 </button>
               </div>
 
-              {/* Includes Section */}
-              {/* <div className="section-wrapper">
-                <h3>Includes</h3>
-                {includes.map((include, index) => (
-                  <div className="size-wrapper pt-3" key={index}>
-                    <div className="input-group-for-size">
-                      <input
-                        type="text"
-                        className="add_product_input_filed_for_size"
-                        placeholder="Include"
-                        value={include.include}
-                        onChange={(e) => handleIncludeChange(e, index, "include")}
-                      />
-                    </div>
-                    {include._id && (
-                      <button
-                        type="button"
-                        className="remove_btton_add_product"
-                        onClick={() => handleDeleteInclude(include._id)}
-                      >
-                        Delete Include
-                      </button>
-                    )}
-                  </div>
-                ))}
-                <button
-                  type="button"
-                  className="add_new_itms_Add_product_new_button mt-2"
-                  onClick={handleAddMoreInclude}
-                >
-                  <span className="pe-5">+</span>
-                  Add More Includes
-                </button>
-              </div> */}
               <div className="section-wrapper">
                 <h3>Includes</h3>
                 {includes.map((include, index) => (

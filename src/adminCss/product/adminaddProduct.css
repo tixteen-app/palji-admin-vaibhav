@@ -1,140 +1,26 @@
-/* General Styling
-.add-product-container {
-  max-width: 1200px;
-  margin: auto;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-family: 'Poppins', sans-serif;
-}
-.header-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
+/* Points Input Styles */
+.preview-section {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
 }
 
-.add_product_text {
-  font-size: 24px;
-  font-weight: 600;
+.preview-section h4 {
+  margin-bottom: 8px;
   color: #333;
 }
 
-.back_arrow_icon {
-  cursor: pointer;
-  color: #555;
-  transition: color 0.3s ease-in-out;
+.points-preview p {
+  margin: 5px 0;
+  padding-left: 10px;
+  border-left: 3px solid var(--shadebuttncolor);
 }
 
-.back_arrow_icon:hover {
-  color: #000;
-}
 
-.form-section {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
 
-.section-wrapper {
-  background-color: #f9f9f9;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
 
-.section-wrapper h3 {
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-weight: 600;
-  color: #444;
-}
 
-.add_product_input_filed {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.admin_add_product_button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
-  font-weight: 500;
-}
-
-.admin_add_product_button:hover {
-  background-color: #0056b3;
-}
-
-.size-wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-  width: calc(33.33% - 10px);
-}
-
-.input-group label {
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.input-group input, .input-group select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
-.form_group {
-  margin-bottom: 15px;
-}
-
-.form_label {
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-.form_nested_group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 5px;
-}
-
-.form_nested_input {
-  flex: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.form_nested_button {
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
-}
-
-.form_nested_button:hover {
-  background-color: #b02a37;
-} */
 
 .seller_selection {
   margin-top: 10px;
