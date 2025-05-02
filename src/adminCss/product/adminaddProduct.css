@@ -176,6 +176,7 @@ height: 40px;
   margin: 0px;
   padding: 8px 20px;
   border: none;
+  max-height: 50px;
 
 }
 

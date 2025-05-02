@@ -798,7 +798,7 @@ function UpdateProduct() {
                   <div className="points-list">
                     {careInstructions.map((point, index) => (
                       <div key={index} className="point-item">
-                        <span>• {point}</span>
+                        <span> {point}</span>
                         <button
                           type="button"
                           className="remove-point-btn"
@@ -830,7 +830,7 @@ function UpdateProduct() {
                   <div className="points-list">
                     {deliveryInformation.map((point, index) => (
                       <div key={index} className="point-item">
-                        <span>• {point}</span>
+                        <span> {point}</span>
                         <button
                           type="button"
                           className="remove-point-btn"

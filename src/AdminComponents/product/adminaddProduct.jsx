@@ -29,9 +29,43 @@ function AdminaddProduct() {
   const [Ingredientdata, setIngredientdata] = useState("");
   const [allergen, setallergen] = useState("");
   const [subcategory, setSubcategory] = useState();
-  const [careInstructions, setCareInstructions] = useState("");
-  const [deliveryInformation, setDeliveryInformation] = useState("");
+  const [careInstructions, setCareInstructions] = useState([]);
+  const [deliveryInformation, setDeliveryInformation] = useState([]);
+  const [currentCarePoint, setCurrentCarePoint] = useState("");
+  const [currentDeliveryPoint, setCurrentDeliveryPoint] = useState("");
 
+
+
+
+  const handleCarePointKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const point = e.target.value.trim();
+      if (point) {
+        setCareInstructions([...careInstructions, point]);
+        setCurrentCarePoint("");
+      }
+    }
+  };
+
+  const handleDeliveryPointKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      const point = e.target.value.trim();
+      if (point) {
+        setDeliveryInformation([...deliveryInformation, point]);
+        setCurrentDeliveryPoint("");
+      }
+    }
+  };
+
+  const handleRemoveCarePoint = (index) => {
+    setCareInstructions(careInstructions.filter((_, i) => i !== index));
+  };
+
+  const handleRemoveDeliveryPoint = (index) => {
+    setDeliveryInformation(deliveryInformation.filter((_, i) => i !== index));
+  };
 
   // Add these handler functions
   const handleCareInstructionsKeyDown = (e) => {
@@ -161,7 +195,7 @@ function AdminaddProduct() {
         deliverables,
         topsaller,
         careInstructions: careInstructions.split('\n').filter(point => point.trim() !== ''),
-  deliveryInformation: deliveryInformation.split('\n').filter(point => point.trim() !== ''),
+        deliveryInformation: deliveryInformation.split('\n').filter(point => point.trim() !== ''),
       };
 
 
@@ -347,57 +381,67 @@ function AdminaddProduct() {
           </div>
 
 
-{/* Care Instructions */}
-<div className="section-wrapper">
-  <div>
-    <h3 className="add_product_text_new">Care Instructions</h3>
-    <small>Press Enter to add each point</small>
-  </div>
-  <div className="add_product_input_fileds">
-    <textarea
-      className="add_product_input_filed_new"
-      placeholder="Add care instruction point and press Enter"
-      onKeyDown={handleCareInstructionsKeyDown}
-      rows={3}
-    />
-    {careInstructions && (
-      <div className="preview-section">
-        <h4>Preview:</h4>
-        <div className="points-preview">
-          {careInstructions.split('\n').map((point, index) => (
-            <p key={index}>{point}</p>
-          ))}
-        </div>
-      </div>
-    )}
-  </div>
-</div>
+          <div className="section-wrapper">
+            <div>
+              <h3 className="add_product_text_new">Care Instructions</h3>
+              <small>Press Enter to add each point</small>
+            </div>
+            <div className="add_product_input_fileds">
+              <input
+                type="text"
+                className="add_product_input_filed_new"
+                placeholder="Add care instruction point and press Enter"
+                value={currentCarePoint}
+                onChange={(e) => setCurrentCarePoint(e.target.value)}
+                onKeyDown={handleCarePointKeyDown}
+              />
+              <div className="points-list">
+                {careInstructions.map((point, index) => (
+                  <div key={index} className="point-item">
+                    <span>• {point}</span>
+                    <button
+                      type="button"
+                      className="remove-point-btn"
+                      onClick={() => handleRemoveCarePoint(index)}
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
-{/* Delivery Information */}
-<div className="section-wrapper">
-  <div>
-    <h3 className="add_product_text_new">Delivery Information</h3>
-    <small>Press Enter to add each point</small>
-  </div>
-  <div className="add_product_input_fileds">
-    <textarea
-      className="add_product_input_filed_new"
-      placeholder="Add delivery information point and press Enter"
-      onKeyDown={handleDeliveryInformationKeyDown}
-      rows={3}
-    />
-    {deliveryInformation && (
-      <div className="preview-section">
-        <h4>Preview:</h4>
-        <div className="points-preview">
-          {deliveryInformation.split('\n').map((point, index) => (
-            <p key={index}>{point}</p>
-          ))}
-        </div>
-      </div>
-    )}
-  </div>
-</div>
+          <div className="section-wrapper">
+            <div>
+              <h3 className="add_product_text_new">Delivery Information</h3>
+              <small>Press Enter to add each point</small>
+            </div>
+            <div className="add_product_input_fileds">
+              <input
+                type="text"
+                className="add_product_input_filed_new"
+                placeholder="Add delivery information point and press Enter"
+                value={currentDeliveryPoint}
+                onChange={(e) => setCurrentDeliveryPoint(e.target.value)}
+                onKeyDown={handleDeliveryPointKeyDown}
+              />
+              <div className="points-list">
+                {deliveryInformation.map((point, index) => (
+                  <div key={index} className="point-item">
+                    <span>• {point}</span>
+                    <button
+                      type="button"
+                      className="remove-point-btn"
+                      onClick={() => handleRemoveDeliveryPoint(index)}
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
 
 
@@ -761,7 +805,7 @@ function AdminaddProduct() {
                 {/* Remove Size Button */}
                 <button
                   type="button"
-                  className="remove_btton_add_product"
+                  className="remove_btton_add_product mt-4"
                   onClick={() => handleRemoveSize(index)}
                 >
                   Remove
