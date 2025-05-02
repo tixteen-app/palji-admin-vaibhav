@@ -7,7 +7,6 @@ import { FaShippingFast, FaTimesCircle } from "react-icons/fa";
 
 const Orderdetails = () => {
   const [order, setOrder] = useState({});
-  console.log("order", order.shippingAddress.firstname);
   const { id } = useParams();
   const [loading, setLoading] = useState(false);
   const [orderData, setOrderData] = useState(null);
