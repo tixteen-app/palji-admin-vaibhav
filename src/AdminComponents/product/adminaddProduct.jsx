@@ -194,8 +194,11 @@ function AdminaddProduct() {
         productNuturitions,
         deliverables,
         topsaller,
-        careInstructions: careInstructions.split('\n').filter(point => point.trim() !== ''),
-        deliveryInformation: deliveryInformation.split('\n').filter(point => point.trim() !== ''),
+
+//         careInstructions: Array.isArray(careInstructions) ? careInstructions : careInstructions.split('\n').filter(point => point.trim() !== ''),
+// deliveryInformation: Array.isArray(deliveryInformation) ? deliveryInformation : deliveryInformation.split('\n').filter(point => point.trim() !== ''),
+        careInstructions: careInstructions,
+deliveryInformation: deliveryInformation,
       };
 
 

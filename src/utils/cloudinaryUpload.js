@@ -14,8 +14,6 @@ const uploadToCloudinary = async (file, setUploadProgress, maxSizeKB = 800) => {
 
     const data = new FormData();
     data.append("file", compressedFile);
-    // data.append("upload_preset", "pfendx01");
-    // data.append("folder", "Saburi");
     data.append("upload_preset", "grzbbapu");
     data.append("folder", "palji");
 
